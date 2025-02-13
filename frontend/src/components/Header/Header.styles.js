@@ -23,13 +23,13 @@ export const HeaderTop = styled.div`
   width: 100%;
   align-items: center;
   padding: 0 1rem 0.8rem 1rem;
+  margin-bottom: 1rem;
 `;
 
 // Logo a la izquierda
 export const Logo = styled.img`
   width: 5.5rem;
   margin-left: 1rem;
-  padding-top: 0;
 `;
 
 // Fila que contiene la barra de búsqueda y el botón con ícono
@@ -110,7 +110,6 @@ export const AccountCartContainer = styled.div`
 export const Button = styled.button`
   font-weight: 400;
   display: flex;
-  font-family: "Fredericka the Great", serif;
   flex-direction: column;
   align-items: center;
   justify-content: center;

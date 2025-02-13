@@ -13,7 +13,7 @@ export const HeroTotalContainer = styled.div`
 
 // Contenedor del Hero
 export const HeroContainer = styled.section`
-  height: 65vh;
+  height: 60vh;
   background-color: #f0ebf0;
   display: flex;
   align-items: center;
@@ -41,9 +41,12 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: 5rem;
-  font-family: "Fredericka the Great", serif;
-  color: rgba(12, 28, 87, 0.84);
+  font-size: 4rem;
+  font-family: "Fredoka", serif;
+  color: rgba(13, 34, 107, 0.84);
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  weight: 700;
+  width: 125;
 
   @media (max-width: 768px) {
     font-size: 2rem;
@@ -53,8 +56,9 @@ export const Title = styled.p`
 
 export const Subtitle1 = styled.p`
   font-size: 3rem;
-  font-family: "Fredericka the Great", serif;
-  color: rgba(12, 28, 87, 0.84);
+  font-family: "Fredoka", serif;
+  color: rgba(13, 34, 107, 0.84);
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 `;
 
 export const Subtitle2 = styled.p`
@@ -83,7 +87,7 @@ export const SvgContainer = styled.div`
 // SVG con posición relativa para mantener superposición
 export const Svg = styled.img`
   position: relative;
-  top: 19%;
+  top: 16.5%;
   left: 50%;
   transform: translateX(-50%);
   width: 70rem;

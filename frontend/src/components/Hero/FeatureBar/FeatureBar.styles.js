@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FeatureBarContainer = styled.div`
   width: 100%;
-  height: 50%;
+  height: 25%;
   background-color: rgba(58, 88, 207, 0.84);
   display: flex;
   align-items: center;

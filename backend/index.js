@@ -1,5 +1,6 @@
 import express from "express";
 import helmet from "helmet";
+import cors from "cors";
 import { connectDB } from "./src/config/mongo.js";
 import { productRoutes } from "./src/routes/productRoutes.js";
 import { userRoutes } from "./src/routes/userRoutes.js";
@@ -7,11 +8,14 @@ import errorMiddleware from "./src/middleware/errorMiddleware.js";
 //import swaggerUi from "swagger-ui-express";
 //import YAML from "yamljs";
 
+const FRONTEND_URL = process.env.FRONTEND_URL;
 process.loadEnvFile();
 
 const PORT = process.env.PORT;
 
 const app = express();
+
+app.use(cors({ origin: FRONTEND_URL }));
 
 //const swaggerDocument = YAML.load("./swagger.yaml");
 //app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
