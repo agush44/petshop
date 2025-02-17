@@ -16,6 +16,7 @@ const productSchema = Joi.object({
   image: Joi.string()
     .pattern(/^https?:\/\/.*cloudinary\.com\/.*$/i)
     .optional(),
+  animalType: Joi.string().valid("perros", "gatos").optional(),
   createdAt: Joi.date()
     .default(() => new Date())
     .iso(),

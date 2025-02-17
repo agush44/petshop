@@ -35,6 +35,11 @@ const productSchema = new mongoose.Schema(
     image: {
       type: String,
     },
+    animalType: {
+      type: String,
+      enum: ["perros", "gatos"],
+      required: true,
+    },
     createdAt: {
       type: Date,
       default: Date.now,

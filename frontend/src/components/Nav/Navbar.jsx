@@ -15,7 +15,7 @@ const Navbar = () => {
             <StyledLink to="/alimentos">Alimentos</StyledLink>
           </li>
           <li>
-            <StyledLink to="/promociones">Promociones</StyledLink>
+            <StyledLink to="/novedades">Novedades</StyledLink>
           </li>
           <li>
             <StyledLink to="/marcas">Marcas</StyledLink>

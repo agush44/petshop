@@ -10,7 +10,7 @@ import CartPage from "./pages/CartPage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Alimentos from "./pages/Alimentos.jsx";
 import Brands from "./pages/Brands.jsx";
-import Promociones from "./pages/Promociones.jsx";
+import Novedades from "./pages/Novedades.jsx";
 
 import "./App.css";
 
@@ -27,7 +27,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/alimentos" element={<Alimentos />} />
-            <Route path="/promociones" element={<Promociones />} />
+            <Route path="/novedades" element={<Novedades />} />
             <Route path="/marcas" element={<Brands />} />
           </Routes>
         </main>

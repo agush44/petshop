@@ -1,7 +1,7 @@
 import Hero from "../components/Hero/Hero.jsx";
 import CategoriesCards from "../components/CategoriesCards/CategoriesCards.jsx";
 import BrandsCarousel from "../components/BrandsCarousel/BrandsCarousel.jsx";
-import ProductSections from "../components/Products/ProductSections/ProductSections.jsx";
+import Novedades from "./Novedades.jsx";
 import Shop from "./Shop.jsx";
 
 const Home = () => {
@@ -10,8 +10,8 @@ const Home = () => {
       <Hero />
       <CategoriesCards />
       <BrandsCarousel />
+      <Novedades />
       <Shop />
-      <ProductSections />
     </main>
   );
 };
