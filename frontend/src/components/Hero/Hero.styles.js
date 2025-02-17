@@ -2,31 +2,24 @@
 import styled from "styled-components";
 
 export const HeroTotalContainer = styled.div`
-  position: relative;
+  margin-top: 9rem;
   height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 5rem;
 `;
 
 // Contenedor del Hero
 export const HeroContainer = styled.section`
-  height: 60vh;
-  background-color: #f0ebf0;
+  height: 80%;
   display: flex;
   align-items: center;
-
   position: relative;
   padding: 0 5%;
   width: 100%;
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    height: auto;
-    text-align: center;
-  }
 `;
 
 // Contenedor del título
@@ -87,7 +80,7 @@ export const SvgContainer = styled.div`
 // SVG con posición relativa para mantener superposición
 export const Svg = styled.img`
   position: relative;
-  top: 16.5%;
+  top: 18.5%;
   left: 50%;
   transform: translateX(-50%);
   width: 70rem;

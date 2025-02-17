@@ -13,9 +13,9 @@ const productSchema = Joi.object({
     .required(),
   price: Joi.number().positive().precision(2).required(),
   stock: Joi.number().integer().min(0).required(),
-  /*image: Joi.string()
-    .pattern(/^https?:\/\/.*\.(jpg|jpeg|png|gif|webp)$/i)
-    .optional(),*/
+  image: Joi.string()
+    .pattern(/^https?:\/\/.*cloudinary\.com\/.*$/i)
+    .optional(),
   createdAt: Joi.date()
     .default(() => new Date())
     .iso(),

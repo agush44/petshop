@@ -6,24 +6,28 @@ export const HeaderContainer = styled.header`
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  background: rgb(201, 187, 226);
-  background: linear-gradient(
-    0deg,
-    rgba(201, 187, 226, 0.53) 20%,
-    rgba(139, 138, 197, 0.52) 50%,
-    rgba(50, 77, 186, 0.66) 100%
-  );
   border: none;
 `;
 
 // Fila para los elementos del encabezado superior
 export const HeaderTop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    0deg,
+    rgb(232, 222, 242) 20%,
+    rgb(209, 208, 230) 50%,
+    rgb(174, 190, 230) 100%
+  );
+
   display: flex;
   justify-content: space-between;
-  width: 100%;
   align-items: center;
-  padding: 0 1rem 0.8rem 1rem;
-  margin-bottom: 1rem;
+  padding: 2rem 1rem 1rem 1rem;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 `;
 
 // Logo a la izquierda
@@ -38,8 +42,8 @@ export const SearchContainer = styled.div`
   align-items: center;
   border: 1px solid #ddd;
   border-radius: 5px;
-  width: 40%;
-  margin-left: 3rem;
+  width: 45%;
+  margin-left: 5rem;
   border: none;
   box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
   -webkit-box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
@@ -64,9 +68,9 @@ export const SearchBar = styled.input`
 
 // Botón de búsqueda con el ícono de lupa
 export const SearchButton = styled.button`
-  height: 43px;
+  height: 45px;
   width: 43px;
-  background-color: rgba(50, 77, 186, 0.82);
+  background-color: #3a58d0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border: none;
@@ -91,6 +95,7 @@ export const SocialIcons = styled.div`
   justify-content: flex-end;
   padding-top: 1rem;
   padding-right: 1rem;
+  z-index: 10000;
 `;
 
 // Icono individual de redes sociales
@@ -125,7 +130,7 @@ export const Button = styled.button`
   }
 
   span {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #324dba;
   }
 `;

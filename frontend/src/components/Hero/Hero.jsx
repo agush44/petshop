@@ -5,11 +5,11 @@ import {
   TitleContainer,
   Title,
   Subtitle1,
-  Subtitle2,
   SvgContainer,
   Svg,
 } from "./Hero.styles";
 import FeatureBar from "./FeatureBar/FeatureBar.jsx";
+import BuyNowButton from "./BuyNowButton/BuyNowButton.jsx";
 
 const Hero = () => {
   return (
@@ -18,7 +18,7 @@ const Hero = () => {
         <TitleContainer>
           <Title>El mejor precio en productos</Title>
           <Subtitle1>para mascotas</Subtitle1>
-          <Subtitle2>Lorem ipsum dolor sit amet.</Subtitle2>
+          <BuyNowButton />
         </TitleContainer>
         <SvgContainer>
           <Svg src={svg} alt="SVG1" />

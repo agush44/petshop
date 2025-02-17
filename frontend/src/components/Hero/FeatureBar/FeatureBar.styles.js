@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FeatureBarContainer = styled.div`
   width: 100%;
   height: 25%;
-  background-color: rgba(58, 88, 207, 0.84);
+  background-color: #3a58cf;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -12,7 +12,7 @@ export const FeatureBarContainer = styled.div`
   -moz-box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
   gap: 3rem;
   padding-left: 5%;
-  color: white;
+  color: #f9f7f0;
 
   @media (max-width: 768px) {
     flex-direction: column;

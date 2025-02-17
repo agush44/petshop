@@ -18,8 +18,8 @@ const registerUserController = async (req, res, next) => {
     }
 
     // Encriptar la contraseña con bcrypt
-    const salt = await bcrypt.genSalt(10); // Generar un "salt" para la contraseña
-    const hashedPassword = await bcrypt.hash(password, salt); // Encriptar la contraseña
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     // Crear el nuevo usuario con la contraseña encriptada
     const newUser = new User({
@@ -72,7 +72,7 @@ const loginUserController = async (req, res, next) => {
 
     // Crear el token JWT
     const token = jwt.sign({ username: user.username }, JWT_SECRET, {
-      expiresIn: "1h", // El token expira en 1 hora
+      expiresIn: "5h",
     });
 
     res.status(200).json({

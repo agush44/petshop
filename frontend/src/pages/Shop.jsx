@@ -1,8 +1,10 @@
+import ProductList from "../components/Products/ProductList/ProductList";
+
 const Shop = () => {
   return (
-    <div>
-      <p>shop</p>
-    </div>
+    <>
+      <ProductList />
+    </>
   );
 };
 
