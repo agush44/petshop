@@ -28,6 +28,7 @@ const ProductProvider = ({ children }) => {
     </ProductContext.Provider>
   );
 };
+
 ProductProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

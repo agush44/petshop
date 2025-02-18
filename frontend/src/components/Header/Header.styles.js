@@ -1,19 +1,9 @@
 import styled from "styled-components";
 
-// Contenedor principal del header
 export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
   border: none;
-`;
-
-// Fila para los elementos del encabezado superior
-export const HeaderTop = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   background: linear-gradient(
     0deg,
@@ -24,25 +14,36 @@ export const HeaderTop = styled.div`
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 2rem 1rem 1rem 1rem;
-  z-index: 1000;
+  align-items: flex-end;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem 1.2rem 1rem;
 `;
 
-// Logo a la izquierda
+export const HeaderTop = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const HeaderBottom = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+`;
+
 export const Logo = styled.img`
   width: 5.5rem;
   margin-left: 1rem;
 `;
 
-// Fila que contiene la barra de búsqueda y el botón con ícono
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
   border-radius: 5px;
   width: 45%;
+  height: 20%;
   margin-left: 5rem;
   border: none;
   box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
@@ -50,7 +51,6 @@ export const SearchContainer = styled.div`
   -moz-box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
 `;
 
-// Barra de búsqueda
 export const SearchBar = styled.input`
   height: 100%;
   border: none;
@@ -66,7 +66,6 @@ export const SearchBar = styled.input`
   }
 `;
 
-// Botón de búsqueda con el ícono de lupa
 export const SearchButton = styled.button`
   height: 45px;
   width: 43px;
@@ -82,30 +81,25 @@ export const SearchButton = styled.button`
   }
 `;
 
-// Ícono de lupa
 export const SearchIcon = styled.i`
   font-size: 20px;
   color: #f9f7f0;
 `;
 
-// Contenedor para los íconos de redes sociales
 export const SocialIcons = styled.div`
   display: flex;
   gap: 0.6rem;
   justify-content: flex-end;
   padding-top: 1rem;
   padding-right: 1rem;
-  z-index: 10000;
 `;
 
-// Icono individual de redes sociales
 export const SocialIcon = styled.a`
   font-size: 1em;
   color: #f9f7f0;
   text-decoration: none;
 `;
 
-// Contenedor de los botones de cuenta y carrito
 export const AccountCartContainer = styled.div`
   display: flex;
   justify-content: flex-end;

@@ -1,9 +1,5 @@
 const Brands = () => {
-  return (
-    <>
-      <p>Marcas</p>
-    </>
-  );
+  return <div></div>;
 };
 
 export default Brands;

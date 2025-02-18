@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import {
   CategoryCard,
   CategoryImage,
@@ -11,10 +12,38 @@ import dogImage from "../../assets/dog.jpg";
 import catImage from "../../assets/cat.jpg";
 
 const CategoriesCards = () => {
+  const [isInView, setIsInView] = useState(false);
+
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentCardRef = cardRef.current;
+    if (currentCardRef) {
+      observer.observe(currentCardRef);
+    }
+
+    return () => {
+      if (currentCardRef) {
+        observer.unobserve(currentCardRef);
+      }
+    };
+  }, []);
+
   return (
     <CategoriesContainer>
       <StyledLink to="/productos/perros">
-        <CategoryCard>
+        <CategoryCard ref={cardRef} className={isInView ? "in-view" : ""}>
           <CategoryImage src={dogImage} alt="Perro" />
           <CategoryContent>
             <CategoryTitle>Productos para Perros</CategoryTitle>
@@ -25,7 +54,7 @@ const CategoriesCards = () => {
         </CategoryCard>
       </StyledLink>
       <StyledLink to="/productos/gatos">
-        <CategoryCard>
+        <CategoryCard ref={cardRef} className={isInView ? "in-view" : ""}>
           <CategoryImage src={catImage} alt="Gato" />
           <CategoryContent>
             <CategoryTitle>Productos para Gatos</CategoryTitle>

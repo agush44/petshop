@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-// Contenedor del nav
 export const Nav = styled.nav`
-  position: fixed;
-  top: 8.1rem; /* Ajusta según la altura del HeaderTop */
-  left: 0;
   width: 100%;
   background-color: #3a58d0;
   padding: 10px 0;
@@ -14,10 +10,8 @@ export const Nav = styled.nav`
   align-items: center;
   font-family: "Baloo 2", serif;
   font-weight: 400;
-  z-index: 999;
 `;
 
-// Estilo para la lista
 export const Ul = styled.ul`
   display: flex;
   list-style: none;

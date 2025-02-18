@@ -1,5 +1,5 @@
 import { FeatureBarContainer, FeatureItem, Text } from "./FeatureBar.styles";
-import { FaMotorcycle, FaTruck, FaCreditCard } from "react-icons/fa"; // Íconos
+import { FaMotorcycle, FaTruck, FaCreditCard } from "react-icons/fa";
 
 const FeatureBar = () => {
   return (

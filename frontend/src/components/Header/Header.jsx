@@ -10,6 +10,7 @@ import {
   SearchIcon,
   SearchContainer,
   SearchButton,
+  HeaderBottom,
 } from "./Header.styles";
 import {
   FaFacebookF,
@@ -23,19 +24,20 @@ import {
 const Header = () => {
   return (
     <HeaderContainer>
-      {/* Parte superior con logo, buscador e íconos de redes sociales */}
-      <SocialIcons>
-        <SocialIcon href="https://facebook.com" target="_blank">
-          <FaFacebookF />
-        </SocialIcon>
-        <SocialIcon href="https://instagram.com" target="_blank">
-          <FaInstagram />
-        </SocialIcon>
-        <SocialIcon href="https://twitter.com" target="_blank">
-          <FaTwitter />
-        </SocialIcon>
-      </SocialIcons>
       <HeaderTop>
+        <SocialIcons>
+          <SocialIcon href="https://facebook.com" target="_blank">
+            <FaFacebookF />
+          </SocialIcon>
+          <SocialIcon href="https://instagram.com" target="_blank">
+            <FaInstagram />
+          </SocialIcon>
+          <SocialIcon href="https://twitter.com" target="_blank">
+            <FaTwitter />
+          </SocialIcon>
+        </SocialIcons>
+      </HeaderTop>
+      <HeaderBottom>
         <Logo src="logo.png" alt="Logo PetShop" />
         <SearchContainer>
           <SearchBar type="text" placeholder="Buscar productos..." />
@@ -45,7 +47,6 @@ const Header = () => {
             </SearchIcon>
           </SearchButton>
         </SearchContainer>
-        {/* Botones de Mi cuenta y Carrito */}
         <AccountCartContainer>
           <Button>
             <FaUser />
@@ -56,7 +57,7 @@ const Header = () => {
             <span>Carrito</span>
           </Button>
         </AccountCartContainer>
-      </HeaderTop>
+      </HeaderBottom>
     </HeaderContainer>
   );
 };

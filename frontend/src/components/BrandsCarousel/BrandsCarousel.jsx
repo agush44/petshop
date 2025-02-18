@@ -1,3 +1,4 @@
+// src/components/BrandsCarousel.js
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import {
@@ -6,18 +7,9 @@ import {
   BrandImage,
 } from "./BrandsCarousel.styles.js";
 
-// Importa las imágenes de las marcas
-import brand1 from "../../assets/eukanuba.webp";
-import brand2 from "../../assets/excellent.png";
-import brand3 from "../../assets/pro-plan.webp";
-import brand4 from "../../assets/royal.webp";
-import brand5 from "../../assets/vital-can.webp";
-import brand6 from "../../assets/Cat-Chow.png";
-import brand7 from "../../assets/Pedigree.png";
+import { brands } from "../../data/brandsData.jsx";
 
 const BrandsCarousel = () => {
-  const brands = [brand1, brand2, brand3, brand4, brand5, brand6, brand7];
-
   return (
     <CarouselContainer>
       <Swiper
