@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
+export const TotalDetailContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const DetailContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   padding: 20px;
   align-items: center;
   height: 45vh;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 4rem 0;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -66,13 +70,13 @@ export const AddToCartButton = styled.button`
   border-radius: 5px;
   margin-top: 1rem;
   &:hover {
-    background: #8e44ad; /* Morado más oscuro */
+    background: #8e44ad;
     border-color: #8e44ad;
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(155, 89, 182, 0.7); /* Sombra de enfoque morado */
+    box-shadow: 0 0 5px rgba(155, 89, 182, 0.7);
   }
 `;
 

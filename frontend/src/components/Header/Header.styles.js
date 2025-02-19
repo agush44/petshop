@@ -16,7 +16,25 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: flex-end;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 0.5rem 1rem 1.2rem 1rem;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    padding: 0.5rem 0.5rem 1rem 1rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    padding: 0.5rem 1rem 1.2rem 1rem;
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    padding: 0.5rem 1rem 1.2rem 1rem;
+  }
 `;
 
 export const HeaderTop = styled.div`
@@ -35,6 +53,25 @@ export const HeaderBottom = styled.div`
 export const Logo = styled.img`
   width: 5.5rem;
   margin-left: 1rem;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    width: 4.5rem;
+    margin-left: 0.5rem;
+  }
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    width: 5.5rem;
+    margin-left: 1rem;
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -43,12 +80,31 @@ export const SearchContainer = styled.div`
   border: 1px solid #ddd;
   border-radius: 5px;
   width: 45%;
-  height: 20%;
+
   margin-left: 5rem;
   border: none;
   box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
   -webkit-box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
   -moz-box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    height: 2.5rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    height: 20%;
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    height: 20%;
+  }
 `;
 
 export const SearchBar = styled.input`
@@ -64,6 +120,22 @@ export const SearchBar = styled.input`
   &:focus {
     outline: none;
   }
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+  }
 `;
 
 export const SearchButton = styled.button`
@@ -78,6 +150,25 @@ export const SearchButton = styled.button`
 
   &:focus {
     outline: none;
+  }
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    height: 2.5rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    height: 45px;
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    height: 45px;
   }
 `;
 
@@ -95,15 +186,47 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIcon = styled.a`
-  font-size: 1em;
+  font-size: 1rem;
   color: #f9f7f0;
   text-decoration: none;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+  }
 `;
 
 export const AccountCartContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+  }
 `;
 
 export const Button = styled.button`
@@ -118,13 +241,65 @@ export const Button = styled.button`
   cursor: pointer;
 
   svg {
-    font-size: 1.5rem;
     margin-bottom: 0.3rem;
     color: #324dba;
+
+    /* Large devices (tablets/laptops, 768px and up) */
+    @media (min-width: 768px) {
+      font-size: 1.4rem;
+    }
+
+    /* Extra large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+    }
+
+    /* Extra extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+      font-size: 1.5rem;
+    }
+
+    /* Ultra-wide screens (4K displays, 1400px and up) */
+    @media (min-width: 1400px) {
+      font-size: 1.5rem;
+    }
   }
 
   span {
-    font-size: 0.9rem;
     color: #324dba;
+
+    /* Large devices (tablets/laptops, 768px and up) */
+    @media (min-width: 768px) {
+      font-size: 0.7rem;
+    }
+
+    /* Extra large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+    }
+
+    /* Extra extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+      font-size: 0.9rem;
+    }
+
+    /* Ultra-wide screens (4K displays, 1400px and up) */
+    @media (min-width: 1400px) {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
   }
 `;

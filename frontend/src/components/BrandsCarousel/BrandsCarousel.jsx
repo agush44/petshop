@@ -1,4 +1,3 @@
-// src/components/BrandsCarousel.js
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import {
@@ -6,7 +5,6 @@ import {
   Slide,
   BrandImage,
 } from "./BrandsCarousel.styles.js";
-
 import { brands } from "../../data/brandsData.jsx";
 
 const BrandsCarousel = () => {
@@ -20,7 +18,8 @@ const BrandsCarousel = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         breakpoints={{
-          768: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          992: { slidesPerView: 4 },
           1024: { slidesPerView: 5 },
         }}
       >

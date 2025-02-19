@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import ProductContext from "../../../context/ProductContext";
 import {
+  TotalDetailContainer,
   DetailContainer,
   DetailImage,
   DetailInfo,
@@ -34,7 +35,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <>
+    <TotalDetailContainer>
       <DetailContainer>
         <DetailImage src={product.image} alt={product.name} />
         <DetailInfo>
@@ -43,14 +44,14 @@ const ProductDetail = () => {
           <DetailPrice>${product.price.toFixed(2)}</DetailPrice>
           <DetailDescription>{product.description}</DetailDescription>
 
-          <PaymentShippingText>Envío gratis en Santa Fe.</PaymentShippingText>
+          <PaymentShippingText>Envío gratis en Santa Fe</PaymentShippingText>
 
           <AddToCartButton>Añadir al carrito</AddToCartButton>
 
           <BackButton onClick={() => navigate(-1)}>Volver</BackButton>
         </DetailInfo>
       </DetailContainer>
-    </>
+    </TotalDetailContainer>
   );
 };
 

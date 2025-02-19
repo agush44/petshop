@@ -3,6 +3,7 @@ import {
   FooterContent,
   FooterSection,
   FooterTitle,
+  FooterText,
   FooterLink,
   SocialIcons,
   SocialIcon,
@@ -14,13 +15,12 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterContent>
-        {/* Sección sobre el Petshop */}
         <FooterSection>
           <FooterTitle>Sobre Nosotros</FooterTitle>
-          <p>Tu tienda de confianza para consentir a tus mascotas.</p>
+          <FooterText>
+            Tu tienda de confianza para consentir a tus mascotas.
+          </FooterText>
         </FooterSection>
-
-        {/* Sección de Enlaces */}
         <FooterSection>
           <FooterTitle>Enlaces Útiles</FooterTitle>
           <FooterLink href="#">Inicio</FooterLink>
@@ -28,8 +28,6 @@ const Footer = () => {
           <FooterLink href="#">Tienda</FooterLink>
           <FooterLink href="#">Contacto</FooterLink>
         </FooterSection>
-
-        {/* Sección de Redes Sociales */}
         <FooterSection>
           <FooterTitle>Síguenos</FooterTitle>
           <SocialIcons>
@@ -45,8 +43,6 @@ const Footer = () => {
           </SocialIcons>
         </FooterSection>
       </FooterContent>
-
-      {/* Derechos de autor */}
       <Copyright>
         © {new Date().getFullYear()} Petshop. Todos los derechos reservados.
       </Copyright>

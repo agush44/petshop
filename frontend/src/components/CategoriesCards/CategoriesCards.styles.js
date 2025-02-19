@@ -6,8 +6,26 @@ export const CategoriesContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 55vh;
   flex-wrap: wrap;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    margin: 0;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    margin: 0;
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    height: 65vh;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -27,33 +45,93 @@ export const CategoryCard = styled.div`
   max-width: 600px;
   padding-bottom: 1.5rem;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  opacity: 0; /* Empezamos con opacidad 0 */
-  transform: translateY(20px); /* Desplazamos ligeramente hacia abajo */
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out; /* Suavizamos la animación */
+  transition: transform 0.1s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease-out, transform 0.6s ease-out;
 
   &.in-view {
-    opacity: 1; /* Al entrar en la vista, establecemos la opacidad */
-    transform: translateY(0); /* Volvemos a la posición original */
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &:hover {
     transform: scale(1.05);
   }
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    max-width: 300px;
+    margin: 2rem 1rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    max-width: 500px;
+    margin: 2rem 1rem;
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    max-width: 500px;
+    margin: 2rem 1rem;
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    max-width: 500px;
+    margin: 5rem;
+  }
 `;
 
 export const CategoryImage = styled.img`
   width: 100%;
-  height: 400px;
   object-fit: cover;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    height: 200px;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    height: 300px;
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    height: 300px;
+  }
 `;
 
 export const CategoryTitle = styled.h3`
   text-align: center;
   padding-top: 1rem;
-  font-size: 1.5rem;
+
   background-color: #fff;
   color: #333;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 1.5rem;
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+  }
 `;
 
 export const CategoryContent = styled.div`
@@ -64,7 +142,24 @@ export const CategoryContent = styled.div`
 `;
 
 export const CategoryDescription = styled.p`
-  font-size: 1rem;
   color: #666;
   width: 70%;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 0.8rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 1rem;
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+  }
 `;

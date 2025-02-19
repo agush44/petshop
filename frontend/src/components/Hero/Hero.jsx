@@ -12,7 +12,7 @@ const Hero = () => {
       <HeroContainer>
         <VideoContainer>
           <Swiper
-            spaceBetween={50}
+            spaceBetween={0}
             slidesPerView={1}
             loop={true}
             autoplay={{ delay: 5000 }}
@@ -21,7 +21,7 @@ const Hero = () => {
           >
             <SwiperSlide>
               <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739904605/202502181539_1_v7vevy.mp4"
+                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739920128/202502182007_ykktsl.mp4"
                 autoPlay
                 muted
                 loop
@@ -30,7 +30,7 @@ const Hero = () => {
             </SwiperSlide>
             <SwiperSlide>
               <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739904605/202502181539_1_v7vevy.mp4"
+                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739920128/202502182007_ykktsl.mp4"
                 autoPlay
                 muted
                 loop
@@ -39,7 +39,7 @@ const Hero = () => {
             </SwiperSlide>
             <SwiperSlide>
               <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739904605/202502181539_1_v7vevy.mp4"
+                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739920128/202502182007_ykktsl.mp4"
                 autoPlay
                 muted
                 loop
@@ -48,8 +48,8 @@ const Hero = () => {
             </SwiperSlide>
           </Swiper>
         </VideoContainer>
+        <FeatureBar />
       </HeroContainer>
-      <FeatureBar />
     </HeroTotalContainer>
   );
 };
