@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   background: #fff;
   border-radius: 8px;
-  margin-top: 1rem;
+  padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 280px;
@@ -20,7 +20,7 @@ export const Card = styled.div`
 
 export const ProductImage = styled.img`
   width: 100%;
-  height: 200px;
+  max-height: 200px;
   object-fit: contain;
 `;
 
@@ -48,21 +48,21 @@ export const ProductPrice = styled.p`
 `;
 
 export const AddToCartButton = styled.button`
-  background: #9b59b6; /* Morado */
-  color: #fff; /* Texto blanco */
-  border: 2px solid #9b59b6; /* Borde morado */
+  background: #9b59b6;
+  color: #fff;
+  border: 2px solid #9b59b6;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background: #8e44ad; /* Morado más oscuro */
+    background: #8e44ad;
     border-color: #8e44ad;
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(155, 89, 182, 0.7); /* Sombra de enfoque morado */
+    box-shadow: 0 0 5px rgba(155, 89, 182, 0.7);
   }
 `;

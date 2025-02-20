@@ -22,7 +22,7 @@ const ProductCard = ({ id, image, category, name, price }) => {
           <ProductCategory>{category}</ProductCategory>
           <ProductName>{name}</ProductName>
           <ProductPrice>${price.toFixed(2)}</ProductPrice>
-          <AddToCartButton>Agregar al carrito</AddToCartButton>
+          <AddToCartButton>Ver producto</AddToCartButton>
         </ProductInfo>
       </Link>
     </Card>

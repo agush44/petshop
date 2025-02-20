@@ -1,5 +1,11 @@
+import BrandList from "../components/Brands/BrandsList/BrandList";
+
 const Brands = () => {
-  return <div></div>;
+  return (
+    <div>
+      <BrandList />
+    </div>
+  );
 };
 
 export default Brands;

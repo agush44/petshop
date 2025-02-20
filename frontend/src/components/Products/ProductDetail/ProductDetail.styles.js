@@ -7,7 +7,7 @@ export const TotalDetailContainer = styled.div`
 
 export const DetailContainer = styled.div`
   display: flex;
-  padding: 20px;
+  padding: 3rem;
   align-items: center;
   height: 45vh;
   max-width: 800px;

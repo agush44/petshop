@@ -45,24 +45,22 @@ export const Slide = styled.div`
 
   /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
-    gap: 1rem;
+    height: 140px;
   }
 
   /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
-    gap: 1rem;
+    height: 140px;
   }
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
-    gap: 1rem;
+    height: 200px;
   }
 `;
 
 // Imagen de la marca
 export const BrandImage = styled.img`
-  max-width: 150px;
-  max-height: 100px;
   object-fit: contain;
   filter: grayscale(30%);
   transition: filter 0.3s ease, transform 0.3s ease;
@@ -80,16 +78,19 @@ export const BrandImage = styled.img`
 
   /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
-    gap: 1rem;
+    max-width: 150px;
+    max-height: 100px;
   }
 
   /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
-    gap: 1rem;
+    max-width: 150px;
+    max-height: 100px;
   }
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
-    gap: 1rem;
+    max-width: 150px;
+    max-height: 100px;
   }
 `;

@@ -5,7 +5,7 @@ import {
   Slide,
   BrandImage,
 } from "./BrandsCarousel.styles.js";
-import { brands } from "../../data/brandsData.jsx";
+import { brands } from "../../../data/brandsData.jsx";
 
 const BrandsCarousel = () => {
   return (

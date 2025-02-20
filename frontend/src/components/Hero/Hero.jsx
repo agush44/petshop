@@ -21,7 +21,7 @@ const Hero = () => {
           >
             <SwiperSlide>
               <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739920128/202502182007_ykktsl.mp4"
+                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
                 autoPlay
                 muted
                 loop
@@ -30,7 +30,7 @@ const Hero = () => {
             </SwiperSlide>
             <SwiperSlide>
               <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739920128/202502182007_ykktsl.mp4"
+                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
                 autoPlay
                 muted
                 loop
@@ -39,7 +39,7 @@ const Hero = () => {
             </SwiperSlide>
             <SwiperSlide>
               <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1739920128/202502182007_ykktsl.mp4"
+                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
                 autoPlay
                 muted
                 loop

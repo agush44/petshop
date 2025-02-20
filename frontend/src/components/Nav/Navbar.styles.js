@@ -6,30 +6,25 @@ export const Nav = styled.nav`
   background-color: #324fc7;
   padding: 1rem 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-family: "Baloo 2", serif;
   font-weight: 400;
 
-  /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     justify-content: space-around;
     padding: 1rem;
   }
-  /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
     height: auto;
     padding: 2rem;
     gap: 2rem;
   }
-
-  /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
+    padding: 1.2rem;
   }
-
-  /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
-    height: auto;
+    height: 1.8rem;
     padding: 2rem;
   }
 `;
@@ -41,49 +36,48 @@ export const Ul = styled.ul`
   margin: 0;
   padding: 0;
 
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
-    gap: 1rem;
+  @media (max-width: 768px) {
+    display: none;
   }
 
   /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
+    gap: 3rem;
   }
 
   /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
-    gap: 2rem;
+    gap: 5rem;
   }
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
-    gap: 2rem;
+    gap: 5rem;
   }
 `;
 
 export const StyledLink = styled(Link)`
-  margin: 0 1rem;
   text-decoration: none;
   font-size: 1.2rem;
   color: #f9f7f0;
   cursor: pointer;
   transition: color 0.3s ease;
-  text-shadow: 6px 6px 7px rgba(0, 0, 0, 0.5);
 
   &:hover {
     color: rgba(246, 227, 255, 0.84);
   }
 
-  /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     font-size: 0.9rem;
   }
+
   /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
   }
 
   /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
+    font-size: 1rem;
   }
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
@@ -93,30 +87,38 @@ export const StyledLink = styled(Link)`
 `;
 
 export const MobileMenuIcon = styled.div`
-  display: none;
   font-size: 1.5rem;
   color: #f9f7f0;
   cursor: pointer;
+  z-index: 1001;
 
-  @media (max-width: 768px) {
-    display: block;
+  @media (min-width: 768px) {
+    display: none;
   }
 `;
 
-export const MobileMenu = styled.div`
-  display: ${(props) => (props.isOpen ? "flex" : "none")};
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  left: 0;
+export const MobileMenuWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: ${(props) => (props.$isOpen ? "0" : "-100%")};
   width: 100%;
-  background-color: #3a58d0;
-  padding: 1rem 0;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  background-color: rgba(50, 79, 199, 0.95);
+  transition: left 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+export const MobileMenuContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
 
   ${StyledLink} {
-    padding: 1rem;
+    font-size: 1.5rem;
     color: #f9f7f0;
-    text-align: center;
   }
 `;

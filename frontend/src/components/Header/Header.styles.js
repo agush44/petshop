@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border: none;
   width: 100%;
+  padding: 1.2rem;
   background: linear-gradient(
     0deg,
     rgb(232, 222, 242) 20%,
@@ -12,14 +15,10 @@ export const HeaderContainer = styled.header`
     rgb(174, 190, 230) 100%
   );
 
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
-    padding: 0.5rem 0.5rem 1rem 1rem;
   }
 
   /* Extra large devices (desktops, 992px and up) */
@@ -28,19 +27,11 @@ export const HeaderContainer = styled.header`
 
   /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
-    padding: 0.5rem 1rem 1.2rem 1rem;
   }
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
-    padding: 0.5rem 1rem 1.2rem 1rem;
   }
-`;
-
-export const HeaderTop = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
 `;
 
 export const HeaderBottom = styled.div`
@@ -48,6 +39,7 @@ export const HeaderBottom = styled.div`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const Logo = styled.img`
@@ -113,7 +105,7 @@ export const SearchBar = styled.input`
   padding: 0.7rem;
   width: 100%;
   border: none;
-  font-size: 0.8rem;
+
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 
@@ -135,6 +127,7 @@ export const SearchBar = styled.input`
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
+    font-size: 1rem;
   }
 `;
 
@@ -168,7 +161,7 @@ export const SearchButton = styled.button`
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
-    height: 45px;
+    height: 48px;
   }
 `;
 
@@ -177,40 +170,9 @@ export const SearchIcon = styled.i`
   color: #f9f7f0;
 `;
 
-export const SocialIcons = styled.div`
-  display: flex;
-  gap: 0.6rem;
-  justify-content: flex-end;
-  padding-top: 1rem;
-  padding-right: 1rem;
-`;
-
-export const SocialIcon = styled.a`
-  font-size: 1rem;
-  color: #f9f7f0;
-  text-decoration: none;
-
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
-  }
-
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-  }
-
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-  }
-
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
-  }
-`;
-
 export const AccountCartContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 1rem;
 
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
@@ -302,4 +264,10 @@ export const Button = styled.button`
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
   }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  cursor: pointer;
+  padding-top: 0.5rem;
 `;
