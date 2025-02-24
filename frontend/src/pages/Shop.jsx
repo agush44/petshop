@@ -20,12 +20,17 @@ const Shop = () => {
     setCategoryFilter(event.target.value);
   };
 
+  const handleAnimalChange = (event) => {
+    setAnimalFilter(event.target.value);
+  };
+
   return (
     <div style={{ display: "flex" }}>
       <FilterSidebar
         categoryFilter={categoryFilter}
         animalFilter={animalFilter}
         handleCategoryChange={handleCategoryChange}
+        handleAnimalChange={handleAnimalChange}
       />
       <div style={{ flex: 1, padding: "20px" }}>
         <ProductList

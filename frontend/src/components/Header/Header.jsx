@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { CartContext } from "../../context/ShopContext";
 import {
   HeaderContainer,
   Logo,
@@ -13,6 +15,7 @@ import {
 import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
+  const { totalItems } = useContext(CartContext);
   return (
     <HeaderContainer>
       <HeaderBottom>
@@ -36,6 +39,7 @@ const Header = () => {
             <Button>
               <FaShoppingCart />
               <span>Carrito</span>
+              {totalItems > 0 && <span>({totalItems})</span>}
             </Button>
           </StyledLink>
         </AccountCartContainer>

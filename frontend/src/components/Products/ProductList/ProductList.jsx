@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import PropTypes from "prop-types";
-import ProductContext from "../../../context/ProductContext.js";
+import { ProductContext } from "../../../context/ShopContext.js";
 import ItemList from "../../../UI/ItemList/ItemList.jsx";
 import ProductCard from "../ProductCard/ProductCard";
 

@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
 import { useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import ProductContext from "../../../context/ProductContext";
+import { ProductContext } from "../../../context/ShopContext";
+import { CartContext } from "../../../context/ShopContext";
 import {
   TotalDetailContainer,
   DetailContainer,
@@ -18,6 +18,7 @@ import {
 
 const ProductDetail = () => {
   const { products } = useContext(ProductContext);
+  const { addToCart } = useContext(CartContext);
   const { productId } = useParams();
   const navigate = useNavigate();
 
@@ -46,26 +47,15 @@ const ProductDetail = () => {
 
           <PaymentShippingText>Envío gratis en Santa Fe</PaymentShippingText>
 
-          <AddToCartButton>Añadir al carrito</AddToCartButton>
+          <AddToCartButton onClick={() => addToCart(product)}>
+            Añadir al carrito
+          </AddToCartButton>
 
           <BackButton onClick={() => navigate(-1)}>Volver</BackButton>
         </DetailInfo>
       </DetailContainer>
     </TotalDetailContainer>
   );
-};
-
-ProductDetail.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      description: PropTypes.string.isRequired,
-    })
-  ).isRequired,
 };
 
 export default ProductDetail;

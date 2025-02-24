@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ProductContext from "./ProductContext";
+import { ProductContext } from "./ShopContext.js";
 import { fetchProducts } from "../services/Api.js";
 import PropTypes from "prop-types";
 

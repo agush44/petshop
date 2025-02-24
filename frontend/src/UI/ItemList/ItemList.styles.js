@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// Estilos para el título
 export const Title = styled.h2`
   text-align: center;
   font-size: 1.5rem;
@@ -8,15 +7,29 @@ export const Title = styled.h2`
   margin-bottom: 1rem;
 `;
 
-// Contenedor de la lista
 export const ItemListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+  }
 `;
 
-// Estilo para cada producto (card)
 export const ItemCard = styled.div`
   width: 200px;
   background-color: #fff;
