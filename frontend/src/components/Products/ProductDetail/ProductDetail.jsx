@@ -44,11 +44,10 @@ const ProductDetail = () => {
           <DetailName>{product.name}</DetailName>
           <DetailPrice>${product.price.toFixed(2)}</DetailPrice>
           <DetailDescription>{product.description}</DetailDescription>
-
           <PaymentShippingText>Envío gratis en Santa Fe</PaymentShippingText>
 
           <AddToCartButton onClick={() => addToCart(product)}>
-            Añadir al carrito
+            Agregar al carrito
           </AddToCartButton>
 
           <BackButton onClick={() => navigate(-1)}>Volver</BackButton>

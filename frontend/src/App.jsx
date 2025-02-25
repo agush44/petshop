@@ -6,7 +6,7 @@ import Navbar from "./components/Nav/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import Shop from "./pages/Shop.jsx";
 import ProductDetail from "./components/Products/ProductDetail/ProductDetail.jsx";
-import CartPage from "./pages/CartPage.jsx";
+import CartModal from "./pages/CartPage/CartModal.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Alimentos from "./pages/Alimentos.jsx";
 import Brands from "./pages/Brands.jsx";
@@ -28,7 +28,7 @@ function App() {
                 path="/shop/product/:productId"
                 element={<ProductDetail />}
               />
-              <Route path="/cart" element={<CartPage />} />
+              <Route path="/cart" element={<CartModal />} />
               <Route path="/alimentos" element={<Alimentos />} />
               <Route path="/novedades" element={<Novedades />} />
               <Route path="/marcas" element={<Brands />} />

@@ -5,16 +5,20 @@ import { CartContext } from "./ShopContext";
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (product) => {
-    const productExists = cart.find((item) => item._id === product._id);
+  const addToCart = (product, quantity = 1) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item._id === product._id);
 
-    if (!productExists) {
-      setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
-      console.log(cart);
-    } else {
-      updateQuantity(product._id, productExists.quantity + 1);
-      console.log(cart);
-    }
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item._id === product._id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      } else {
+        return [...prevCart, { ...product, quantity }];
+      }
+    });
   };
 
   const updateQuantity = (productId, newQuantity) => {
@@ -23,12 +27,10 @@ const CartProvider = ({ children }) => {
         item._id === productId ? { ...item, quantity: newQuantity } : item
       )
     );
-    console.log(cart);
   };
 
   const removeFromCart = (productId) => {
     setCart(cart.filter((product) => product._id !== productId));
-    console.log(cart);
   };
 
   const clearCart = () => setCart([]);

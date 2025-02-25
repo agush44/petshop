@@ -1,29 +1,13 @@
-import { useContext, useState } from "react";
 import PropTypes from "prop-types";
-import { ProductContext } from "../../../context/ShopContext.js";
+import useFilteredProducts from "../../Hooks/useFilteredProducts.jsx";
 import ItemList from "../../../UI/ItemList/ItemList.jsx";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductList = ({ categoryFilter, animalFilter }) => {
-  const { products, loading } = useContext(ProductContext);
-  const [visibleCount, setVisibleCount] = useState(8);
+  const { filteredProducts, visibleCount, handleLoadMore, loading } =
+    useFilteredProducts(categoryFilter, animalFilter);
 
   if (loading) return <p>Cargando productos...</p>;
-
-  const filteredProducts = products.filter((product) => {
-    const categoryMatch = categoryFilter
-      ? product.category === categoryFilter
-      : true;
-    const animalMatch = animalFilter
-      ? product.animalType === animalFilter
-      : true;
-
-    return categoryMatch && animalMatch;
-  });
-
-  const handleLoadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 8);
-  };
 
   const renderProduct = (product) => (
     <ProductCard
