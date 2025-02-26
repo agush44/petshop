@@ -2,73 +2,114 @@ import styled from "styled-components";
 
 export const TotalDetailContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  height: auto;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const DetailContainer = styled.div`
   display: flex;
-  padding: 3rem;
+  flex-direction: row;
   align-items: center;
-  height: 45vh;
-  max-width: 800px;
-  margin: 4rem 0;
+  max-width: 900px;
+  width: 100%;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  padding: 2.5rem;
+  margin: 4rem 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
 `;
 
 export const DetailImage = styled.img`
-  width: 100%;
-  max-height: 300px;
+  width: 50%;
+  max-height: 500px;
   object-fit: cover;
   border-radius: 8px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-height: 300px;
+  }
 `;
 
 export const DetailInfo = styled.div`
-  text-align: center;
-  margin-top: 20px;
+  text-align: start;
+  padding: 1rem 2.5rem;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    text-align: center;
+  }
 `;
 
 export const DetailCategory = styled.p`
-  font-size: 14px;
+  font-size: 1rem;
   color: #666;
 `;
 
 export const DetailName = styled.h1`
-  font-size: 24px;
+  font-size: clamp(1.8rem, 5vw, 2.3rem);
   margin: 10px 0;
+  color: #333;
+  font-weight: bold;
 `;
 
 export const DetailPrice = styled.p`
-  font-size: 20px;
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
   color: #333;
   font-weight: bold;
 `;
 
 export const DetailDescription = styled.p`
-  font-size: 16px;
+  font-size: 1rem;
   color: #444;
-  margin: 10px 0;
+  padding: 1rem 1.5rem 1rem 0;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+`;
+
+export const FeatureItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const PaymentShippingText = styled.p`
   font-size: 1em;
   color: #777;
-  margin-top: 20px;
+  margin-left: 0.5rem;
 `;
 
 export const AddToCartButton = styled.button`
   background: #9b59b6;
   color: #fff;
   border: 2px solid #9b59b6;
-  color: white;
-  border: none;
   padding: 10px;
   font-size: 1rem;
   cursor: pointer;
   margin-right: 1rem;
   border-radius: 5px;
   margin-top: 1rem;
+  transition: 0.3s ease-in-out;
+
   &:hover {
     background: #8e44ad;
     border-color: #8e44ad;
@@ -77,6 +118,10 @@ export const AddToCartButton = styled.button`
   &:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(155, 89, 182, 0.7);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -89,8 +134,13 @@ export const BackButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  transition: 0.3s ease-in-out;
 
   &:hover {
     background-color: #2f47a0;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;

@@ -5,20 +5,38 @@ import { CartContext } from "./ShopContext";
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (product, quantity = 1) => {
+  const addToCart = (product) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item._id === product._id);
+      const existingProduct = prevCart.find((item) => item._id === product._id);
 
-      if (existingItem) {
+      if (existingProduct) {
         return prevCart.map((item) =>
           item._id === product._id
-            ? { ...item, quantity: item.quantity + quantity }
+            ? { ...item, quantity: item.quantity + 1 }
             : item
         );
-      } else {
-        return [...prevCart, { ...product, quantity }];
       }
+
+      return [...prevCart, { ...product, quantity: 1 }];
     });
+  };
+
+  const increaseQuantity = (productId) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item._id === productId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (productId) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item._id === productId && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
   };
 
   const updateQuantity = (productId, newQuantity) => {
@@ -46,6 +64,8 @@ const CartProvider = ({ children }) => {
       value={{
         cart,
         addToCart,
+        increaseQuantity,
+        decreaseQuantity,
         removeFromCart,
         updateQuantity,
         clearCart,

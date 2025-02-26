@@ -24,40 +24,15 @@ import {
 } from "./CartModal.styles";
 
 const CartModal = ({ isOpen, closeModal }) => {
-  const { cart, updateQuantity, removeFromCart } = useContext(CartContext);
+  const {
+    cart,
+    increaseQuantity,
+    decreaseQuantity,
+    updateQuantity,
+    removeFromCart,
+  } = useContext(CartContext);
 
-  const handleIncreaseQuantity = (productId) => {
-    const newQuantity =
-      cart.find((item) => item._id === productId).quantity + 1;
-    updateQuantity(productId, newQuantity);
-  };
-
-  const handleDecreaseQuantity = (productId) => {
-    const newQuantity =
-      cart.find((item) => item._id === productId).quantity - 1;
-    if (newQuantity >= 1) {
-      updateQuantity(productId, newQuantity);
-    }
-  };
-
-  const handleQuantityChange = (e, productId) => {
-    const newQuantity = parseInt(e.target.value, 10);
-    if (!isNaN(newQuantity) && newQuantity > 0) {
-      updateQuantity(productId, newQuantity);
-    }
-  };
-
-  const handleRemoveFromCart = (productId) => {
-    removeFromCart(productId);
-  };
-
-  const total = cart.reduce((sum, item) => {
-    const price = parseFloat(item.price);
-    if (!isNaN(price)) {
-      return sum + price * item.quantity;
-    }
-    return sum;
-  }, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     isOpen && (
@@ -82,13 +57,15 @@ const CartModal = ({ isOpen, closeModal }) => {
                     </TextContainer>
                     <QuantityInput
                       quantity={item.quantity}
-                      onIncrease={() => handleIncreaseQuantity(item._id)}
-                      onDecrease={() => handleDecreaseQuantity(item._id)}
-                      onChange={(e) => handleQuantityChange(e, item._id)}
+                      onIncrease={() => increaseQuantity(item._id)}
+                      onDecrease={() => decreaseQuantity(item._id)}
+                      onChange={(e) => {
+                        const newQuantity = parseInt(e.target.value, 10);
+                        if (!isNaN(newQuantity))
+                          updateQuantity(item._id, newQuantity);
+                      }}
                     />
-                    <RemoveButton
-                      onClick={() => handleRemoveFromCart(item._id)}
-                    >
+                    <RemoveButton onClick={() => removeFromCart(item._id)}>
                       <FaTrash size={20} color={`#3a58d0`} />
                     </RemoveButton>
                   </ContentContainer>
@@ -106,6 +83,7 @@ const CartModal = ({ isOpen, closeModal }) => {
     )
   );
 };
+
 CartModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,

@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ProductContext } from "../../../context/ShopContext";
+import { FaTruck } from "react-icons/fa";
 import { CartContext } from "../../../context/ShopContext";
 import {
   TotalDetailContainer,
@@ -11,6 +12,7 @@ import {
   DetailName,
   DetailPrice,
   DetailDescription,
+  FeatureItem,
   PaymentShippingText,
   AddToCartButton,
   BackButton,
@@ -44,8 +46,10 @@ const ProductDetail = () => {
           <DetailName>{product.name}</DetailName>
           <DetailPrice>${product.price.toFixed(2)}</DetailPrice>
           <DetailDescription>{product.description}</DetailDescription>
-          <PaymentShippingText>Envío gratis en Santa Fe</PaymentShippingText>
-
+          <FeatureItem>
+            <FaTruck size={20} />
+            <PaymentShippingText>Envío gratis en Santa Fe</PaymentShippingText>
+          </FeatureItem>
           <AddToCartButton onClick={() => addToCart(product)}>
             Agregar al carrito
           </AddToCartButton>
