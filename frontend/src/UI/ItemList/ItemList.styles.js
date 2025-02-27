@@ -4,7 +4,7 @@ export const Title = styled.h2`
   text-align: center;
   font-size: 1.5rem;
   color: #333;
-  margin-bottom: 1rem;
+  margin: 3rem;
 `;
 
 export const ItemListContainer = styled.div`

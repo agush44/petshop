@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -23,7 +24,9 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ products, loading }}>
+    <ProductContext.Provider
+      value={{ products, loading, searchQuery, setSearchQuery }}
+    >
       {children}
     </ProductContext.Provider>
   );

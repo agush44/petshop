@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Card = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ export const Card = styled.div`
   transition: transform 0.2s ease-in-out;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 `;
 
@@ -47,22 +48,52 @@ export const ProductPrice = styled.p`
   margin: 0.5rem 0;
 `;
 
-export const AddToCartButton = styled.button`
-  background: #9b59b6;
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-top: 1rem;
+`;
+
+export const Button = styled.button`
+  width: 50%;
+  height: 2.5rem;
   color: #fff;
-  border: 2px solid #9b59b6;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  font-size: 1rem;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
-  &:hover {
-    background: #8e44ad;
-    border-color: #8e44ad;
-  }
+  display: inline-block;
+  border: 2px solid;
 
   &:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(155, 89, 182, 0.7);
   }
+
+  &.buy {
+    background: #9b59b6;
+    border-color: #9b59b6;
+
+    &:hover {
+      background: #8e44ad;
+      border-color: #8e44ad;
+    }
+  }
+
+  &.view {
+    background-color: #3a59ce;
+    border: none;
+
+    &:hover {
+      background-color: #2f47a0;
+    }
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  width: 50%;
+  display: inline-block;
+  color: inherit;
 `;

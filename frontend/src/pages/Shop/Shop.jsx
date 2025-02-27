@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ProductList from "../components/Products/ProductList/ProductList";
-import FilterSidebar from "../components/FilterSideBar/FilterSideBar";
+import ProductList from "../../components/Products/ProductList/ProductList";
+import FilterSidebar from "../../components/FilterSideBar/FilterSideBar";
+import { ShopContainer, ProductListContainer } from "./Shop.styles";
 
 const Shop = () => {
   const [categoryFilter, setCategoryFilter] = useState("");
@@ -13,6 +14,9 @@ const Shop = () => {
     const animal = params.get("animal");
     if (animal) {
       setAnimalFilter(animal);
+    } else {
+      setAnimalFilter("");
+      setCategoryFilter("");
     }
   }, [location.search]);
 
@@ -25,20 +29,20 @@ const Shop = () => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <ShopContainer>
       <FilterSidebar
         categoryFilter={categoryFilter}
         animalFilter={animalFilter}
         handleCategoryChange={handleCategoryChange}
         handleAnimalChange={handleAnimalChange}
       />
-      <div style={{ flex: 1, padding: "20px" }}>
+      <ProductListContainer>
         <ProductList
           categoryFilter={categoryFilter}
           animalFilter={animalFilter}
         />
-      </div>
-    </div>
+      </ProductListContainer>
+    </ShopContainer>
   );
 };
 

@@ -85,8 +85,8 @@ const CartModal = ({ isOpen, closeModal }) => {
 };
 
 CartModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  closeModal: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool,
+  closeModal: PropTypes.func,
 };
 
 export default CartModal;

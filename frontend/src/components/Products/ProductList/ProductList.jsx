@@ -1,32 +1,39 @@
 import PropTypes from "prop-types";
-import useFilteredProducts from "../../Hooks/useFilteredProducts.jsx";
+import { useContext } from "react";
+import { ProductContext } from "../../../context/ShopContext";
 import ItemList from "../../../UI/ItemList/ItemList.jsx";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductList = ({ categoryFilter, animalFilter }) => {
-  const { filteredProducts, visibleCount, handleLoadMore, loading } =
-    useFilteredProducts(categoryFilter, animalFilter);
+  const { products, loading, searchQuery } = useContext(ProductContext);
 
   if (loading) return <p>Cargando productos...</p>;
 
-  const renderProduct = (product) => (
-    <ProductCard
-      key={product._id}
-      id={product._id}
-      image={product.image}
-      category={product.category}
-      name={product.name}
-      price={product.price}
-    />
-  );
+  const filteredProducts = products
+    .filter(
+      (product) =>
+        (!categoryFilter || product.category === categoryFilter) &&
+        (!animalFilter || product.animalType === animalFilter)
+    )
+    .filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
   return (
     <ItemList
-      items={filteredProducts.slice(0, visibleCount)}
+      items={filteredProducts}
       title="Nuestros productos"
-      renderItem={renderProduct}
-      loadMore={handleLoadMore}
-      showLoadMore={visibleCount < filteredProducts.length}
+      renderItem={(product) => (
+        <ProductCard
+          key={product._id}
+          id={Number(product._id)}
+          image={product.image}
+          category={product.category}
+          name={product.name}
+          price={product.price}
+        />
+      )}
+      showLoadMore={false}
     />
   );
 };

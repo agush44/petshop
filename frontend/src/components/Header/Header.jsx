@@ -1,6 +1,6 @@
-// src/components/Header.js
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/ShopContext";
+import { ProductContext } from "../../context/ShopContext";
 import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 import CartModal from "../../pages/CartPage/CartModal";
 import {
@@ -15,17 +15,27 @@ import {
   HeaderBottom,
   StyledLink,
 } from "./Header.styles";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { totalItems } = useContext(CartContext);
+  const { searchQuery, setSearchQuery } = useContext(ProductContext);
+  const navigate = useNavigate();
 
-  const openModal = () => {
-    setIsModalOpen(true);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const handleSearch = () => {
+    if (searchQuery.trim() !== "") {
+      navigate("/shop"); // Redirige a la página de productos
+    }
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
   };
 
   return (
@@ -34,8 +44,14 @@ const Header = () => {
         <HeaderBottom>
           <Logo src="logo.png" alt="Logo PetShop" />
           <SearchContainer>
-            <SearchBar type="text" placeholder="Buscar productos..." />
-            <SearchButton>
+            <SearchBar
+              type="text"
+              placeholder="Buscar productos..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleKeyPress}
+            />
+            <SearchButton onClick={handleSearch}>
               <SearchIcon>
                 <FaSearch />
               </SearchIcon>

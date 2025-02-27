@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { memo } from "react";
+import { useContext } from "react";
+import { CartContext } from "../../../context/ShopContext";
+import toast from "react-hot-toast";
 import {
   Card,
   ProductImage,
@@ -7,27 +10,47 @@ import {
   ProductCategory,
   ProductName,
   ProductPrice,
-  AddToCartButton,
+  ButtonContainer,
+  Button,
+  StyledLink,
 } from "./ProductCard.styles.js";
 
-const ProductCard = ({ id, image, category, name, price }) => {
+const ProductCard = memo(function ProductCard({
+  id,
+  image,
+  category,
+  name,
+  price,
+}) {
+  const { addToCart } = useContext(CartContext);
+
+  const handleBuyClick = () => {
+    addToCart({ id, image, category, name, price });
+    toast.success("Producto agregado al carrito 🛒", {
+      duration: 3000,
+      position: "end-center",
+    });
+  };
+
   return (
     <Card>
-      <Link
-        to={`/shop/product/${id}`}
-        style={{ textDecoration: "none", color: "inherit" }}
-      >
-        <ProductImage src={image} alt={name} loading="lazy" />
-        <ProductInfo>
-          <ProductCategory>{category}</ProductCategory>
-          <ProductName>{name}</ProductName>
-          <ProductPrice>${price.toFixed(2)}</ProductPrice>
-          <AddToCartButton>Ver producto</AddToCartButton>
-        </ProductInfo>
-      </Link>
+      <ProductImage src={image} alt={name} loading="lazy" />
+      <ProductInfo>
+        <ProductCategory>{category}</ProductCategory>
+        <ProductName>{name}</ProductName>
+        <ProductPrice>${price.toFixed(2)}</ProductPrice>
+        <ButtonContainer>
+          <Button onClick={handleBuyClick} className="buy">
+            Comprar
+          </Button>
+          <StyledLink to={`/shop/product/${id}`}>
+            <Button className="view">Ver</Button>
+          </StyledLink>
+        </ButtonContainer>
+      </ProductInfo>
     </Card>
   );
-};
+});
 
 ProductCard.propTypes = {
   id: PropTypes.number.isRequired,

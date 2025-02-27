@@ -271,3 +271,26 @@ export const StyledLink = styled(Link)`
   cursor: pointer;
   padding-top: 0.5rem;
 `;
+
+export const SearchResultsContainer = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+`;
+
+export const SearchResultItem = styled.div`
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background: #f5f5f5;
+  }
+`;

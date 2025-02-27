@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { CartContext } from "./ShopContext";
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -31,11 +38,13 @@ const CartProvider = ({ children }) => {
 
   const decreaseQuantity = (productId) => {
     setCart((prevCart) =>
-      prevCart.map((item) =>
-        item._id === productId && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
+      prevCart
+        .map((item) =>
+          item._id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
     );
   };
 
@@ -48,7 +57,9 @@ const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (productId) => {
-    setCart(cart.filter((product) => product._id !== productId));
+    setCart((prevCart) =>
+      prevCart.filter((product) => product._id !== productId)
+    );
   };
 
   const clearCart = () => setCart([]);
