@@ -26,7 +26,7 @@ const ProductList = ({ categoryFilter, animalFilter }) => {
       renderItem={(product) => (
         <ProductCard
           key={product._id}
-          id={product._id ? String(product._id) : "default-id"}
+          _id={product._id}
           image={product.image}
           category={product.category}
           name={product.name}

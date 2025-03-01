@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { memo } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../../context/ShopContext";
+
 import {
   Card,
   ProductImage,
@@ -15,7 +16,7 @@ import {
 } from "./ProductCard.styles.js";
 
 const ProductCard = memo(function ProductCard({
-  id,
+  _id,
   image,
   category,
   name,
@@ -32,12 +33,12 @@ const ProductCard = memo(function ProductCard({
         <ProductPrice>${price.toFixed(2)}</ProductPrice>
         <ButtonContainer>
           <Button
-            onClick={() => addToCart({ id, image, category, name, price })}
+            onClick={() => addToCart({ _id, image, category, name, price })}
             className="buy"
           >
             Comprar
           </Button>
-          <StyledLink to={`/shop/product/${id}`}>
+          <StyledLink to={`/shop/product/${_id}`}>
             <Button className="view">Ver</Button>
           </StyledLink>
         </ButtonContainer>
@@ -47,7 +48,7 @@ const ProductCard = memo(function ProductCard({
 });
 
 ProductCard.propTypes = {
-  id: PropTypes.number.isRequired,
+  _id: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

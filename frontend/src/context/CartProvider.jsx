@@ -16,12 +16,12 @@ const CartProvider = ({ children }) => {
   const addToCart = (newProduct) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find(
-        (item) => item.id === newProduct.id
+        (item) => item._id === newProduct._id
       );
 
       if (existingProduct) {
         return prevCart.map((item) =>
-          item.id === newProduct.id
+          item._id === newProduct._id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
