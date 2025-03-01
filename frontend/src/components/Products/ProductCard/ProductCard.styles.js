@@ -51,8 +51,8 @@ export const ProductPrice = styled.p`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  gap: 1rem;
   margin-top: 1rem;
+  gap: 1rem;
 `;
 
 export const Button = styled.button`
@@ -84,6 +84,7 @@ export const Button = styled.button`
   &.view {
     background-color: #3a59ce;
     border: none;
+    width: 100%;
 
     &:hover {
       background-color: #2f47a0;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import PropTypes from "prop-types";
 import { CartContext } from "./ShopContext";
 
@@ -23,6 +24,11 @@ const CartProvider = ({ children }) => {
             : item
         );
       }
+
+      toast.success("Producto agregado al carrito 🛒", {
+        duration: 3000,
+        position: "end-center",
+      });
 
       return [...prevCart, { ...product, quantity: 1 }];
     });
