@@ -50,10 +50,11 @@ const ProductDetail = () => {
             <FaTruck size={20} />
             <PaymentShippingText>Envío gratis en Santa Fe</PaymentShippingText>
           </FeatureItem>
-          <AddToCartButton onClick={() => addToCart(product)}>
+          <AddToCartButton
+            onClick={() => addToCart({ ...product, id: String(product._id) })}
+          >
             Agregar al carrito
           </AddToCartButton>
-
           <BackButton onClick={() => navigate(-1)}>Volver</BackButton>
         </DetailInfo>
       </DetailContainer>

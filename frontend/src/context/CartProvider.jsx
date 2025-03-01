@@ -13,13 +13,16 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product) => {
+  const addToCart = (newProduct) => {
     setCart((prevCart) => {
-      const existingProduct = prevCart.find((item) => item._id === product._id);
+      const existingProduct = prevCart.find(
+        (item) => item.id === newProduct.id
+      );
 
       if (existingProduct) {
+        // Si el producto ya está en el carrito, incrementa la cantidad
         return prevCart.map((item) =>
-          item._id === product._id
+          item.id === newProduct.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
@@ -30,7 +33,7 @@ const CartProvider = ({ children }) => {
         position: "end-center",
       });
 
-      return [...prevCart, { ...product, quantity: 1 }];
+      return [...prevCart, { ...newProduct, quantity: 1 }];
     });
   };
 
