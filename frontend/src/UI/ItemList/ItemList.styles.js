@@ -19,14 +19,17 @@ export const ItemListContainer = styled.div`
 
   /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
+    padding: 0 1rem;
   }
 
   /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
+    padding: 0 1rem;
   }
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
+    padding: 0 1rem;
   }
 `;
 
