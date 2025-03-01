@@ -20,7 +20,6 @@ const CartProvider = ({ children }) => {
       );
 
       if (existingProduct) {
-        // Si el producto ya está en el carrito, incrementa la cantidad
         return prevCart.map((item) =>
           item.id === newProduct.id
             ? { ...item, quantity: item.quantity + 1 }
@@ -69,6 +68,11 @@ const CartProvider = ({ children }) => {
     setCart((prevCart) =>
       prevCart.filter((product) => product._id !== productId)
     );
+
+    toast.success("Producto eliminado del carrito 🗑️", {
+      duration: 3000,
+      position: "end-center",
+    });
   };
 
   const clearCart = () => setCart([]);
