@@ -17,6 +17,14 @@ export const HeaderContainer = styled.header`
 
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  }
+
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
   }

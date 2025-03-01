@@ -28,13 +28,7 @@ const Header = () => {
 
   const handleSearch = () => {
     if (searchQuery.trim() !== "") {
-      navigate("/shop"); // Redirige a la página de productos
-    }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
+      navigate("/shop");
     }
   };
 
@@ -49,7 +43,6 @@ const Header = () => {
               placeholder="Buscar productos..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={handleKeyPress}
             />
             <SearchButton onClick={handleSearch}>
               <SearchIcon>

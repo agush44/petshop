@@ -11,18 +11,36 @@ export const Nav = styled.nav`
   font-family: "Baloo 2", serif;
   font-weight: 400;
 
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  }
+
+  /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     justify-content: space-around;
     padding: 1rem;
   }
+
+  /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
     height: auto;
     padding: 2rem;
     gap: 2rem;
   }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
     padding: 1.2rem;
   }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
     height: 1.8rem;
     padding: 2rem;
@@ -91,6 +109,16 @@ export const MobileMenuIcon = styled.div`
   color: #f9f7f0;
   cursor: pointer;
   z-index: 1001;
+
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    display: flex;
+    padding: 0.3rem;
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  }
 
   @media (min-width: 768px) {
     display: none;
