@@ -49,11 +49,6 @@ const Header = () => {
               placeholder="Buscar productos..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyPress={(e) => {
-                if (e.key === "Enter") {
-                  handleSearch();
-                }
-              }}
             />
             <SearchButton onClick={openSearchModal}>
               <SearchIcon>

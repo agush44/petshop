@@ -3,13 +3,24 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// Contenedor del carrusel
 export const CarouselContainer = styled.div`
   width: 100%;
   max-width: 100vw;
   overflow: hidden;
   margin: 6rem 0;
   background-color: rgba(218, 220, 224, 0.51);
+
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  }
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+  }
 
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
@@ -31,12 +42,20 @@ export const CarouselContainer = styled.div`
   }
 `;
 
-// Estilo de cada slide
 export const Slide = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;
+
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    height: 140px;
+  }
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+  }
 
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
@@ -59,7 +78,6 @@ export const Slide = styled.div`
   }
 `;
 
-// Imagen de la marca
 export const BrandImage = styled.img`
   object-fit: contain;
   filter: grayscale(30%);
@@ -68,6 +86,12 @@ export const BrandImage = styled.img`
   &:hover {
     filter: grayscale(0%);
     transform: scale(1.1);
+  }
+
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    max-width: 100px;
+    max-height: 70px;
   }
 
   /* Large devices (tablets/laptops, 768px and up) */

@@ -5,6 +5,7 @@ import QuantityInput from "../../components/common/QuantityInput/QuantityInput";
 import { FaTrash } from "react-icons/fa";
 import {
   EmptyCartContainer,
+  StyledLink,
   AddProdButton,
   CartModalContainer,
   CartModalOverlay,
@@ -44,13 +45,14 @@ const CartModal = ({ isOpen, closeModal }) => {
             {cart.length === 0 ? (
               <EmptyCartContainer>
                 <CartText>El carrito está vacío</CartText>
-                <AddProdButton>Agregar productos</AddProdButton>
+                <StyledLink to="/shop">
+                  <AddProdButton>Agregar productos</AddProdButton>
+                </StyledLink>
               </EmptyCartContainer>
             ) : (
               cart.map((item) => (
                 <CartContainer key={item._id}>
                   {" "}
-                  {/* Cambio de `id` a `_id` */}
                   <ItemName>{item.name}</ItemName>
                   <ContentContainer>
                     <Img src={item.image} alt={item.name} width="50" />
@@ -59,17 +61,16 @@ const CartModal = ({ isOpen, closeModal }) => {
                     </TextContainer>
                     <QuantityInput
                       quantity={item.quantity}
-                      onIncrease={() => increaseQuantity(item._id)} // Cambio de `id` a `_id`
-                      onDecrease={() => decreaseQuantity(item._id)} // Cambio de `id` a `_id`
+                      onIncrease={() => increaseQuantity(item._id)}
+                      onDecrease={() => decreaseQuantity(item._id)}
                       onChange={(e) => {
                         const newQuantity = parseInt(e.target.value, 10);
                         if (!isNaN(newQuantity))
-                          updateQuantity(item._id, newQuantity); // Cambio de `id` a `_id`
+                          updateQuantity(item._id, newQuantity);
                       }}
                     />
                     <RemoveButton onClick={() => removeFromCart(item._id)}>
                       {" "}
-                      {/* Cambio de `id` a `_id` */}
                       <FaTrash size={20} color={`#3a58d0`} />
                     </RemoveButton>
                   </ContentContainer>

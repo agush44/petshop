@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaMotorcycle, FaTruck, FaCreditCard } from "react-icons/fa";
 
 export const FeatureBarContainer = styled.div`
   width: 100%;
@@ -11,23 +12,23 @@ export const FeatureBarContainer = styled.div`
   -webkit-box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
   -moz-box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
   gap: 5rem;
-  padding-left: 5%;
   color: #f9f7f0;
   margin-top: -1rem;
+  padding: 0 2rem;
 
   /* Extra small devices (phones, 320px and up) */
   @media (min-width: 320px) {
-    /* Estilos aquí */
+    gap: 1rem;
+    height: 100px;
   }
 
   /* Small devices (phones, 480px and up) */
   @media (min-width: 480px) {
-    /* Estilos aquí */
   }
 
   /* Medium devices (tablets, 576px and up) */
   @media (min-width: 576px) {
-    /* Estilos aquí */
+    paddng: 0 2rem;
   }
 
   /* Large devices (tablets/laptops, 768px and up) */
@@ -65,6 +66,19 @@ export const FeatureItem = styled.div`
   font-size: 1.1rem;
   font-weight: 500;
 
+  /* Extra small devices (phones, 320px and up) */
+  @media (min-width: 320px) {
+    font-size: 0.7rem;
+  }
+
+  /* Small devices (phones, 480px and up) */
+  @media (min-width: 480px) {
+  }
+
+  /* Medium devices (tablets, 576px and up) */
+  @media (min-width: 576px) {
+  }
+
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     font-size: 0.8rem;
@@ -89,18 +103,117 @@ export const FeatureItem = styled.div`
   }
 `;
 
-export const FaMotorcycle = styled.i`
+export const StyledFaMotorcycle = styled(FaMotorcycle)`
   color: #f9f7f0;
+
+  /* Extra small devices (phones, 320px and up) */
+  @media (min-width: 320px) {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  * Large devices (tablets/laptops, 768px and up) */ @media (min-width: 768px) {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    height: 3rem;
+    width: 3rem;
+  }
 `;
 
-export const FaTruck = styled.i`
+export const StyledFaTruck = styled(FaTruck)`
   color: #f9f7f0;
+
+  /* Extra small devices (phones, 320px and up) */
+  @media (min-width: 320px) {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  * Large devices (tablets/laptops, 768px and up) */ @media (min-width: 768px) {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    height: 3rem;
+    width: 3rem;
+  }
 `;
 
-export const FaCreditCard = styled.i`
+export const StyledFaCreditCard = styled(FaCreditCard)`
   color: #f9f7f0;
+
+  /* Extra small devices (phones, 320px and up) */
+  @media (min-width: 320px) {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    height: 3rem;
+    width: 3rem;
+  }
 `;
 
 export const Text = styled.p`
-  width: 50%;
+  /* Extra small devices (phones, 320px and up) */
+  @media (min-width: 320px) {
+    width: 70%;
+  }
+
+  /* Large devices (tablets/laptops, 768px and up) */
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+
+  /* Extra large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    width: 50%;
+  }
+
+  /* Extra extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    width: 50%;
+  }
+
+  /* Ultra-wide screens (4K displays, 1400px and up) */
+  @media (min-width: 1400px) {
+    width: 50%;
+  }
 `;

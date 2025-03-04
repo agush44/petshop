@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const CartModalOverlay = styled.div`
   position: fixed;
@@ -59,6 +60,10 @@ export const EmptyCartContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export const CartText = styled.p`

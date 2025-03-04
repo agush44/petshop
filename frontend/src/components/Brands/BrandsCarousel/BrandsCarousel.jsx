@@ -13,11 +13,12 @@ const BrandsCarousel = () => {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
-        slidesPerView={2}
+        slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         breakpoints={{
+          576: { slidesPerView: 3 },
           768: { slidesPerView: 4 },
           992: { slidesPerView: 4 },
           1024: { slidesPerView: 5 },
