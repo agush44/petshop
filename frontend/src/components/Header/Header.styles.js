@@ -54,6 +54,18 @@ export const Logo = styled.img`
   width: 5.5rem;
   margin-left: 1rem;
 
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    width: 3.8rem;
+    margin-left: 0.5rem;
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    width: 3.8rem;
+    margin-left: 0.5rem;
+  }
+
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     width: 4.5rem;
@@ -79,31 +91,45 @@ export const SearchContainer = styled.div`
   align-items: center;
   border: 1px solid #ddd;
   border-radius: 5px;
-  width: 45%;
-
-  margin-left: 5rem;
   border: none;
   box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
   -webkit-box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
   -moz-box-shadow: -2px 13px 28px -4px rgba(0, 0, 0, 0.48);
 
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    width: 100%;
+    margin: 0 2rem;
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    width: 100%;
+    margin: 0 2rem;
+  }
+
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     height: 2.5rem;
+    width: 45%;
+    margin: 0 1rem;
   }
 
   /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
+    width: 45%;
   }
 
   /* Extra extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
     height: 20%;
+    width: 45%;
   }
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
     height: 20%;
+    width: 45%;
   }
 `;
 
@@ -119,6 +145,14 @@ export const SearchBar = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
   }
 
   /* Large devices (tablets/laptops, 768px and up) */
@@ -207,7 +241,6 @@ export const Button = styled.button`
   justify-content: center;
   background-color: transparent;
   border: none;
-  padding: 0 1rem;
   cursor: pointer;
 
   svg {

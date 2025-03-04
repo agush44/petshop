@@ -75,6 +75,7 @@ export const VideoContainer = styled.div`
   /* Small devices (phones, 480px and up) */
   @media (min-width: 480px) {
     video {
+      height: 40vh;
     }
   }
 
@@ -82,13 +83,14 @@ export const VideoContainer = styled.div`
   @media (min-width: 576px) {
     video {
       height: 40vh;
+      width: 100%;
     }
   }
 
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     video {
-      height: 40vh;
+      height: 50vh;
     }
   }
 
@@ -123,7 +125,7 @@ export const VideoContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 90%;
+    width: 100%;
     height: auto;
     video {
       object-fit: cover;

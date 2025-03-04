@@ -13,6 +13,14 @@ export const ItemListContainer = styled.div`
   justify-content: center;
   gap: 1.5rem;
 
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  }
+
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
   }
@@ -46,6 +54,34 @@ export const ItemCard = styled.div`
     height: auto;
     border-radius: 8px;
     margin-bottom: 1rem;
+
+    /* Extra small devices (phones, less than 576px) */
+    @media (max-width: 575.98px) {
+      width: 90%;
+    }
+
+    /* Small devices (larger phones, 576px and up) */
+    @media (min-width: 576px) and (max-width: 767.98px) {
+    }
+
+    /* Large devices (tablets/laptops, 768px and up) */
+    @media (min-width: 768px) {
+    }
+
+    /* Extra large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+      padding: 0 1rem;
+    }
+
+    /* Extra extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+      padding: 0 1rem;
+    }
+
+    /* Ultra-wide screens (4K displays, 1400px and up) */
+    @media (min-width: 1400px) {
+      padding: 0 1rem;
+    }
   }
 
   div {

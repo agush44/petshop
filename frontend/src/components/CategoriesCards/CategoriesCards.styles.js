@@ -8,6 +8,14 @@ export const CategoriesContainer = styled.div`
   width: 100%;
   flex-wrap: wrap;
 
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  }
+
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     margin: 0;
@@ -57,6 +65,16 @@ export const CategoryCard = styled.div`
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  /* Extra small devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    max-width: 300px;
+    margin: 2rem 0;
+  }
+
+  /* Small devices (larger phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
   }
 
   /* Large devices (tablets/laptops, 768px and up) */
