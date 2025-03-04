@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { CartContext } from "../../context/ShopContext";
 import QuantityInput from "../../components/common/QuantityInput/QuantityInput";
 import { FaTrash } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   EmptyCartContainer,
   StyledLink,
   AddProdButton,
-  CartModalContainer,
   CartModalOverlay,
-  CartModalContent,
+  CartModalContainer,
   CloseButton,
   CartTitle,
   CartText,
@@ -36,23 +36,36 @@ const CartModal = ({ isOpen, closeModal }) => {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    isOpen && (
-      <CartModalOverlay>
-        <CartModalContainer>
-          <CartModalContent>
+    <AnimatePresence>
+      {isOpen && (
+        <CartModalOverlay
+          as={motion.div}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <CartModalContainer
+            as={motion.div}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
             <CloseButton onClick={closeModal}>X</CloseButton>
             <CartTitle>Carrito de Compras</CartTitle>
             {cart.length === 0 ? (
               <EmptyCartContainer>
                 <CartText>El carrito está vacío</CartText>
                 <StyledLink to="/shop">
-                  <AddProdButton>Agregar productos</AddProdButton>
+                  <AddProdButton onClick={closeModal}>
+                    Agregar productos
+                  </AddProdButton>
                 </StyledLink>
               </EmptyCartContainer>
             ) : (
               cart.map((item) => (
                 <CartContainer key={item._id}>
-                  {" "}
                   <ItemName>{item.name}</ItemName>
                   <ContentContainer>
                     <Img src={item.image} alt={item.name} width="50" />
@@ -70,7 +83,6 @@ const CartModal = ({ isOpen, closeModal }) => {
                       }}
                     />
                     <RemoveButton onClick={() => removeFromCart(item._id)}>
-                      {" "}
                       <FaTrash size={20} color={`#3a58d0`} />
                     </RemoveButton>
                   </ContentContainer>
@@ -82,10 +94,10 @@ const CartModal = ({ isOpen, closeModal }) => {
                 <TotalText>Total: ${total.toFixed(2)}</TotalText>
               </TotalContainer>
             )}
-          </CartModalContent>
-        </CartModalContainer>
-      </CartModalOverlay>
-    )
+          </CartModalContainer>
+        </CartModalOverlay>
+      )}
+    </AnimatePresence>
   );
 };
 
