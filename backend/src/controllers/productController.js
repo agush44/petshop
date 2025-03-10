@@ -9,6 +9,20 @@ const getProducts = async (req, res) => {
   }
 };
 
+const getPromotionProducts = async (req, res) => {
+  try {
+    const currentDate = new Date();
+    const products = await Product.find({
+      discount: { $gt: 0 },
+      discountExpiresAt: { $gte: currentDate },
+    });
+
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching promotion products" });
+  }
+};
+
 const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -61,6 +75,7 @@ const deleteProduct = async (req, res) => {
 
 export {
   getProducts,
+  getPromotionProducts,
   getProductById,
   createProduct,
   updateProduct,

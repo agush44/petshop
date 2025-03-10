@@ -39,6 +39,7 @@ export const HeaderContainer = styled.header`
 
   /* Ultra-wide screens (4K displays, 1400px and up) */
   @media (min-width: 1400px) {
+    padding: 1.2rem;
   }
 `;
 

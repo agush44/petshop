@@ -31,6 +31,8 @@ const ProductList = ({ categoryFilter, animalFilter }) => {
           category={product.category}
           name={product.name}
           price={product.price}
+          discount={product.discount}
+          discountExpiresAt={product.discountExpiresAt}
         />
       )}
       showLoadMore={false}

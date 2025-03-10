@@ -1,22 +1,36 @@
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
+const fetchData = async (url, options = {}) => {
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Fetch error:", error);
+    throw error;
+  }
+};
+
 // Obtener todos los productos
 export const fetchProducts = async () => {
-  const response = await fetch(`${API_URL}/api/products`);
-  if (!response.ok) throw new Error("Error al obtener productos");
-  return await response.json();
+  return fetchData(`${API_URL}/api/products`);
+};
+
+// Obtener productos con promoción
+export const getPromotionProducts = async () => {
+  return fetchData(`${API_URL}/api/products/promotions`);
 };
 
 // Obtener producto por ID
 export const fetchProductById = async (id) => {
-  const response = await fetch(`${API_URL}/${id}`);
-  if (!response.ok) throw new Error("Error al obtener el producto");
-  return await response.json();
+  return fetchData(`${API_URL}/api/products/${id}`);
 };
 
 // Crear un producto (requiere autenticación)
 export const createProduct = async (productData, token) => {
-  const response = await fetch(`${API_URL}/`, {
+  return fetchData(`${API_URL}/api/products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,13 +38,11 @@ export const createProduct = async (productData, token) => {
     },
     body: JSON.stringify(productData),
   });
-  if (!response.ok) throw new Error("Error al crear el producto");
-  return await response.json();
 };
 
 // Actualizar un producto
 export const updateProduct = async (id, productData, token) => {
-  const response = await fetch(`${API_URL}/${id}`, {
+  return fetchData(`${API_URL}/api/products/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -38,18 +50,14 @@ export const updateProduct = async (id, productData, token) => {
     },
     body: JSON.stringify(productData),
   });
-  if (!response.ok) throw new Error("Error al actualizar el producto");
-  return await response.json();
 };
 
 // Eliminar un producto
 export const deleteProduct = async (id, token) => {
-  const response = await fetch(`${API_URL}/${id}`, {
+  return fetchData(`${API_URL}/api/products/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-  if (!response.ok) throw new Error("Error al eliminar el producto");
-  return await response.json();
 };

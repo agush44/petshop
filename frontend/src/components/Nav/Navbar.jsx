@@ -47,8 +47,8 @@ const Navbar = () => {
             </StyledLink>
           </li>
           <li>
-            <StyledLink to="/novedades" onClick={handleLinkClick}>
-              NOVEDADES
+            <StyledLink to="/promociones" onClick={handleLinkClick}>
+              PROMOCIONES
             </StyledLink>
           </li>
         </Ul>
@@ -70,8 +70,8 @@ const Navbar = () => {
           <StyledLink to="/marcas" onClick={handleLinkClick}>
             Marcas
           </StyledLink>
-          <StyledLink to="/novedades" onClick={handleLinkClick}>
-            Novedades
+          <StyledLink to="/promociones" onClick={handleLinkClick}>
+            Promociones
           </StyledLink>
         </MobileMenuContent>
       </MobileMenuWrapper>

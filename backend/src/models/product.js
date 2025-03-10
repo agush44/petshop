@@ -44,6 +44,15 @@ const productSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+
+    discount: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 100,
+    },
+
+    discountExpiresAt: { type: Date },
   },
   { versionKey: false, timestamps: true }
 );

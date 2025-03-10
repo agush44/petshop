@@ -5,6 +5,7 @@ export const FooterContainer = styled.footer`
   background-color: #3a58cf;
   color: white;
   text-align: center;
+  margin-top: 3rem;
   font-family: "Baloo 2", serif;
 
   /* Large devices (tablets/laptops, 768px and up) */

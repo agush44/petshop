@@ -20,6 +20,9 @@ const productSchema = Joi.object({
   createdAt: Joi.date()
     .default(() => new Date())
     .iso(),
+
+  discount: Joi.number().min(0).max(100).optional(),
+  discountExpiresAt: Joi.date().optional(),
 });
 
 export { productSchema };

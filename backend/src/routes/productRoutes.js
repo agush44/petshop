@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   getProducts,
+  getPromotionProducts,
   getProductById,
   createProduct,
   updateProduct,
@@ -13,6 +14,7 @@ import { productSchema } from "../validations/productValidation.js";
 const productRoutes = Router();
 
 productRoutes.get("/", getProducts);
+productRoutes.get("/promotions", getPromotionProducts);
 productRoutes.get("/:id", getProductById);
 productRoutes.post("/", authToken, validate(productSchema), createProduct);
 productRoutes.put("/:id", authToken, validate(productSchema), updateProduct);

@@ -44,6 +44,7 @@ const CartModal = ({ isOpen, closeModal }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
+          onClick={closeModal}
         >
           <CartModalContainer
             as={motion.div}
@@ -51,6 +52,7 @@ const CartModal = ({ isOpen, closeModal }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4, ease: "easeOut" }}
+            onClick={(e) => e.stopPropagation()}
           >
             <CloseButton onClick={closeModal}>X</CloseButton>
             <CartTitle>Carrito de Compras</CartTitle>

@@ -42,10 +42,35 @@ export const ProductName = styled.h3`
 `;
 
 export const ProductPrice = styled.p`
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
   color: #2a9d8f;
   margin: 0.5rem 0;
+  font-weight: bold;
+`;
+
+export const DiscountedPrice = styled.span`
+  text-decoration: line-through;
+  margin-right: 0.5rem;
+  color: #e74c3c;
+`;
+
+export const DiscountPercentage = styled.span`
+  display: block;
+  font-size: 1rem;
+  color: #e74c3c;
+  margin-top: 0.5rem;
+  font-weight: bold;
+`;
+
+export const NewPrice = styled.span`
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+export const ExpiredPromotion = styled.span`
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 `;
 
 export const ButtonContainer = styled.div`
