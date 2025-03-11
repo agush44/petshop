@@ -19,6 +19,10 @@ const CartProvider = ({ children }) => {
         (item) => item._id === newProduct._id
       );
 
+      const finalPrice = newProduct.discount
+        ? newProduct.price * (1 - newProduct.discount / 100)
+        : newProduct.price;
+
       if (existingProduct) {
         return prevCart.map((item) =>
           item._id === newProduct._id
@@ -32,7 +36,7 @@ const CartProvider = ({ children }) => {
         position: "end-center",
       });
 
-      return [...prevCart, { ...newProduct, quantity: 1 }];
+      return [...prevCart, { ...newProduct, quantity: 1, finalPrice }];
     });
   };
 
@@ -79,7 +83,7 @@ const CartProvider = ({ children }) => {
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (sum, item) => sum + item.finalPrice * item.quantity,
     0
   );
 

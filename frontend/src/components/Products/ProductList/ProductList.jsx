@@ -22,7 +22,7 @@ const ProductList = ({ categoryFilter, animalFilter }) => {
   return (
     <ItemList
       items={filteredProducts}
-      title="Nuestros productos"
+      title="🐾 Nuestros productos 🐾"
       renderItem={(product) => (
         <ProductCard
           key={product._id}

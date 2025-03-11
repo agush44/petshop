@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 import {
   HeroTotalContainer,
   HeroContainer,
@@ -20,31 +21,40 @@ const Hero = () => {
             navigation={true}
           >
             <SwiperSlide>
-              <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
+              <Link to="/shop">
+                {" "}
+                <video
+                  src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
+              <Link to="/shop">
+                {" "}
+                <video
+                  src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <video
-                src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
+              <Link to="/shop">
+                {" "}
+                <video
+                  src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </Link>
             </SwiperSlide>
           </Swiper>
         </VideoContainer>

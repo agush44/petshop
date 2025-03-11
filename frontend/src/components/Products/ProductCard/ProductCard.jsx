@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
-import { memo } from "react";
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import { CartContext } from "../../../context/ShopContext";
 import {
   Card,
@@ -29,8 +28,13 @@ const ProductCard = memo(function ProductCard({
 }) {
   const { addToCart } = useContext(CartContext);
 
-  const discountedPrice = discount ? price * (1 - discount / 100) : price;
-  const discountPercentage = discount > 0 ? discount : null;
+  const isDiscountValid =
+    discount &&
+    (!discountExpiresAt || new Date(discountExpiresAt) > new Date());
+
+  const discountedPrice = isDiscountValid
+    ? price * (1 - discount / 100)
+    : price;
 
   return (
     <Card>
@@ -38,26 +42,37 @@ const ProductCard = memo(function ProductCard({
       <ProductInfo>
         <ProductCategory>{category}</ProductCategory>
         <ProductName>{name}</ProductName>
-        {discountPercentage && (
+
+        {isDiscountValid ? (
           <>
             <ProductPrice>
               <DiscountedPrice>${price.toFixed(2)}</DiscountedPrice>
               <NewPrice>${discountedPrice.toFixed(2)}</NewPrice>
             </ProductPrice>
-            <DiscountPercentage>
-              {discountPercentage}% OFF 🔥
-            </DiscountPercentage>
-            {discountExpiresAt && new Date(discountExpiresAt) < new Date() && (
-              <ExpiredPromotion>¡La promoción ha expirado!</ExpiredPromotion>
-            )}
+            <DiscountPercentage>{discount}% OFF 🔥</DiscountPercentage>
           </>
-        )}
-        {!discountPercentage && (
+        ) : (
           <ProductPrice>${price.toFixed(2)}</ProductPrice>
         )}
+
+        {/* Mensaje si la promoción expiró */}
+        {discountExpiresAt && new Date(discountExpiresAt) < new Date() && (
+          <ExpiredPromotion>¡La promoción ha expirado!</ExpiredPromotion>
+        )}
+
         <ButtonContainer>
           <Button
-            onClick={() => addToCart({ _id, image, category, name, price })}
+            onClick={() =>
+              addToCart({
+                _id,
+                image,
+                category,
+                name,
+                price,
+                discount,
+                finalPrice: discountedPrice,
+              })
+            }
             className="buy"
           >
             Comprar

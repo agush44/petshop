@@ -66,9 +66,29 @@ export const DetailName = styled.h1`
   font-weight: bold;
 `;
 
-export const DetailPrice = styled.p`
-  font-size: clamp(1.5rem, 4vw, 1.8rem);
-  color: #333;
+export const DiscountedPrice = styled.span`
+  text-decoration: line-through;
+  margin-right: 0.5rem;
+  color: #e74c3c;
+`;
+
+export const DiscountPercentage = styled.span`
+  display: block;
+  font-size: 1rem;
+  color: #e74c3c;
+  margin-top: 0.5rem;
+  font-weight: bold;
+`;
+
+export const NewPrice = styled.span`
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+export const ProductPrice = styled.p`
+  font-size: 1.2rem;
+  color: #2a9d8f;
+  margin: 0.5rem 0;
   font-weight: bold;
 `;
 

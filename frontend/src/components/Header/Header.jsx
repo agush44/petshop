@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../context/ShopContext";
 import { FaShoppingCart } from "react-icons/fa";
 import CartModal from "../../pages/CartPage/CartModal";
@@ -19,7 +20,9 @@ const Header = () => {
   return (
     <>
       <HeaderContainer>
-        <Logo src="logo.png" alt="Logo PetShop" />
+        <Link to="/">
+          <Logo src="logo.png" alt="Logo PetShop" />
+        </Link>
         <SearchBar />
         <AccountCartContainer>
           <Button onClick={openModal}>

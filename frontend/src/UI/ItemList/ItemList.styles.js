@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Title = styled.h2`
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   color: #333;
   margin: 3rem;
 `;
@@ -57,7 +57,6 @@ export const ItemCard = styled.div`
 
     /* Extra small devices (phones, less than 576px) */
     @media (max-width: 575.98px) {
-      width: 90%;
     }
 
     /* Small devices (larger phones, 576px and up) */
