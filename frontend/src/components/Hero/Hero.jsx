@@ -22,37 +22,37 @@ const Hero = () => {
           >
             <SwiperSlide>
               <Link to="/shop">
-                {" "}
                 <video
                   src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
                   autoPlay
                   muted
                   loop
                   playsInline
+                  loading="lazy"
                 />
               </Link>
             </SwiperSlide>
             <SwiperSlide>
               <Link to="/shop">
-                {" "}
                 <video
                   src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
                   autoPlay
                   muted
                   loop
                   playsInline
+                  loading="lazy"
                 />
               </Link>
             </SwiperSlide>
             <SwiperSlide>
               <Link to="/shop">
-                {" "}
                 <video
                   src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
                   autoPlay
                   muted
                   loop
                   playsInline
+                  loading="lazy"
                 />
               </Link>
             </SwiperSlide>

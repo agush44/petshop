@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { memo, useContext } from "react";
+import { memo, useContext, useState } from "react";
 import { CartContext } from "../../../context/ShopContext";
 import {
   Card,
@@ -27,6 +27,7 @@ const ProductCard = memo(function ProductCard({
   discountExpiresAt,
 }) {
   const { addToCart } = useContext(CartContext);
+  const [imgError, setImgError] = useState(false);
 
   const isDiscountValid =
     discount &&
@@ -36,9 +37,24 @@ const ProductCard = memo(function ProductCard({
     ? price * (1 - discount / 100)
     : price;
 
+  const fallbackImage = "/images/placeholder.png";
+
   return (
     <Card>
-      <ProductImage src={image} alt={name} loading="lazy" />
+      <picture>
+        {/* Intenta usar WebP si está disponible */}
+        <source
+          srcSet={image.replace(/\.(jpg|png)$/i, ".webp")}
+          type="image/webp"
+        />
+        <ProductImage
+          src={imgError ? fallbackImage : image}
+          alt={name}
+          loading="lazy"
+          onError={() => setImgError(true)}
+        />
+      </picture>
+
       <ProductInfo>
         <ProductCategory>{category}</ProductCategory>
         <ProductName>{name}</ProductName>
@@ -55,7 +71,6 @@ const ProductCard = memo(function ProductCard({
           <ProductPrice>${price.toFixed(2)}</ProductPrice>
         )}
 
-        {/* Mensaje si la promoción expiró */}
         {discountExpiresAt && new Date(discountExpiresAt) < new Date() && (
           <ExpiredPromotion>¡La promoción ha expirado!</ExpiredPromotion>
         )}

@@ -10,9 +10,21 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     const loadProducts = async () => {
+      // Solo intenta cargar productos si no hay productos ya cargados
+      if (products.length > 0) return;
+
       try {
         const data = await fetchProducts();
-        setProducts(data);
+
+        // Optimiza las imágenes y maneja errores
+        const formattedProducts = data.map((product) => ({
+          ...product,
+          image: product.image
+            ? product.image.replace(/\.(jpg|png)$/i, ".webp") // Intenta usar WebP
+            : "/images/placeholder.png", // Imagen de respaldo
+        }));
+
+        setProducts(formattedProducts);
       } catch (error) {
         console.error("Error al obtener productos", error);
       } finally {
@@ -21,7 +33,7 @@ const ProductProvider = ({ children }) => {
     };
 
     loadProducts();
-  }, []);
+  }, [products.length]); // Dependencia de length para evitar recarga innecesaria
 
   return (
     <ProductContext.Provider
