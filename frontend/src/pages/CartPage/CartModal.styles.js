@@ -64,6 +64,9 @@ export const EmptyCartContainer = styled.div`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 export const CartText = styled.p`
@@ -74,16 +77,21 @@ export const CartText = styled.p`
 `;
 
 export const AddProdButton = styled.button`
-  padding: 10px 20px;
+  padding: 0.9rem;
   background-color: #3a58d0;
   color: #fff;
+  width: 80%;
   border: none;
-  border-radius: 4px;
+  border-radius: 8rem;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 0.9rem;
+  font-family: "Montserrat", sans-serif;
+  fill: #fffcf5;
+  letter-spacing: 2px;
+  font-weight: bold;
 
   &:hover {
-    background-color: #2f47a0;
+    opacity: 0.9;
   }
 `;
 
@@ -95,23 +103,43 @@ export const CartContainer = styled.div`
   width: 100%;
 `;
 
+export const ProductPrice = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+export const DiscountedPrice = styled.span`
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 10px;
+  font-size: 1rem;
+`;
+
+export const NewPrice = styled.span`
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2a9d8f;
+`;
+
 export const ItemName = styled.h3`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #333;
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   align-items: center;
   padding-top: 15px;
 `;
 
 export const Img = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 95px;
+  height: 95px;
   object-fit: cover;
 `;
 
@@ -120,7 +148,7 @@ export const TextContainer = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
 `;
 
@@ -132,6 +160,7 @@ export const RemoveButton = styled.button`
 
 export const TotalContainer = styled.div`
   text-align: center;
+  padding-top: 2rem;
 `;
 
 export const TotalText = styled.p`

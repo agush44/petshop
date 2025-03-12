@@ -24,6 +24,9 @@ import {
   RemoveButton,
   TotalContainer,
   TotalText,
+  ProductPrice,
+  DiscountedPrice,
+  NewPrice,
 } from "./CartModal.styles";
 
 const CartModal = ({ isOpen, closeModal }) => {
@@ -35,7 +38,10 @@ const CartModal = ({ isOpen, closeModal }) => {
     removeFromCart,
   } = useContext(CartContext);
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = cart.reduce(
+    (sum, item) => sum + item.finalPrice * item.quantity,
+    0
+  );
 
   return (
     <AnimatePresence>
@@ -63,35 +69,58 @@ const CartModal = ({ isOpen, closeModal }) => {
                 <CartText>El carrito está vacío</CartText>
                 <StyledLink to="/shop">
                   <AddProdButton onClick={closeModal}>
-                    Agregar productos
+                    AGREGAR PRODUCTOS
                   </AddProdButton>
                 </StyledLink>
               </EmptyCartContainer>
             ) : (
-              cart.map((item) => (
-                <CartContainer key={item._id}>
-                  <ItemName>{item.name}</ItemName>
-                  <ContentContainer>
-                    <Img src={item.image} alt={item.name} width="50" />
-                    <TextContainer>
-                      <Text>Precio: {formatPrice(item.price)}</Text>
-                    </TextContainer>
-                    <QuantityInput
-                      quantity={item.quantity}
-                      onIncrease={() => increaseQuantity(item._id)}
-                      onDecrease={() => decreaseQuantity(item._id)}
-                      onChange={(e) => {
-                        const newQuantity = parseInt(e.target.value, 10);
-                        if (!isNaN(newQuantity))
-                          updateQuantity(item._id, newQuantity);
-                      }}
-                    />
-                    <RemoveButton onClick={() => removeFromCart(item._id)}>
-                      <FaTrash size={20} color={`#3a58d0`} />
-                    </RemoveButton>
-                  </ContentContainer>
-                </CartContainer>
-              ))
+              cart.map((item) => {
+                const isDiscountValid =
+                  item.discount &&
+                  (!item.discountExpiresAt ||
+                    new Date(item.discountExpiresAt) > new Date());
+
+                const finalPrice = isDiscountValid
+                  ? item.price * (1 - item.discount / 100)
+                  : item.price;
+
+                return (
+                  <CartContainer key={item._id}>
+                    <ItemName>{item.name}</ItemName>
+                    <ContentContainer>
+                      <Img src={item.image} alt={item.name} width="50" />
+                      <TextContainer>
+                        <ProductPrice>
+                          {isDiscountValid ? (
+                            <>
+                              <DiscountedPrice>
+                                {formatPrice(item.price)}
+                              </DiscountedPrice>
+                              <NewPrice>{formatPrice(finalPrice)}</NewPrice>
+                            </>
+                          ) : (
+                            <NewPrice>{formatPrice(item.price)}</NewPrice>
+                          )}
+                        </ProductPrice>
+                        <Text>Cantidad: {item.quantity}</Text>
+                      </TextContainer>
+                      <QuantityInput
+                        quantity={item.quantity}
+                        onIncrease={() => increaseQuantity(item._id)}
+                        onDecrease={() => decreaseQuantity(item._id)}
+                        onChange={(e) => {
+                          const newQuantity = parseInt(e.target.value, 10);
+                          if (!isNaN(newQuantity))
+                            updateQuantity(item._id, newQuantity);
+                        }}
+                      />
+                      <RemoveButton onClick={() => removeFromCart(item._id)}>
+                        <FaTrash size={20} color={`#3a58d0`} />
+                      </RemoveButton>
+                    </ContentContainer>
+                  </CartContainer>
+                );
+              })
             )}
             {cart.length !== 0 && (
               <TotalContainer>
@@ -110,8 +139,8 @@ const CartModal = ({ isOpen, closeModal }) => {
 };
 
 CartModal.propTypes = {
-  isOpen: PropTypes.bool,
-  closeModal: PropTypes.func,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
 
 export default CartModal;

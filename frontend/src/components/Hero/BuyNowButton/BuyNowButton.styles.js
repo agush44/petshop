@@ -6,11 +6,11 @@ export const Button = styled.button`
   color: #fff;
   font-size: 0.9rem;
   padding: 0.9rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-radius: 8rem;
   border: none;
-  cursor: pointer; /* Cambia el cursor cuando pasa por encima */
-  transition: background-color 0.1s ease, transform 0.1s ease; /* Animación suave */
+  cursor: pointer;
+  transition: background-color 0.1s ease, transform 0.1s ease;
   font-family: "Montserrat", sans-serif;
   color: #fffcf5;
   fill: #fffcf5;
