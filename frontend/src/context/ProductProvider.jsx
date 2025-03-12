@@ -10,17 +10,15 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     const loadProducts = async () => {
-      // Solo intenta cargar productos si no hay productos ya cargados
       if (products.length > 0) return;
 
       try {
         const data = await fetchProducts();
 
-        // Optimiza las imágenes y maneja errores
         const formattedProducts = data.map((product) => ({
           ...product,
           image: product.image
-            ? product.image.replace(/\.(jpg|png)$/i, ".webp") // Intenta usar WebP
+            ? product.image.replace(/\.(jpg|png)$/i, ".webp")
             : "/images/placeholder.png", // Imagen de respaldo
         }));
 

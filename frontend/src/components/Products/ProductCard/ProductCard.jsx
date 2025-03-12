@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { memo, useContext, useState } from "react";
 import { CartContext } from "../../../context/ShopContext";
+import { formatPrice } from "../../../utils/formatPrice.js";
 import {
   Card,
   ProductImage,
@@ -62,13 +63,13 @@ const ProductCard = memo(function ProductCard({
         {isDiscountValid ? (
           <>
             <ProductPrice>
-              <DiscountedPrice>${price.toFixed(2)}</DiscountedPrice>
-              <NewPrice>${discountedPrice.toFixed(2)}</NewPrice>
+              <DiscountedPrice>{formatPrice(price)}</DiscountedPrice>
+              <NewPrice>{formatPrice(discountedPrice)}</NewPrice>
             </ProductPrice>
             <DiscountPercentage>{discount}% OFF 🔥</DiscountPercentage>
           </>
         ) : (
-          <ProductPrice>${price.toFixed(2)}</ProductPrice>
+          <ProductPrice>{formatPrice(price)}</ProductPrice>
         )}
 
         {discountExpiresAt && new Date(discountExpiresAt) < new Date() && (

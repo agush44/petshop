@@ -120,7 +120,7 @@ export const TextContainer = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 14px;
+  font-size: 1rem;
   color: #333;
 `;
 
@@ -131,14 +131,15 @@ export const RemoveButton = styled.button`
 `;
 
 export const TotalContainer = styled.div`
-  margin-top: auto;
   text-align: center;
 `;
 
 export const TotalText = styled.p`
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #333;
+  color: #1f3a67;
+  display: flex;
+  justify-content: space-around;
 `;
 
 // Animaciones CSS

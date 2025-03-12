@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import PropTypes from "prop-types";
 import { CartContext } from "./ShopContext";
+import { formatPrice } from "../utils/formatPrice";
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
@@ -24,6 +25,11 @@ const CartProvider = ({ children }) => {
         : newProduct.price;
 
       if (existingProduct) {
+        toast.success("Producto agregado al carrito 🛒", {
+          duration: 3000,
+          position: "end-center",
+        });
+
         return prevCart.map((item) =>
           item._id === newProduct._id
             ? { ...item, quantity: item.quantity + 1 }
@@ -82,9 +88,8 @@ const CartProvider = ({ children }) => {
   const clearCart = () => setCart([]);
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.finalPrice * item.quantity,
-    0
+  const totalPrice = formatPrice(
+    cart.reduce((sum, item) => sum + item.finalPrice * item.quantity, 0)
   );
 
   return (

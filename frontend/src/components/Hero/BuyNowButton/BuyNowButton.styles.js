@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
-// Estilo del botón
 export const Button = styled.button`
-  background-color: #3a58cf;
+  background-color: #1f3a67;
+  width: 90%;
   color: #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 0.9rem;
   padding: 0.9rem;
   margin-top: 2rem;
   border-radius: 8rem;
   border: none;
   cursor: pointer; /* Cambia el cursor cuando pasa por encima */
   transition: background-color 0.1s ease, transform 0.1s ease; /* Animación suave */
+  font-family: "Montserrat", sans-serif;
+  color: #fffcf5;
+  fill: #fffcf5;
+  letter-spacing: 2px;
+  font-weight: bold;
 
   &:hover {
-    background-color: #2851a3;
-    transform: scale(1.05);
+    opacity: 0.8;
   }
 
   &:active {

@@ -103,74 +103,40 @@ export const AccountCartContainer = styled.div`
 export const Button = styled.button`
   font-weight: 400;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  position: relative;
 
   svg {
-    margin-bottom: 0.3rem;
+    font-size: 1.5rem;
     color: #324dba;
-
-    /* Large devices (tablets/laptops, 768px and up) */
-    @media (min-width: 768px) {
-      font-size: 1.4rem;
-    }
-
-    /* Extra large devices (desktops, 992px and up) */
-    @media (min-width: 992px) {
-    }
-
-    /* Extra extra large devices (large desktops, 1200px and up) */
-    @media (min-width: 1200px) {
-      font-size: 1.5rem;
-    }
-
-    /* Ultra-wide screens (4K displays, 1400px and up) */
-    @media (min-width: 1400px) {
-      font-size: 1.5rem;
-    }
   }
 
   span {
     color: #324dba;
-
-    /* Large devices (tablets/laptops, 768px and up) */
-    @media (min-width: 768px) {
-      font-size: 0.7rem;
-    }
-
-    /* Extra large devices (desktops, 992px and up) */
-    @media (min-width: 992px) {
-    }
-
-    /* Extra extra large devices (large desktops, 1200px and up) */
-    @media (min-width: 1200px) {
-      font-size: 0.9rem;
-    }
-
-    /* Ultra-wide screens (4K displays, 1400px and up) */
-    @media (min-width: 1400px) {
-      font-size: 0.9rem;
-    }
+    font-size: 0.9rem;
+    margin-left: 0.3rem;
   }
 
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
-  }
-
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-  }
-
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-  }
-
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
+  /* Estilos específicos para el contador de totalItems */
+  .cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 

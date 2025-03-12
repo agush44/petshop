@@ -4,6 +4,8 @@ import { CartContext } from "../../context/ShopContext";
 import QuantityInput from "../../components/common/QuantityInput/QuantityInput";
 import { FaTrash } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { formatPrice } from "../../utils/formatPrice";
+import BuyNowButton from "../../components/Hero/BuyNowButton/BuyNowButton";
 import {
   EmptyCartContainer,
   StyledLink,
@@ -72,7 +74,7 @@ const CartModal = ({ isOpen, closeModal }) => {
                   <ContentContainer>
                     <Img src={item.image} alt={item.name} width="50" />
                     <TextContainer>
-                      <Text>Precio: ${item.price.toFixed(2)}</Text>
+                      <Text>Precio: {formatPrice(item.price)}</Text>
                     </TextContainer>
                     <QuantityInput
                       quantity={item.quantity}
@@ -93,7 +95,11 @@ const CartModal = ({ isOpen, closeModal }) => {
             )}
             {cart.length !== 0 && (
               <TotalContainer>
-                <TotalText>Total: ${total.toFixed(2)}</TotalText>
+                <TotalText>
+                  <span>Total:</span>
+                  <span>{formatPrice(total)}</span>
+                </TotalText>
+                <BuyNowButton />
               </TotalContainer>
             )}
           </CartModalContainer>
