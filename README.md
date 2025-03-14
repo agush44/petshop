@@ -1,7 +1,7 @@
-# **Petshop Platform** 🐾  
+# **Petshop** 🐾  
 
 ## **Descripción**  
-**Petshop Platform** es una aplicación web para gestionar una tienda de mascotas, desarrollada con **React, Node.js, Express.js y MongoDB**.  
+**Petshop** es una aplicación web para gestionar una tienda de mascotas, desarrollada con **React, Node.js, Express.js y MongoDB**.  
 
 ✔️ **Gestión de productos y servicios** desde un panel administrativo.  
 ✔️ **Registro y autenticación de usuarios** con JWT.  
