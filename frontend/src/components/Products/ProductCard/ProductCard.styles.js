@@ -16,6 +16,7 @@ export const Card = styled.div`
 
   &:hover {
     transform: scale(1.02);
+    cursor: pointer;
   }
 `;
 

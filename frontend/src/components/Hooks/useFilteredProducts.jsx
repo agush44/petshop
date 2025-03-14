@@ -21,8 +21,6 @@ const useFilteredProducts = (categoryFilter, animalFilter) => {
     setVisibleCount((prevCount) => prevCount + 8);
   };
 
-  console.log("Productos antes del filtrado:", products);
-
   if (!products || products.length === 0) {
     console.error(
       "❌ No hay productos en el contexto. Verifica si la API está cargando datos."

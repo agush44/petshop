@@ -10,7 +10,6 @@ const Alimentos = () => {
 
   if (loading) return <p>Cargando productos...</p>;
 
-  // Si no hay productos filtrados
   if (filteredProducts.length === 0) {
     return <p>No se encontraron productos en la categoría Alimentos.</p>;
   }

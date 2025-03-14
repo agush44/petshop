@@ -5,7 +5,7 @@ const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Esto asegura que el loader ocupe toda la altura de la pantalla */
+  height: 100vh; 
 `;
 
 const Loader = () => {

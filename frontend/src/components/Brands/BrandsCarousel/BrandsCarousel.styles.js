@@ -20,10 +20,6 @@ export const CarouselContainer = styled.div`
 
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
-  }
-
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
     margin: 0.5rem 0;
   }
 

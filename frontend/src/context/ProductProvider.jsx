@@ -19,7 +19,7 @@ const ProductProvider = ({ children }) => {
           ...product,
           image: product.image
             ? product.image.replace(/\.(jpg|png)$/i, ".webp")
-            : "/images/placeholder.png", // Imagen de respaldo
+            : "/images/placeholder.png",
         }));
 
         setProducts(formattedProducts);
@@ -31,7 +31,7 @@ const ProductProvider = ({ children }) => {
     };
 
     loadProducts();
-  }, [products.length]); // Dependencia de length para evitar recarga innecesaria
+  }, [products.length]);
 
   return (
     <ProductContext.Provider

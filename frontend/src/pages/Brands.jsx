@@ -1,10 +1,11 @@
 import BrandList from "../components/Brands/BrandsList/BrandList";
+import { BrandsListWrapper } from "../components/Brands/BrandsList/BrandList.styles";
 
 const Brands = () => {
   return (
-    <div>
+    <BrandsListWrapper>
       <BrandList />
-    </div>
+    </BrandsListWrapper>
   );
 };
 

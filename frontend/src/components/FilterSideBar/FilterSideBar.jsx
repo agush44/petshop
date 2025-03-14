@@ -4,7 +4,6 @@ import {
   Title,
 } from "./FilterSideBar.styles.js";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
 
 const FilterSidebar = ({
   categoryFilter,
@@ -12,10 +11,6 @@ const FilterSidebar = ({
   handleCategoryChange,
   handleAnimalChange,
 }) => {
-  useEffect(() => {
-    console.log("AnimalFilter en Sidebar:", animalFilter);
-  }, [animalFilter]);
-
   return (
     <FilterSidebarContainer>
       <Title>Filtrar por Categoría</Title>
@@ -36,7 +31,6 @@ const FilterSidebar = ({
     </FilterSidebarContainer>
   );
 };
-
 FilterSidebar.propTypes = {
   categoryFilter: PropTypes.string.isRequired,
   animalFilter: PropTypes.string.isRequired,

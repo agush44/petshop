@@ -16,18 +16,19 @@ export const CartModalOverlay = styled.div`
 
 export const CartModalContainer = styled.div`
   width: 500px;
-  height: 100%;
+  height: 100vh;
   background-color: white;
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   position: relative;
   animation: slideIn 0.6s ease-in-out;
+  overflow-y: auto;
 `;
 
 export const CartModalContent = styled.div`
   flex: 1;
-  overflow-y: auto;
+  padding-right: 10px;
 `;
 
 export const CloseButton = styled.button`
