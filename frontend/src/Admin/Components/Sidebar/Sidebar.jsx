@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import {
   FiBarChart,
   FiDollarSign,
@@ -13,7 +14,7 @@ import { TitleSection } from "./TitleSection";
 import { Option } from "./Option";
 import { ToggleClose } from "./ToggleClose";
 
-const Sidebar = () => {
+const Sidebar = ({ openModal }) => {
   const [open, setOpen] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
 
@@ -50,12 +51,14 @@ const Sidebar = () => {
           setSelected={setSelected}
           open={open}
         />
+        {/* Aseguramos que openModal se pase aquí cuando se hace clic en "Productos" */}
         <Option
           Icon={FiShoppingCart}
           title="Productos"
           selected={selected}
           setSelected={setSelected}
           open={open}
+          onClick={() => openModal()}
         />
         <Option
           Icon={FiTag}
@@ -83,6 +86,10 @@ const Sidebar = () => {
       <ToggleClose open={open} setOpen={setOpen} />
     </motion.nav>
   );
+};
+
+Sidebar.propTypes = {
+  openModal: PropTypes.func,
 };
 
 export default Sidebar;

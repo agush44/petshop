@@ -50,10 +50,7 @@ const CartProvider = ({ children }) => {
   };
 
   const toggleCartAndForm = () => {
-    setShowForm((prev) => {
-      console.log("Valor anterior:", prev, "Nuevo valor:", !prev);
-      return !prev;
-    });
+    setShowForm((prev) => !prev);
   };
 
   const increaseQuantity = (productId) => {
