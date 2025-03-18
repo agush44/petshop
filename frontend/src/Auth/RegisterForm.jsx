@@ -13,7 +13,7 @@ export default function LoginForm() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-2xl shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-center mb-5">Iniciar sesión</h2>
+        <h2 className="text-2xl font-bold text-center mb-5">Crea tu cuenta</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700 font-medium">
@@ -42,17 +42,14 @@ export default function LoginForm() {
             />
           </div>
 
-          <StyledButton type="submit" width="100%" marginB="1rem">
-            INICIAR SESIÓN
+          <StyledButton type="submit" width="100%">
+            REGISTRARSE
           </StyledButton>
         </form>
-        <p className="text-center text-gray-600">
-          ¿No tienes una cuenta?{" "}
-          <a
-            href="#"
-            className="text-blue-900 hover:opacity-60 hover: transition duration-300"
-          >
-            Regístrate
+        <p className="text-center text-gray-600 mt-4">
+          ¿Ya tienes una cuenta?{" "}
+          <a href="#" className="text-purple-600">
+            Inicia sesión
           </a>
         </p>
       </div>

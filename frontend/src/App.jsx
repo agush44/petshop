@@ -1,14 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react"; // Importamos lazy y Suspense
+import { Suspense, lazy } from "react";
 import ProductProvider from "./context/ProductProvider.jsx";
 import CartProvider from "./context/CartProvider.jsx";
-import Header from "./components/Header/Header.jsx";
-import Navbar from "./components/Nav/Navbar.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
 
-// Carga perezosa de los componentes
+// Importar páginas
 const Home = lazy(() => import("./pages/Home.jsx"));
 const Shop = lazy(() => import("./pages/Shop/Shop.jsx"));
 const ProductDetail = lazy(() =>
@@ -17,13 +14,14 @@ const ProductDetail = lazy(() =>
 const Alimentos = lazy(() => import("./pages/Alimentos.jsx"));
 const Brands = lazy(() => import("./pages/Brands.jsx"));
 const Promociones = lazy(() => import("./pages/Promociones.jsx"));
+const Login = lazy(() => import("./Auth/Login.jsx"));
 const Dashboard = lazy(() => import("./Admin/Pages/Dashboard.jsx"));
 const ProductsAdmin = lazy(() => import("./Admin/Pages/ProductsAdmin.jsx"));
 const OrdersAdmin = lazy(() => import("./Admin/Pages/OrdersAdmin.jsx"));
 const UsersAdmin = lazy(() => import("./Admin/Pages/UsersAdmin.jsx"));
-const Login = lazy(() => import("./Auth/Login.jsx"));
-const PrivateRoute = lazy(() => import("./Admin/PrivateRoute.jsx"));
-const AdminLayout = lazy(() => import("./Admin/AdminLayout.jsx"));
+
+import PublicLayout from "./Layouts/PublicLayout.jsx";
+import PrivateLayout from "./Layouts/PrivateLayout.jsx";
 
 function App() {
   return (
@@ -31,68 +29,105 @@ function App() {
       <CartProvider>
         <Toaster position="top-center" reverseOrder={false} />
 
-        <Header />
-        <Navbar />
-
         <Suspense fallback={<div>Loading...</div>}>
-          <main className="main-content">
-            <Routes>
-              {/* Rutas públicas */}
-              <Route path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
+          <Routes>
+            {/* Rutas públicas */}
+            <Route
+              path="/"
+              element={
+                <PublicLayout>
+                  <Home />
+                </PublicLayout>
+              }
+            />
+            <Route
+              path="/shop"
+              element={
+                <PublicLayout>
+                  <Shop />
+                </PublicLayout>
+              }
+            />
+            <Route
+              path="/shop/product/:productId"
+              element={
+                <PublicLayout>
+                  <ProductDetail />
+                </PublicLayout>
+              }
+            />
+            <Route
+              path="/alimentos"
+              element={
+                <PublicLayout>
+                  <Alimentos />
+                </PublicLayout>
+              }
+            />
+            <Route
+              path="/marcas"
+              element={
+                <PublicLayout>
+                  <Brands />
+                </PublicLayout>
+              }
+            />
+            <Route
+              path="/promociones"
+              element={
+                <PublicLayout>
+                  <Promociones />
+                </PublicLayout>
+              }
+            />
+
+            {/* Ruta pública para el login */}
+            <Route
+              path="/admin/login"
+              element={
+                <main className="main-content">
+                  <Login />
+                </main>
+              }
+            />
+
+            {/* Rutas privadas */}
+            <Route path="/admin" element={<Dashboard />}>
               <Route
-                path="/shop/product/:productId"
-                element={<ProductDetail />}
+                path="dashboard"
+                element={
+                  <PrivateLayout>
+                    <Dashboard />
+                  </PrivateLayout>
+                }
               />
-              <Route path="/alimentos" element={<Alimentos />} />
-              <Route path="/promociones" element={<Promociones />} />
-              <Route path="/marcas" element={<Brands />} />
-
-              <Route path="/dashboard" element={<Dashboard />} />
-
-              {/* Ruta pública para el login del admin */}
-              <Route path="/admin/login" element={<Login />} />
-
-              {/* Rutas protegidas para el panel de administración */}
-              <Route path="/admin" element={<PrivateRoute />}>
-                <Route
-                  path="dashboard"
-                  element={
-                    <AdminLayout>
-                      <Dashboard />
-                    </AdminLayout>
-                  }
-                />
-                <Route
-                  path="products"
-                  element={
-                    <AdminLayout>
-                      <ProductsAdmin />
-                    </AdminLayout>
-                  }
-                />
-                <Route
-                  path="orders"
-                  element={
-                    <AdminLayout>
-                      <OrdersAdmin />
-                    </AdminLayout>
-                  }
-                />
-                <Route
-                  path="users"
-                  element={
-                    <AdminLayout>
-                      <UsersAdmin />
-                    </AdminLayout>
-                  }
-                />
-              </Route>
-            </Routes>
-          </main>
+              <Route
+                path="products"
+                element={
+                  <PrivateLayout>
+                    <ProductsAdmin />
+                  </PrivateLayout>
+                }
+              />
+              <Route
+                path="orders"
+                element={
+                  <PrivateLayout>
+                    <OrdersAdmin />
+                  </PrivateLayout>
+                }
+              />
+              <Route
+                path="users"
+                element={
+                  <PrivateLayout>
+                    <UsersAdmin />
+                  </PrivateLayout>
+                }
+              />
+            </Route>
+          </Routes>
         </Suspense>
-
-        <Footer />
       </CartProvider>
     </ProductProvider>
   );

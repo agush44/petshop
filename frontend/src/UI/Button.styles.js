@@ -6,8 +6,8 @@ export const StyledButton = styled.button`
   color: #fff;
   font-size: 0.9rem;
   padding: 0.9rem;
+  margin-bottom: ${(props) => props.marginB || "1rem"};
   margin-top: 1rem;
-  margin-bottom: 2rem;
   border-radius: 8rem;
   border: none;
   cursor: pointer;
