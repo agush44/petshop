@@ -7,6 +7,9 @@ import {
   InputGroup,
   Label,
   Input,
+  StyledBtnWrapper,
+  TotalWrapper,
+  TotalText,
 } from "./CustomerForm.styles";
 import { StyledButton } from "../../UI/Button.styles";
 
@@ -97,11 +100,15 @@ const CustomerForm = ({ onSubmit }) => {
         />
       </InputGroup>
 
-      <div>
-        <p>Total: {totalPrice}</p>
-      </div>
-
-      <StyledButton type="submit">Enviar Pedido</StyledButton>
+      <TotalWrapper>
+        <TotalText>Total: {totalPrice}</TotalText>
+      </TotalWrapper>
+      <StyledBtnWrapper>
+        <StyledButton onClick={toggleCartAndForm} color="#c0c0c0" width="30%">
+          Volver
+        </StyledButton>
+        <StyledButton width="70%">ENVIAR PEDIDO</StyledButton>
+      </StyledBtnWrapper>
     </FormContainer>
   );
 };

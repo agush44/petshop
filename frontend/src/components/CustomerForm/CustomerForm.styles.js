@@ -9,8 +9,9 @@ export const FormContainer = styled.form`
 `;
 
 export const Title = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f3a67;
   margin-bottom: 1rem;
 `;
 
@@ -20,7 +21,7 @@ export const InputGroup = styled.div`
 
 export const Label = styled.label`
   display: block;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
 `;
@@ -37,4 +38,20 @@ export const Input = styled.input`
     border-color: #3a58d0;
     outline: none;
   }
+`;
+
+export const StyledBtnWrapper = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem;
+`;
+
+export const TotalWrapper = styled.div`
+  padding: 0.5rem 0;
+`;
+
+export const TotalText = styled.p`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1f3a67;
 `;
