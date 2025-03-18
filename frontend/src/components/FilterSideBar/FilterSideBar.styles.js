@@ -78,6 +78,7 @@ export const Select = styled.select`
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: #fff;
 
   /* Extra small devices (phones, less than 576px) */
   @media (max-width: 575.98px) {

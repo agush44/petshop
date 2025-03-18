@@ -3,12 +3,15 @@ import toast from "react-hot-toast";
 import PropTypes from "prop-types";
 import { CartContext } from "./ShopContext";
 import { formatPrice } from "../utils/formatPrice";
+import { sendWhatsappMessage } from "../utils/sendWhatsappMessage";
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];
   });
+
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -43,6 +46,13 @@ const CartProvider = ({ children }) => {
       });
 
       return [...prevCart, { ...newProduct, quantity: 1, finalPrice }];
+    });
+  };
+
+  const toggleCartAndForm = () => {
+    setShowForm((prev) => {
+      console.log("Valor anterior:", prev, "Nuevo valor:", !prev);
+      return !prev;
     });
   };
 
@@ -92,6 +102,10 @@ const CartProvider = ({ children }) => {
     cart.reduce((sum, item) => sum + item.finalPrice * item.quantity, 0)
   );
 
+  const handleCustomerFormSubmit = (data) => {
+    sendWhatsappMessage(cart, totalPrice, data);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -104,6 +118,9 @@ const CartProvider = ({ children }) => {
         clearCart,
         totalItems,
         totalPrice,
+        showForm,
+        toggleCartAndForm,
+        handleCustomerFormSubmit,
       }}
     >
       {children}

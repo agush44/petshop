@@ -5,6 +5,8 @@ import { connectDB } from "./src/config/mongo.js";
 import { productRoutes } from "./src/routes/productRoutes.js";
 import { userRoutes } from "./src/routes/userRoutes.js";
 import errorMiddleware from "./src/middleware/errorMiddleware.js";
+import compression from "compression";
+
 //import swaggerUi from "swagger-ui-express";
 //import YAML from "yamljs";
 
@@ -14,6 +16,15 @@ process.loadEnvFile();
 const PORT = process.env.PORT;
 
 const app = express();
+
+app.use(express.static("public", { maxAge: "1y" }));
+
+app.use(
+  compression({
+    threshold: 1024,
+    level: 6,
+  })
+);
 
 app.use(cors({ origin: FRONTEND_URL }));
 

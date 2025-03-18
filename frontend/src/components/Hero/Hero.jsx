@@ -1,5 +1,4 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
 import {
   HeroTotalContainer,
   HeroContainer,
@@ -8,55 +7,32 @@ import {
 import FeatureBar from "./FeatureBar/FeatureBar";
 
 const Hero = () => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false); // Estado para saber si el video ha cargado
+  const videoRef = useRef(null);
+
+  // Cuando el video se ha cargado completamente, activamos la animación y otros comportamientos
+  const handleVideoLoad = () => {
+    setIsVideoLoaded(true);
+  };
+
   return (
     <HeroTotalContainer>
       <HeroContainer>
         <VideoContainer>
-          <Swiper
-            spaceBetween={0}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{ delay: 5000 }}
-            pagination={{ clickable: true }}
-            navigation={true}
-          >
-            <SwiperSlide>
-              <Link to="/shop">
-                <video
-                  src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  loading="lazy"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link to="/shop">
-                <video
-                  src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  loading="lazy"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link to="/shop">
-                <video
-                  src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  loading="lazy"
-                />
-              </Link>
-            </SwiperSlide>
-          </Swiper>
+          <video
+            ref={videoRef}
+            src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto" // Carga el video completo para que sea instantáneo cuando se muestra
+            poster="/placeholder.jpg" // Imagen placeholder para mostrar mientras el video se carga
+            width="100%"
+            height="auto"
+            className={isVideoLoaded ? "fade-in" : "fade-in-start"}
+            onLoadedData={handleVideoLoad} // Cuando el video está completamente cargado
+          />
         </VideoContainer>
         <FeatureBar />
       </HeroContainer>

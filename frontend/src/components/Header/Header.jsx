@@ -21,7 +21,7 @@ const Header = () => {
     <>
       <HeaderContainer>
         <Link to="/">
-          <Logo src="logo.png" alt="Logo PetShop" />
+          <Logo src="logo.webp" alt="Logo PetShop" />
         </Link>
         <SearchBar />
         <AccountCartContainer>

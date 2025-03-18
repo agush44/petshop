@@ -41,6 +41,7 @@ export const SearchInput = styled.input`
   border-radius: 5px;
   outline: none;
   box-sizing: border-box;
+  background-color: #fff;
 
   &:focus {
     border-color: #007bff;

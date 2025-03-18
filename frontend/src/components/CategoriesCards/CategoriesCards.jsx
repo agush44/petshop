@@ -1,19 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  CategoryCard,
-  CategoryImage,
-  CategoryTitle,
-  CategoriesContainer,
-  CategoryContent,
-  CategoryDescription,
-} from "./CategoriesCards.styles.js";
-import dogImage from "../../assets/dog.jpg";
-import catImage from "../../assets/cat.jpg";
+import { CategoriesContainer } from "./CategoriesCards.styles.js";
+import perroImage from "../../assets/dog.webp";
+import gatoImage from "../../assets/cat.webp";
+import CategoryCard from "./CategoryCard.jsx";
 
 const CategoriesCards = () => {
   const [isInView, setIsInView] = useState(false);
-  const cardRef = useRef(null);
+  const cardRef = useRef(null); // Aquí es donde se gestiona la referencia
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +15,7 @@ const CategoriesCards = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsInView(true);
+            setIsInView(true); // Activar cuando el card entre en vista
           }
         });
       },
@@ -30,12 +24,12 @@ const CategoriesCards = () => {
 
     const currentCardRef = cardRef.current;
     if (currentCardRef) {
-      observer.observe(currentCardRef);
+      observer.observe(currentCardRef); // Inicia la observación
     }
 
     return () => {
       if (currentCardRef) {
-        observer.unobserve(currentCardRef);
+        observer.unobserve(currentCardRef); // Desactiva la observación cuando se desmonta
       }
     };
   }, []);
@@ -47,31 +41,21 @@ const CategoriesCards = () => {
   return (
     <CategoriesContainer>
       <CategoryCard
-        ref={cardRef}
+        ref={cardRef} // El ref se pasa aquí
         className={isInView ? "in-view" : ""}
+        image={perroImage}
+        title="Productos para Perros"
+        description="Encuentra los mejores productos para tu mejor amigo."
         onClick={() => handleCardClick("perros")}
-      >
-        <CategoryImage src={dogImage} alt="Perro" />
-        <CategoryContent>
-          <CategoryTitle>Productos para Perros</CategoryTitle>
-          <CategoryDescription>
-            Encuentra los mejores productos para tu mejor amigo.
-          </CategoryDescription>
-        </CategoryContent>
-      </CategoryCard>
+      />
       <CategoryCard
-        ref={cardRef}
+        ref={cardRef} // El ref se pasa también aquí
         className={isInView ? "in-view" : ""}
+        image={gatoImage}
+        title="Productos para Gatos"
+        description="Todo lo que tu michi necesita, en un solo lugar."
         onClick={() => handleCardClick("gatos")}
-      >
-        <CategoryImage src={catImage} alt="Gato" />
-        <CategoryContent>
-          <CategoryTitle>Productos para Gatos</CategoryTitle>
-          <CategoryDescription>
-            Todo lo que tu michi necesita, en un solo lugar.
-          </CategoryDescription>
-        </CategoryContent>
-      </CategoryCard>
+      />
     </CategoriesContainer>
   );
 };

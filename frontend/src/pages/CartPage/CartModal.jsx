@@ -5,7 +5,8 @@ import QuantityInput from "../../components/common/QuantityInput/QuantityInput";
 import { FaTrash } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatPrice } from "../../utils/formatPrice";
-import BuyNowButton from "../../components/Hero/BuyNowButton/BuyNowButton";
+import BuyNowButton from "../../components/BuyNowButton";
+import CustomerForm from "../../components/CustomerForm/CustomerForm";
 import {
   EmptyCartContainer,
   StyledLink,
@@ -36,6 +37,9 @@ const CartModal = ({ isOpen, closeModal }) => {
     decreaseQuantity,
     updateQuantity,
     removeFromCart,
+    showForm,
+    toggleCartAndForm,
+    handleCustomerFormSubmit,
   } = useContext(CartContext);
 
   const total = cart.reduce(
@@ -64,72 +68,81 @@ const CartModal = ({ isOpen, closeModal }) => {
           >
             <CloseButton onClick={closeModal}>X</CloseButton>
             <CartTitle>Carrito de Compras</CartTitle>
-            {cart.length === 0 ? (
-              <EmptyCartContainer>
-                <CartText>El carrito está vacío</CartText>
-                <StyledLink to="/shop">
-                  <AddProdButton onClick={closeModal}>
-                    AGREGAR PRODUCTOS
-                  </AddProdButton>
-                </StyledLink>
-              </EmptyCartContainer>
+
+            {showForm ? (
+              <CustomerForm onSubmit={handleCustomerFormSubmit} />
             ) : (
-              cart.map((item) => {
-                const isDiscountValid =
-                  item.discount &&
-                  (!item.discountExpiresAt ||
-                    new Date(item.discountExpiresAt) > new Date());
+              <>
+                {cart.length === 0 ? (
+                  <EmptyCartContainer>
+                    <CartText>El carrito está vacío</CartText>
+                    <StyledLink to="/shop">
+                      <AddProdButton onClick={closeModal}>
+                        AGREGAR PRODUCTOS
+                      </AddProdButton>
+                    </StyledLink>
+                  </EmptyCartContainer>
+                ) : (
+                  cart.map((item) => {
+                    const isDiscountValid =
+                      item.discount &&
+                      (!item.discountExpiresAt ||
+                        new Date(item.discountExpiresAt) > new Date());
 
-                const finalPrice = isDiscountValid
-                  ? item.price * (1 - item.discount / 100)
-                  : item.price;
+                    const finalPrice = isDiscountValid
+                      ? item.price * (1 - item.discount / 100)
+                      : item.price;
 
-                return (
-                  <CartContainer key={item._id}>
-                    <ItemName>{item.name}</ItemName>
-                    <ContentContainer>
-                      <Img src={item.image} alt={item.name} width="50" />
-                      <TextContainer>
-                        <ProductPrice>
-                          {isDiscountValid ? (
-                            <>
-                              <DiscountedPrice>
-                                {formatPrice(item.price)}
-                              </DiscountedPrice>
-                              <NewPrice>{formatPrice(finalPrice)}</NewPrice>
-                            </>
-                          ) : (
-                            <NewPrice>{formatPrice(item.price)}</NewPrice>
-                          )}
-                        </ProductPrice>
-                        <Text>Cantidad: {item.quantity}</Text>
-                      </TextContainer>
-                      <QuantityInput
-                        quantity={item.quantity}
-                        onIncrease={() => increaseQuantity(item._id)}
-                        onDecrease={() => decreaseQuantity(item._id)}
-                        onChange={(e) => {
-                          const newQuantity = parseInt(e.target.value, 10);
-                          if (!isNaN(newQuantity))
-                            updateQuantity(item._id, newQuantity);
-                        }}
-                      />
-                      <RemoveButton onClick={() => removeFromCart(item._id)}>
-                        <FaTrash size={20} color={`#3a58d0`} />
-                      </RemoveButton>
-                    </ContentContainer>
-                  </CartContainer>
-                );
-              })
-            )}
-            {cart.length !== 0 && (
-              <TotalContainer>
-                <TotalText>
-                  <span>Total:</span>
-                  <span>{formatPrice(total)}</span>
-                </TotalText>
-                <BuyNowButton />
-              </TotalContainer>
+                    return (
+                      <CartContainer key={item._id}>
+                        <ItemName>{item.name}</ItemName>
+                        <ContentContainer>
+                          <Img src={item.image} alt={item.name} width="50" />
+                          <TextContainer>
+                            <ProductPrice>
+                              {isDiscountValid ? (
+                                <>
+                                  <DiscountedPrice>
+                                    {formatPrice(item.price)}
+                                  </DiscountedPrice>
+                                  <NewPrice>{formatPrice(finalPrice)}</NewPrice>
+                                </>
+                              ) : (
+                                <NewPrice>{formatPrice(item.price)}</NewPrice>
+                              )}
+                            </ProductPrice>
+                            <Text>Cantidad: {item.quantity}</Text>
+                          </TextContainer>
+                          <QuantityInput
+                            quantity={item.quantity}
+                            onIncrease={() => increaseQuantity(item._id)}
+                            onDecrease={() => decreaseQuantity(item._id)}
+                            onChange={(e) => {
+                              const newQuantity = parseInt(e.target.value, 10);
+                              if (!isNaN(newQuantity))
+                                updateQuantity(item._id, newQuantity);
+                            }}
+                          />
+                          <RemoveButton
+                            onClick={() => removeFromCart(item._id)}
+                          >
+                            <FaTrash size={20} color={`#3a58d0`} />
+                          </RemoveButton>
+                        </ContentContainer>
+                      </CartContainer>
+                    );
+                  })
+                )}
+                {cart.length !== 0 && (
+                  <TotalContainer>
+                    <TotalText>
+                      <span>Total:</span>
+                      <span>{formatPrice(total)}</span>
+                    </TotalText>
+                    <BuyNowButton onClick={toggleCartAndForm} />{" "}
+                  </TotalContainer>
+                )}
+              </>
             )}
           </CartModalContainer>
         </CartModalOverlay>

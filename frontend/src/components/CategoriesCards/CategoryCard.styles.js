@@ -1,14 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
-export const CategoriesContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-`;
-
+// Contenedor principal de la tarjeta
 export const CategoryCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,12 +27,43 @@ export const CategoryCardWrapper = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+
+  /* Dispositivos pequeños */
+  @media (max-width: 575.98px) {
+    max-width: 300px;
+    margin: 2rem 0;
+  }
+
+  /* Dispositivos medianos */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    max-width: 350px;
+    margin: 2rem 1rem;
+  }
+
+  /* Dispositivos grandes */
+  @media (min-width: 768px) {
+    max-width: 300px;
+    margin: 2rem 1rem;
+  }
+
+  /* Desktops grandes */
+  @media (min-width: 992px) {
+    max-width: 500px;
+    margin: 2rem 1rem;
+  }
+
+  /* Pantallas ultra anchas */
+  @media (min-width: 1400px) {
+    max-width: 500px;
+    margin: 5rem;
+  }
 `;
 
+// Imagen de la tarjeta
 export const CategoryImage = styled.img`
   width: 100%;
   object-fit: cover;
-
+  /* Ajuste de altura en pantallas más grandes */
   @media (min-width: 768px) {
     height: 200px;
   }
@@ -48,8 +71,13 @@ export const CategoryImage = styled.img`
   @media (min-width: 1200px) {
     height: 300px;
   }
+
+  @media (min-width: 1400px) {
+    height: 300px;
+  }
 `;
 
+// Contenedor de contenido de la tarjeta (título y descripción)
 export const CategoryContent = styled.div`
   text-align: center;
   display: flex;
@@ -57,16 +85,27 @@ export const CategoryContent = styled.div`
   align-items: center;
 `;
 
+// Título de la tarjeta
 export const CategoryTitle = styled.h3`
   text-align: center;
   padding-top: 1rem;
   background-color: #fff;
   color: #333;
+
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 1.5rem;
+  }
 `;
 
+// Descripción de la tarjeta
 export const CategoryDescription = styled.p`
   color: #666;
   width: 70%;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     font-size: 0.8rem;
@@ -75,8 +114,4 @@ export const CategoryDescription = styled.p`
   @media (min-width: 992px) {
     font-size: 1rem;
   }
-`;
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
 `;
