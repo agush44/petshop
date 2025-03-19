@@ -2,7 +2,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-export default function Modal({ closeModal, formData, onSubmit, fields }) {
+export default function Modal({
+  title,
+  closeModal,
+  formData,
+  onSubmit,
+  fields,
+}) {
   const [formState, setFormState] = useState(formData || {});
 
   useEffect(() => {
@@ -34,7 +40,7 @@ export default function Modal({ closeModal, formData, onSubmit, fields }) {
       className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center"
     >
       <div className="bg-white p-6 rounded shadow-lg w-96">
-        <h2 className="text-xl font-bold mb-4">Editar producto</h2>
+        <h2 className="text-xl font-bold mb-4">{title}</h2>
         {fields.map(({ label, name, type, placeholder, options }) => (
           <div className="mb-2" key={name}>
             <label
@@ -94,6 +100,7 @@ export default function Modal({ closeModal, formData, onSubmit, fields }) {
 }
 
 Modal.propTypes = {
+  title: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
   formData: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,

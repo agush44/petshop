@@ -86,18 +86,18 @@ function App() {
             <Route
               path="/admin/login"
               element={
-                <PublicLayout>
+                <PrivateLayout>
                   <Login />
-                </PublicLayout>
+                </PrivateLayout>
               }
             />
 
             <Route
               path="/admin/register"
               element={
-                <PublicLayout>
+                <PrivateLayout>
                   <RegisterForm />
-                </PublicLayout>
+                </PrivateLayout>
               }
             />
 

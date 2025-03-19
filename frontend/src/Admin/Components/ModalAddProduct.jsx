@@ -7,28 +7,27 @@ import { productFields } from "../../data/fieldsConfig";
 import { formatProductData } from "../../utils/formUtils";
 import { productSchema } from "../../../../backend/src/validations/productValidation";
 
-export default function ModalAddProduct({ closeModal, producto, token }) {
+export default function ModalAddProduct({
+  closeModal,
+  producto,
+  token,
+  title,
+}) {
   const { addProduct } = useContext(ProductContext);
 
   const handleSubmit = async (formData) => {
     try {
-      // Formatear los datos del formulario
       const formattedData = formatProductData(formData);
-
-      // Validar los datos con Joi antes de enviarlos
       const { error } = productSchema.validate(formattedData);
 
-      // Si hay un error de validación, mostrar el mensaje de error
       if (error) {
         toast.error(`Error de validación: ${error.details[0].message}`);
-        return; // Detener la ejecución si los datos no son válidos
+        return;
       }
 
-      // Si la validación pasa, proceder a agregar el producto
       await addProduct(formattedData, token);
       toast.success("Producto creado exitosamente");
 
-      // Cerrar el modal
       closeModal();
     } catch (error) {
       console.error("Error al crear el producto:", error);
@@ -42,11 +41,13 @@ export default function ModalAddProduct({ closeModal, producto, token }) {
       formData={producto}
       onSubmit={handleSubmit}
       fields={productFields}
+      title={title}
     />
   );
 }
 
 ModalAddProduct.propTypes = {
+  title: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
   producto: PropTypes.shape({
     _id: PropTypes.string,

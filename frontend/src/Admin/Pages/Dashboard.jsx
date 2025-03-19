@@ -35,6 +35,7 @@ export default function Dashboard() {
 
         {productoEdit && (
           <ModalEditProduct
+            title="Editar producto"
             closeModal={() => openEditModal(null)}
             producto={productoEdit}
             token={token}
@@ -43,6 +44,7 @@ export default function Dashboard() {
 
         {isAddModalOpen && (
           <ModalAddProduct
+            title="Agregar producto"
             closeModal={() => setAddModalOpen(false)}
             onSubmit={handleAddProduct}
             token={token}

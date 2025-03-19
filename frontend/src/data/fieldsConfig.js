@@ -19,7 +19,9 @@ export const productFields = [
   {
     label: "Tipo de Animal",
     name: "animalType",
-    placeholder: "Ej: Perros, Gatos",
+    type: "select",
+    options: ["Gatos", "Perros"],
+    placeholder: "Selecciona una categoría",
   },
   {
     label: "Descuento (%)",

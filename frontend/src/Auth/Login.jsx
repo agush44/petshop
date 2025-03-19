@@ -8,7 +8,6 @@ export default function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Correo electrónico:", email, "Contraseña:", password);
   };
 
   return (

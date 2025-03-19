@@ -6,7 +6,7 @@ import { ProductContext } from "../../context/ShopContext";
 import { productFields } from "../../data/fieldsConfig";
 import { formatProductData } from "../../utils/formUtils";
 
-export default function ModalProduct({ closeModal, producto, token }) {
+export default function ModalProduct({ closeModal, producto, token, title }) {
   const { editProduct } = useContext(ProductContext);
 
   const handleSubmit = async (formData) => {
@@ -34,10 +34,12 @@ export default function ModalProduct({ closeModal, producto, token }) {
       formData={producto}
       onSubmit={handleSubmit}
       fields={productFields}
+      title={title}
     />
   );
 }
 ModalProduct.propTypes = {
+  title: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
   producto: PropTypes.shape({
     _id: PropTypes.string,
