@@ -2,7 +2,7 @@ import Joi from "joi";
 
 const productSchema = Joi.object({
   name: Joi.string().min(3).max(100).required(),
-  description: Joi.string().min(10).max(500).optional(),
+  description: Joi.string().min(5).max(500).optional(),
   category: Joi.string()
     .valid(
       "alimentos",
@@ -22,7 +22,7 @@ const productSchema = Joi.object({
     .iso(),
 
   discount: Joi.number().min(0).max(100).optional(),
-  discountExpiresAt: Joi.date().optional(),
+  discountExpiresAt: Joi.date().iso().allow(null).optional(),
 });
 
 export { productSchema };

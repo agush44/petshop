@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { StyledButton } from "../UI/Button.styles";
 
 export default function LoginForm() {
@@ -42,18 +43,18 @@ export default function LoginForm() {
             />
           </div>
 
-          <StyledButton type="submit" width="100%" marginB="1rem">
+          <StyledButton type="submit" width="100%">
             INICIAR SESIÓN
           </StyledButton>
         </form>
         <p className="text-center text-gray-600">
           ¿No tienes una cuenta?{" "}
-          <a
-            href="#"
-            className="text-blue-900 hover:opacity-60 hover: transition duration-300"
+          <Link
+            to="/admin/register"
+            className="text-blue-900 hover:opacity-60 transition duration-300"
           >
             Regístrate
-          </a>
+          </Link>
         </p>
       </div>
     </div>

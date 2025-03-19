@@ -7,7 +7,7 @@ export const TitleSection = ({ open }) => {
   return (
     <div className="mb-3 border-b border-slate-300 pb-3">
       <div className="flex cursor-pointer items-center justify-between rounded-md transition-colors hover:bg-slate-100">
-        <div className="!m-3 flex items-center gap-4">
+        <div className="m-3 flex items-center gap-4">
           <Logo />
           {open && (
             <motion.div
@@ -16,8 +16,8 @@ export const TitleSection = ({ open }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.125 }}
             >
-              <span className="block text-xs font-semibold">PetShop</span>
-              <span className="block text-xs text-slate-500">Admin</span>
+              <span className="block text-sm font-semibold">PetShop</span>
+              <span className="block text-sm text-slate-500">Admin</span>
             </motion.div>
           )}
         </div>

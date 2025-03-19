@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import ProductProvider from "./context/ProductProvider.jsx";
+import FrontProductProvider from "./context/FrontProductProvider.jsx";
+import BackProductProvider from "./context/BackProductProvider.jsx";
 import CartProvider from "./context/CartProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
 
-// Importar páginas
 const Home = lazy(() => import("./pages/Home.jsx"));
 const Shop = lazy(() => import("./pages/Shop/Shop.jsx"));
 const ProductDetail = lazy(() =>
@@ -19,13 +19,14 @@ const Dashboard = lazy(() => import("./Admin/Pages/Dashboard.jsx"));
 const ProductsAdmin = lazy(() => import("./Admin/Pages/ProductsAdmin.jsx"));
 const OrdersAdmin = lazy(() => import("./Admin/Pages/OrdersAdmin.jsx"));
 const UsersAdmin = lazy(() => import("./Admin/Pages/UsersAdmin.jsx"));
+const RegisterForm = lazy(() => import("./Auth/RegisterForm.jsx"));
 
 import PublicLayout from "./Layouts/PublicLayout.jsx";
 import PrivateLayout from "./Layouts/PrivateLayout.jsx";
 
 function App() {
   return (
-    <ProductProvider>
+    <FrontProductProvider>
       <CartProvider>
         <Toaster position="top-center" reverseOrder={false} />
 
@@ -85,51 +86,41 @@ function App() {
             <Route
               path="/admin/login"
               element={
-                <main className="main-content">
+                <PublicLayout>
                   <Login />
-                </main>
+                </PublicLayout>
+              }
+            />
+
+            <Route
+              path="/admin/register"
+              element={
+                <PublicLayout>
+                  <RegisterForm />
+                </PublicLayout>
               }
             />
 
             {/* Rutas privadas */}
-            <Route path="/admin" element={<Dashboard />}>
-              <Route
-                path="dashboard"
-                element={
+            <Route
+              path="/admin/*"
+              element={
+                <BackProductProvider>
                   <PrivateLayout>
-                    <Dashboard />
+                    <Routes>
+                      <Route path="dashboard" element={<Dashboard />} />
+                      <Route path="products" element={<ProductsAdmin />} />
+                      <Route path="orders" element={<OrdersAdmin />} />
+                      <Route path="users" element={<UsersAdmin />} />
+                    </Routes>
                   </PrivateLayout>
-                }
-              />
-              <Route
-                path="products"
-                element={
-                  <PrivateLayout>
-                    <ProductsAdmin />
-                  </PrivateLayout>
-                }
-              />
-              <Route
-                path="orders"
-                element={
-                  <PrivateLayout>
-                    <OrdersAdmin />
-                  </PrivateLayout>
-                }
-              />
-              <Route
-                path="users"
-                element={
-                  <PrivateLayout>
-                    <UsersAdmin />
-                  </PrivateLayout>
-                }
-              />
-            </Route>
+                </BackProductProvider>
+              }
+            />
           </Routes>
         </Suspense>
       </CartProvider>
-    </ProductProvider>
+    </FrontProductProvider>
   );
 }
 

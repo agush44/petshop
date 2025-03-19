@@ -14,7 +14,7 @@ import { TitleSection } from "./TitleSection";
 import { Option } from "./Option";
 import { ToggleClose } from "./ToggleClose";
 
-const Sidebar = ({ openModal }) => {
+const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
 
@@ -51,14 +51,12 @@ const Sidebar = ({ openModal }) => {
           setSelected={setSelected}
           open={open}
         />
-        {/* Aseguramos que openModal se pase aquí cuando se hace clic en "Productos" */}
         <Option
           Icon={FiShoppingCart}
           title="Productos"
           selected={selected}
           setSelected={setSelected}
           open={open}
-          onClick={() => openModal()}
         />
         <Option
           Icon={FiTag}

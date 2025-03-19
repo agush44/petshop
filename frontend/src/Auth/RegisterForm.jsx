@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { StyledButton } from "../UI/Button.styles";
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -46,11 +47,14 @@ export default function LoginForm() {
             REGISTRARSE
           </StyledButton>
         </form>
-        <p className="text-center text-gray-600 mt-4">
+        <p className="text-center text-gray-600">
           ¿Ya tienes una cuenta?{" "}
-          <a href="#" className="text-purple-600">
+          <Link
+            to="/admin/login"
+            className="text-blue-900 hover:opacity-60 transition duration-300"
+          >
             Inicia sesión
-          </a>
+          </Link>
         </p>
       </div>
     </div>

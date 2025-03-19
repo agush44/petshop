@@ -3,7 +3,7 @@ import { ProductContext } from "./ShopContext.js";
 import { fetchProducts } from "../services/Api.js";
 import PropTypes from "prop-types";
 
-const ProductProvider = ({ children }) => {
+const FrontProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -42,8 +42,8 @@ const ProductProvider = ({ children }) => {
   );
 };
 
-ProductProvider.propTypes = {
+FrontProductProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default ProductProvider;
+export default FrontProductProvider;
