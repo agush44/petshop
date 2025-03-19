@@ -6,8 +6,8 @@ import { ProductContext } from "../../context/ShopContext";
 import { productFields } from "../../data/fieldsConfig";
 import { formatProductData } from "../../utils/formUtils";
 
-export default function ModalProduct({ closeModal, producto, token, title }) {
-  const { editProduct } = useContext(ProductContext);
+export default function ModalProduct({ closeModal, producto, title }) {
+  const { editProduct, token } = useContext(ProductContext);
 
   const handleSubmit = async (formData) => {
     try {
@@ -53,5 +53,4 @@ ModalProduct.propTypes = {
     discount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     discountExpiresAt: PropTypes.string,
   }),
-  token: PropTypes.string.isRequired,
 };

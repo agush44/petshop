@@ -2,7 +2,7 @@ import Joi from "joi";
 
 const registerUserSchema = Joi.object({
   email: Joi.string()
-    .email({ tlds: { allow: false } }) // Valida que sea un correo electrónico válido
+    .email({ tlds: { allow: false } })
     .min(3)
     .max(30)
     .required()

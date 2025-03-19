@@ -6,8 +6,8 @@ import toast from "react-hot-toast";
 import ConfirmDeleteModal from "../Components/ConfirmDeleteModal";
 import { ProductContext } from "../../context/ShopContext";
 
-const ProductsAdmin = ({ openEditModal, setAddModalOpen, token }) => {
-  const { removeProduct } = useContext(ProductContext);
+const ProductsAdmin = ({ openEditModal, setAddModalOpen }) => {
+  const { removeProduct, token } = useContext(ProductContext);
   const [productos, setProductos] = useState([]);
   const [deleteId, setDeleteId] = useState(null);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -137,7 +137,6 @@ const ProductsAdmin = ({ openEditModal, setAddModalOpen, token }) => {
 ProductsAdmin.propTypes = {
   openEditModal: PropTypes.func.isRequired,
   setAddModalOpen: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired,
 };
 
 export default ProductsAdmin;

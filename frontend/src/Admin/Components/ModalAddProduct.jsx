@@ -7,13 +7,8 @@ import { productFields } from "../../data/fieldsConfig";
 import { formatProductData } from "../../utils/formUtils";
 import { productSchema } from "../../../../backend/src/validations/productValidation";
 
-export default function ModalAddProduct({
-  closeModal,
-  producto,
-  token,
-  title,
-}) {
-  const { addProduct } = useContext(ProductContext);
+export default function ModalAddProduct({ closeModal, producto, title }) {
+  const { addProduct, token } = useContext(ProductContext);
 
   const handleSubmit = async (formData) => {
     try {
@@ -61,5 +56,4 @@ ModalAddProduct.propTypes = {
     discount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     discountExpiresAt: PropTypes.string,
   }),
-  token: PropTypes.string.isRequired,
 };

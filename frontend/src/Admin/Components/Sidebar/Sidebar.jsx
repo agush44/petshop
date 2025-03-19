@@ -22,8 +22,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logoutUser();
-    navigate("/admin/login");
+    logoutUser(navigate);
   };
 
   return (

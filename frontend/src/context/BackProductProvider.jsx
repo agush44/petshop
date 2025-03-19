@@ -8,8 +8,9 @@ import PropTypes from "prop-types";
 import { ProductContext } from "./ShopContext";
 
 const BackProductProvider = ({ children }) => {
-  const addProduct = useCallback(async (productData, token) => {
+  const addProduct = useCallback(async (productData) => {
     try {
+      const token = localStorage.getItem("token"); // Recuperar el token
       const cleanedProductData = Object.fromEntries(
         Object.entries(productData).filter(([, value]) => value !== "")
       );
@@ -40,8 +41,9 @@ const BackProductProvider = ({ children }) => {
     }
   }, []);
 
-  const editProduct = useCallback(async (id, productData, token) => {
+  const editProduct = useCallback(async (id, productData) => {
     try {
+      const token = localStorage.getItem("token"); // Recuperar el token
       const updatedProduct = await updateProduct(id, productData, token);
       return updatedProduct;
     } catch (error) {
@@ -50,8 +52,9 @@ const BackProductProvider = ({ children }) => {
     }
   }, []);
 
-  const removeProduct = useCallback(async (id, token) => {
+  const removeProduct = useCallback(async (id) => {
     try {
+      const token = localStorage.getItem("token"); // Recuperar el token
       await deleteProduct(id, token);
     } catch (error) {
       console.error("Error al eliminar el producto:", error);

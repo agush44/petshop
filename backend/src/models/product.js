@@ -37,7 +37,7 @@ const productSchema = new mongoose.Schema(
     },
     animalType: {
       type: String,
-      enum: ["perros", "gatos"],
+      enum: ["Perros", "Gatos"],
       required: true,
     },
     createdAt: {

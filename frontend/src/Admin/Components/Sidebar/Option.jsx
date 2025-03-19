@@ -8,11 +8,15 @@ export const Option = ({
   setSelected,
   open,
   notifs,
+  onClick,
 }) => {
   return (
     <motion.button
       layout
-      onClick={() => setSelected(title)}
+      onClick={() => {
+        setSelected(title);
+        if (onClick) onClick();
+      }}
       className={`relative flex h-10 w-full items-center rounded-md transition-colors ${
         selected === title
           ? "bg-indigo-100 text-indigo-800"
@@ -62,4 +66,5 @@ Option.propTypes = {
   setSelected: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   notifs: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onClick: PropTypes.func,
 };
