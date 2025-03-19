@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPromotionProducts } from "../services/Api";
+import { getPromotionProducts } from "../services/api";
 import ItemList from "../UI/ItemList/ItemList";
 import ProductCard from "../components/Products/ProductCard/ProductCard";
 import Loader from "../UI/Loader";

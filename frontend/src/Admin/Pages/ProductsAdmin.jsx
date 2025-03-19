@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { FiEdit, FiTrash, FiPlus } from "react-icons/fi";
-import { fetchProducts } from "../../services/Api";
+import { fetchProducts } from "../../services/productApi";
 import PropTypes from "prop-types";
 import toast from "react-hot-toast";
 import ConfirmDeleteModal from "../Components/ConfirmDeleteModal";

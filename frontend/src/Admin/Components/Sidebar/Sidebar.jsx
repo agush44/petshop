@@ -1,22 +1,30 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import {
-  FiBarChart,
   FiDollarSign,
   FiHome,
   FiMonitor,
   FiShoppingCart,
   FiTag,
   FiUsers,
+  FiLogOut,
 } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { TitleSection } from "./TitleSection";
 import { Option } from "./Option";
 import { ToggleClose } from "./ToggleClose";
+import { logoutUser } from "../../../services/authApi";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate("/admin/login");
+  };
 
   return (
     <motion.nav
@@ -65,19 +73,22 @@ const Sidebar = () => {
           setSelected={setSelected}
           open={open}
         />
-        <Option
-          Icon={FiBarChart}
-          title="Analytics"
-          selected={selected}
-          setSelected={setSelected}
-          open={open}
-        />
+
         <Option
           Icon={FiUsers}
           title="Usuarios"
           selected={selected}
           setSelected={setSelected}
           open={open}
+        />
+
+        <Option
+          Icon={FiLogOut}
+          title="Cerrar Sesión"
+          selected={selected}
+          setSelected={setSelected}
+          open={open}
+          onClick={handleLogout}
         />
       </div>
 

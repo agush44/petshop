@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ProductContext } from "./ShopContext.js";
-import { fetchProducts } from "../services/Api.js";
+import { fetchProducts } from "../services/productApi.js";
 import PropTypes from "prop-types";
 
 const FrontProductProvider = ({ children }) => {

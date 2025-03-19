@@ -1,13 +1,32 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StyledButton } from "../UI/Button.styles";
+import { loginUser } from "../services/authApi";
+import { toast } from "react-hot-toast";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!email || !password) {
+      setError("Por favor, ingresa un correo y una contraseña.");
+      return;
+    }
+
+    try {
+      const response = await loginUser({ email, password });
+
+      if (response.token) {
+        navigate("/admin/dashboard");
+      }
+    } catch (error) {
+      toast.error(error.message || "Credenciales incorrectas.");
+    }
   };
 
   return (

@@ -2,6 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import FrontProductProvider from "./context/FrontProductProvider.jsx";
 import BackProductProvider from "./context/BackProductProvider.jsx";
+import PublicLayout from "./Layouts/PublicLayout.jsx";
+import PrivateLayout from "./Layouts/PrivateLayout.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
 import CartProvider from "./context/CartProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
@@ -20,9 +23,6 @@ const ProductsAdmin = lazy(() => import("./Admin/Pages/ProductsAdmin.jsx"));
 const OrdersAdmin = lazy(() => import("./Admin/Pages/OrdersAdmin.jsx"));
 const UsersAdmin = lazy(() => import("./Admin/Pages/UsersAdmin.jsx"));
 const RegisterForm = lazy(() => import("./Auth/RegisterForm.jsx"));
-
-import PublicLayout from "./Layouts/PublicLayout.jsx";
-import PrivateLayout from "./Layouts/PrivateLayout.jsx";
 
 function App() {
   return (
@@ -101,22 +101,24 @@ function App() {
               }
             />
 
-            {/* Rutas privadas */}
-            <Route
-              path="/admin/*"
-              element={
-                <BackProductProvider>
-                  <PrivateLayout>
-                    <Routes>
-                      <Route path="dashboard" element={<Dashboard />} />
-                      <Route path="products" element={<ProductsAdmin />} />
-                      <Route path="orders" element={<OrdersAdmin />} />
-                      <Route path="users" element={<UsersAdmin />} />
-                    </Routes>
-                  </PrivateLayout>
-                </BackProductProvider>
-              }
-            />
+            {/* Rutas privadas protegidas */}
+            <Route element={<ProtectedRoute />}>
+              <Route
+                path="/admin/*"
+                element={
+                  <BackProductProvider>
+                    <PrivateLayout>
+                      <Routes>
+                        <Route path="dashboard" element={<Dashboard />} />
+                        <Route path="products" element={<ProductsAdmin />} />
+                        <Route path="orders" element={<OrdersAdmin />} />
+                        <Route path="users" element={<UsersAdmin />} />
+                      </Routes>
+                    </PrivateLayout>
+                  </BackProductProvider>
+                }
+              />
+            </Route>
           </Routes>
         </Suspense>
       </CartProvider>

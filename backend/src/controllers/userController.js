@@ -2,32 +2,28 @@ import { User } from "../models/user.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-// Cargar variables de entorno
 process.loadEnvFile();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const registerUserController = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    if (!username || !password) {
+    if (!email || !password) {
       return res.status(400).json({
-        error: "All fields (username and password) are required.",
+        error: "All fields (email and password) are required.",
       });
     }
 
-    // Encriptar la contraseña con bcrypt
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Crear el nuevo usuario con la contraseña encriptada
     const newUser = new User({
-      username,
+      email,
       password: hashedPassword,
     });
 
-    // Guardar el nuevo usuario en la base de datos
     await newUser.save();
 
     res.status(201).json({
@@ -41,37 +37,33 @@ const registerUserController = async (req, res, next) => {
 
 const loginUserController = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    if (!username || !password) {
+    if (!email || !password) {
       return res.status(400).json({
         status: 400,
-        error: "All fields (username and password) are required.",
+        error: "All fields (email and password) are required.",
       });
     }
-
-    // Buscar al usuario en la base de datos
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
 
     if (!user) {
       return res.status(401).json({
         status: 401,
-        error: "Invalid username or password.",
+        error: "Invalid email or password.",
       });
     }
 
-    // Comparar la contraseña proporcionada con la almacenada (encriptada)
     const match = await bcrypt.compare(password, user.password);
 
     if (!match) {
       return res.status(401).json({
         status: 401,
-        error: "Invalid username or password.",
+        error: "Invalid email or password.",
       });
     }
 
-    // Crear el token JWT
-    const token = jwt.sign({ username: user.username }, JWT_SECRET, {
+    const token = jwt.sign({ email: user.email }, JWT_SECRET, {
       expiresIn: "5h",
     });
 

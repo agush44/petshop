@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchProducts } from "../../../services/Api";
+import { fetchProducts } from "../../../services/productApi";
 import { Link } from "react-router-dom";
 import {
   SearchWrapper,

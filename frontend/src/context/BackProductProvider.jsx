@@ -1,24 +1,25 @@
 import { useCallback } from "react";
-import { createProduct, updateProduct, deleteProduct } from "../services/Api";
+import {
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from "../services/productApi";
 import PropTypes from "prop-types";
 import { ProductContext } from "./ShopContext";
 
 const BackProductProvider = ({ children }) => {
   const addProduct = useCallback(async (productData, token) => {
     try {
-      // Filtrar valores vacíos
       const cleanedProductData = Object.fromEntries(
         Object.entries(productData).filter(([, value]) => value !== "")
       );
 
-      // Asegurar que price y stock sean números
       cleanedProductData.price = Number(cleanedProductData.price);
       cleanedProductData.stock = Number(cleanedProductData.stock);
       cleanedProductData.discount = cleanedProductData.discount
         ? Number(cleanedProductData.discount)
         : 0;
 
-      // 📅 Convertir `discountExpiresAt` a formato "yyyy-MM-dd"
       if (cleanedProductData.discountExpiresAt) {
         const dateObj = new Date(cleanedProductData.discountExpiresAt);
         cleanedProductData.discountExpiresAt = dateObj
