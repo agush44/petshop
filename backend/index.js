@@ -50,7 +50,21 @@ app.use(
 );
 
 // Configuración de CORS
-app.use(cors({ origin: FRONTEND_URL }));
+const allowedOrigins = ["https://petshop-zeta-olive.vercel.app"];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Permitir peticiones desde los orígenes especificados
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("No permitido por la política CORS"));
+      }
+    },
+    credentials: true, // Permite enviar cookies si es necesario
+  })
+);
 
 // Middleware de seguridad
 app.use(helmet());
