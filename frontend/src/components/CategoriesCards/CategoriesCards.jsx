@@ -41,12 +41,12 @@ const CategoriesCards = () => {
   return (
     <CategoriesContainer>
       <CategoryCard
-        ref={cardRef} // El ref se pasa aquí
+        ref={cardRef}
         className={isInView ? "in-view" : ""}
         image={perroImage}
         title="Productos para Perros"
         description="Encuentra los mejores productos para tu mejor amigo."
-        onClick={() => handleCardClick("perros")}
+        onClick={() => handleCardClick("Perros")}
       />
       <CategoryCard
         ref={cardRef} // El ref se pasa también aquí
@@ -54,7 +54,7 @@ const CategoriesCards = () => {
         image={gatoImage}
         title="Productos para Gatos"
         description="Todo lo que tu michi necesita, en un solo lugar."
-        onClick={() => handleCardClick("gatos")}
+        onClick={() => handleCardClick("Gatos")}
       />
     </CategoriesContainer>
   );

@@ -25,12 +25,13 @@ const FilterSidebar = ({
       <Title>Filtrar por Animal</Title>
       <Select onChange={handleAnimalChange} value={animalFilter}>
         <option value="">Todos los animales</option>
-        <option value="perros">Perros</option>
-        <option value="gatos">Gatos</option>
+        <option value="Perros">Perros</option>
+        <option value="Gatos">Gatos</option>
       </Select>
     </FilterSidebarContainer>
   );
 };
+
 FilterSidebar.propTypes = {
   categoryFilter: PropTypes.string.isRequired,
   animalFilter: PropTypes.string.isRequired,
