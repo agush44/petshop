@@ -50,7 +50,7 @@ app.use(
 );
 
 // Configuración de CORS
-const allowedOrigins = ["https://petshop-zeta-olive.vercel.app"];
+const allowedOrigins = ["https://tupetshop.vercel.app"];
 
 app.use(
   cors({
