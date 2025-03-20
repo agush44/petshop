@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { ProductContext } from "../../context/ShopContext";
 import { productFields } from "../../data/fieldsConfig";
 import { formatProductData } from "../../utils/formUtils";
-import { productSchema } from "../../../../backend/src/validations/productValidation";
+import { productSchema } from "../../utils/productValidation";
 
 export default function ModalAddProduct({ closeModal, producto, title }) {
   const { addProduct, token } = useContext(ProductContext);
