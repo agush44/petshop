@@ -12,7 +12,6 @@ import jsonOptimizationMiddleware from "./src/middleware/jsonOptimizationMiddlew
 //import YAML from "yamljs";
 
 const FRONTEND_URL = process.env.FRONTEND_URL;
-process.loadEnvFile();
 
 const PORT = process.env.PORT;
 
