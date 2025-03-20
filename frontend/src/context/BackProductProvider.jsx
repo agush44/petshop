@@ -10,7 +10,7 @@ import { ProductContext } from "./ShopContext";
 const BackProductProvider = ({ children }) => {
   const addProduct = useCallback(async (productData) => {
     try {
-      const token = localStorage.getItem("token"); // Recuperar el token
+      const token = localStorage.getItem("token");
       const cleanedProductData = Object.fromEntries(
         Object.entries(productData).filter(([, value]) => value !== "")
       );
@@ -43,7 +43,7 @@ const BackProductProvider = ({ children }) => {
 
   const editProduct = useCallback(async (id, productData) => {
     try {
-      const token = localStorage.getItem("token"); // Recuperar el token
+      const token = localStorage.getItem("token");
       const updatedProduct = await updateProduct(id, productData, token);
       return updatedProduct;
     } catch (error) {
@@ -54,7 +54,7 @@ const BackProductProvider = ({ children }) => {
 
   const removeProduct = useCallback(async (id) => {
     try {
-      const token = localStorage.getItem("token"); // Recuperar el token
+      const token = localStorage.getItem("token");
       await deleteProduct(id, token);
     } catch (error) {
       console.error("Error al eliminar el producto:", error);

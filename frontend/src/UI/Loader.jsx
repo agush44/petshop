@@ -5,13 +5,12 @@ const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
+  height: 100vh;
 `;
 
 const Loader = () => {
   return (
     <LoaderContainer>
-      {/* Aquí puedes personalizar el tamaño y color del BounceLoader */}
       <BounceLoader size={60} color="#3498db" />
     </LoaderContainer>
   );

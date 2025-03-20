@@ -1,9 +1,18 @@
-import PropTypes from "prop-types";
+import Sidebar from "../Admin/Components/Sidebar/Sidebar";
+import { Outlet } from "react-router-dom";
+import { ModalProvider } from "../context/ModalProvider";
 
-export default function PrivateLayout({ children }) {
-  return <main className="main-content">{children}</main>;
-}
-
-PrivateLayout.propTypes = {
-  children: PropTypes.node.isRequired,
+const PrivateLayout = () => {
+  return (
+    <ModalProvider>
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-grow">
+          <Outlet />
+        </div>
+      </div>
+    </ModalProvider>
+  );
 };
+
+export default PrivateLayout;

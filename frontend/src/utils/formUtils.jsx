@@ -5,8 +5,8 @@ export const formatProductData = (formData) => {
     stock: isNaN(Number(formData.stock)) ? 0 : Number(formData.stock),
     discount: isNaN(Number(formData.discount)) ? 0 : Number(formData.discount),
     discountExpiresAt: formData.discountExpiresAt
-      ? new Date(formData.discountExpiresAt).toISOString()
-      : null,
+      ? new Date(formData.discountExpiresAt).toISOString().split("T")[0]
+      : "",
   };
 };
 

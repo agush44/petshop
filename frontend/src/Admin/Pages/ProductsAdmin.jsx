@@ -1,13 +1,24 @@
 import { useState, useEffect, useContext } from "react";
 import { FiEdit, FiTrash, FiPlus } from "react-icons/fi";
 import { fetchProducts } from "../../services/productApi";
-import PropTypes from "prop-types";
 import toast from "react-hot-toast";
 import ConfirmDeleteModal from "../Components/ConfirmDeleteModal";
+import ModalEditProduct from "../Components/ModalEditProduct";
+import ModalAddProduct from "../Components/ModalAddProduct";
 import { ProductContext } from "../../context/ShopContext";
+import { ModalContext } from "../../context/ShopContext";
 
-const ProductsAdmin = ({ openEditModal, setAddModalOpen }) => {
+const ProductsAdmin = () => {
   const { removeProduct, token } = useContext(ProductContext);
+  const {
+    productoEdit,
+    isAddModalOpen,
+    openEditModal,
+    closeEditModal,
+    openAddModal,
+    closeAddModal,
+  } = useContext(ModalContext);
+
   const [productos, setProductos] = useState([]);
   const [deleteId, setDeleteId] = useState(null);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -22,10 +33,14 @@ const ProductsAdmin = ({ openEditModal, setAddModalOpen }) => {
       }
     };
     loadProducts();
-  }, [productos]);
+  }, []);
 
-  const openProductModal = (producto = null) => {
-    openEditModal(producto);
+  const updateProduct = (updatedProduct) => {
+    setProductos((prevProductos) =>
+      prevProductos.map((producto) =>
+        producto._id === updatedProduct._id ? updatedProduct : producto
+      )
+    );
   };
 
   const confirmDelete = (productoId) => {
@@ -61,7 +76,7 @@ const ProductsAdmin = ({ openEditModal, setAddModalOpen }) => {
           Productos
         </h2>
         <button
-          onClick={() => setAddModalOpen(true)}
+          onClick={openAddModal}
           className="bg-[#324fc7] text-white px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 text-xs sm:text-sm md:text-base rounded-md flex items-center justify-center hover:opacity-80 cursor-pointer transition-all duration-200"
         >
           <FiPlus className="mr-1 sm:mr-2" /> Agregar Producto
@@ -107,7 +122,7 @@ const ProductsAdmin = ({ openEditModal, setAddModalOpen }) => {
                 </td>
                 <td className="p-1 sm:p-2 md:p-3 text-center">
                   <button
-                    onClick={() => openProductModal(producto)}
+                    onClick={() => openEditModal(producto)}
                     className="text-blue-600 hover:text-blue-800 focus:outline-none transition-colors duration-150 cursor-pointer"
                   >
                     <FiEdit size={16} />
@@ -125,6 +140,18 @@ const ProductsAdmin = ({ openEditModal, setAddModalOpen }) => {
         </table>
       </div>
 
+      {/* Modales */}
+      {productoEdit && (
+        <ModalEditProduct
+          title="Editar producto"
+          closeModal={closeEditModal}
+          onUpdate={updateProduct}
+          producto={productoEdit}
+        />
+      )}
+      {isAddModalOpen && (
+        <ModalAddProduct title="Agregar producto" closeModal={closeAddModal} />
+      )}
       <ConfirmDeleteModal
         isOpen={isDeleteModalOpen}
         onClose={() => setDeleteModalOpen(false)}
@@ -132,11 +159,6 @@ const ProductsAdmin = ({ openEditModal, setAddModalOpen }) => {
       />
     </div>
   );
-};
-
-ProductsAdmin.propTypes = {
-  openEditModal: PropTypes.func.isRequired,
-  setAddModalOpen: PropTypes.func.isRequired,
 };
 
 export default ProductsAdmin;

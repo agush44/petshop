@@ -6,7 +6,12 @@ import { ProductContext } from "../../context/ShopContext";
 import { productFields } from "../../data/fieldsConfig";
 import { formatProductData } from "../../utils/formUtils";
 
-export default function ModalProduct({ closeModal, producto, title }) {
+export default function ModalProduct({
+  closeModal,
+  producto,
+  title,
+  onUpdate,
+}) {
   const { editProduct, token } = useContext(ProductContext);
 
   const handleSubmit = async (formData) => {
@@ -18,8 +23,17 @@ export default function ModalProduct({ closeModal, producto, title }) {
       delete formattedData.updatedAt;
 
       if (producto?._id) {
-        await editProduct(producto._id, formattedData, token);
+        const updatedProduct = await editProduct(
+          producto._id,
+          formattedData,
+          token
+        );
+
         toast.success("Producto actualizado exitosamente");
+
+        if (onUpdate) {
+          onUpdate(updatedProduct);
+        }
       }
       closeModal();
     } catch (error) {
@@ -41,6 +55,7 @@ export default function ModalProduct({ closeModal, producto, title }) {
 ModalProduct.propTypes = {
   title: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
   producto: PropTypes.shape({
     _id: PropTypes.string,
     name: PropTypes.string,

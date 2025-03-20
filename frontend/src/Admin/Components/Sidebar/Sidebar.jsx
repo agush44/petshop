@@ -22,7 +22,11 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logoutUser(navigate);
+    logoutUser(() => navigate("/admin/login"));
+  };
+
+  const handleProducts = () => {
+    navigate("/admin/products");
   };
 
   return (
@@ -64,6 +68,7 @@ const Sidebar = () => {
           selected={selected}
           setSelected={setSelected}
           open={open}
+          onClick={handleProducts}
         />
         <Option
           Icon={FiTag}

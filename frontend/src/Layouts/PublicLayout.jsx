@@ -1,19 +1,17 @@
 import Header from "../components/Header/Header.jsx";
 import Navbar from "../components/Nav/Navbar.jsx";
 import Footer from "../components/Footer/Footer.jsx";
-import PropTypes from "prop-types";
+import { Outlet } from "react-router-dom";
 
-export default function PublicLayout({ children }) {
+export default function PublicLayout() {
   return (
     <>
       <Header />
       <Navbar />
-      <main className="main-content">{children}</main>
+      <main className="main-content">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
 }
-
-PublicLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};

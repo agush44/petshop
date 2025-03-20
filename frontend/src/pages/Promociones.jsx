@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { getPromotionProducts } from "../services/api";
+import { getPromotionProducts } from "../services/productApi";
 import ItemList from "../UI/ItemList/ItemList";
 import ProductCard from "../components/Products/ProductCard/ProductCard";
 import Loader from "../UI/Loader";
 
-const Promotions = () => {
+const Promociones = () => {
   const [promotions, setPromotions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -69,4 +69,4 @@ const Promotions = () => {
   );
 };
 
-export default Promotions;
+export default Promociones;

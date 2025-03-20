@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-
+import { formatProductData, handleFormChange } from "../utils/formUtils";
 export default function Modal({
   title,
   closeModal,
@@ -12,15 +12,17 @@ export default function Modal({
   const [formState, setFormState] = useState(formData || {});
 
   useEffect(() => {
-    setFormState(formData || {});
+    if (formData) {
+      const formattedData = formatProductData(formData);
+      setFormState((prevState) => ({
+        ...prevState,
+        ...formattedData,
+      }));
+    }
   }, [formData]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormState((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    handleFormChange(e, setFormState);
   };
 
   const handleSubmit = async (e) => {
