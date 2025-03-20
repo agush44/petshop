@@ -1,7 +1,5 @@
 import jwt from "jsonwebtoken";
 
-process.loadEnvFile();
-
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const authToken = (req, res, next) => {
