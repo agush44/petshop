@@ -1,4 +1,4 @@
-import fetchData, { API_URL } from "./api";
+import fetchData, { API_URL } from "./api.js";
 
 export const fetchProducts = async () => {
   return fetchData(`${API_URL}/api/products`);
