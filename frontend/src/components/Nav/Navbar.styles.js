@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
   width: 100%;
-  height: 5vh;
+  height: 8vh;
   background-color: #324fc7;
   padding: 1rem 0;
   display: flex;

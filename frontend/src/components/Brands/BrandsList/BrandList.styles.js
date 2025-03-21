@@ -1,61 +1,56 @@
 import styled from "styled-components";
+import { media } from "../../../styles";
 
-export const BrandsListWrapper = styled.div`
-  padding: 0 2rem;
-  @media (min-width: 768px) {
-    padding: 0 5rem;
-  }
-  @media (min-width: 1200px) {
-    padding: 0 10rem;
-  }
-`;
-
-export const BrandsListContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-  justify-items: center;
-  padding: 1rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    padding: 1rem;
-  }
-`;
-
+// Card individual
 export const Card = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 250px;
-  aspect-ratio: 1 / 1;
-  padding: 2rem;
-  border: 1px solid #ddd;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 1.5rem; /* Padding ajustado */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); /* Efecto de flotación */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
   }
 
-  @media (max-width: 480px) {
-    max-width: 200px;
-    padding: 1rem;
+  ${media.md} {
+    padding: 1.2rem; /* Menos espaciado en pantallas medianas */
+  }
+
+  ${media.lg} {
+    padding: 1.5rem; /* Espaciado consistente en pantallas grandes */
   }
 `;
 
+// Imagen de las marcas
 export const Img = styled.img`
   width: 100%;
   height: auto;
-  max-width: 150px;
-  max-height: 150px;
-  object-fit: cover;
+  max-width: 130px;
+  max-height: 130px;
+  object-fit: contain; /* Mantiene proporciones */
+  transition: transform 0.3s ease;
 
-  @media (max-width: 768px) {
+  &:hover {
+    transform: scale(1.1); /* Pequeño zoom */
+  }
+
+  ${media.sm} {
+    max-width: 110px;
+    max-height: 110px;
+  }
+
+  ${media.md} {
     max-width: 120px;
     max-height: 120px;
+  }
+
+  ${media.lg} {
+    max-width: 130px;
+    max-height: 130px;
   }
 `;
