@@ -32,7 +32,7 @@ export const Nav = styled.nav`
   /* Extra large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
     height: auto;
-    padding: 2rem;
+    padding: 1rem;
     gap: 2rem;
   }
 

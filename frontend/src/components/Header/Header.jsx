@@ -11,7 +11,7 @@ import {
   Button,
 } from "./Header.styles";
 
-const Header = () => {  
+const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { totalItems } = useContext(CartContext);
   const openModal = () => setIsModalOpen(true);

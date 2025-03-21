@@ -1,37 +1,5 @@
 import styled from "styled-components";
-
-export const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-`;
-
-export const ModalContainer = styled.div`
-  background-color: white;
-  width: 80%;
-  max-width: 600px;
-  padding: 2rem;
-  border-radius: 10px;
-  position: relative;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-`;
-
-export const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-`;
+import { media } from "../../../styles";
 
 export const SearchInput = styled.input`
   width: 100%;
@@ -40,11 +8,38 @@ export const SearchInput = styled.input`
   border: 1px solid #ccc;
   margin-bottom: 1rem;
   font-size: 1rem;
+
+  ${media.xs} {
+    padding: 0.8rem; /* Ajustar padding para dispositivos pequeños */
+    font-size: 0.9rem; /* Reducir tamaño del texto */
+  }
+
+  ${media.sm} {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  ${media.md} {
+    padding: 1.2rem;
+    font-size: 1.1rem;
+  }
 `;
 
 export const SearchResults = styled.div`
   max-height: 300px;
   overflow-y: auto;
+
+  ${media.xs} {
+    max-height: 200px; /* Reducir altura del contenedor en móviles */
+  }
+
+  ${media.sm} {
+    max-height: 250px;
+  }
+
+  ${media.md} {
+    max-height: 300px;
+  }
 `;
 
 export const SearchResultItem = styled.div`
@@ -54,5 +49,20 @@ export const SearchResultItem = styled.div`
 
   &:hover {
     background-color: #f4f4f4;
+  }
+
+  ${media.xs} {
+    padding: 0.8rem; /* Menor padding en dispositivos pequeños */
+    font-size: 0.9rem; /* Ajustar tamaño del texto */
+  }
+
+  ${media.sm} {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  ${media.md} {
+    padding: 1.2rem;
+    font-size: 1.1rem;
   }
 `;
