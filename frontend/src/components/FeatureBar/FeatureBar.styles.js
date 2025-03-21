@@ -24,6 +24,7 @@ export const FeatureBarContainer = styled.div`
   justify-content: center;
   color: #f9f7f0;
   padding: 2rem;
+  margin-top: -1px;
 
   ${media.xs} {
     gap: 1rem;
