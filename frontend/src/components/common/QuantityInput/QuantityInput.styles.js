@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const QuantityInputContainer = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid #1f3a67;
   border-radius: 15px;
   overflow: hidden;
   background-color: #fff;
@@ -17,7 +17,7 @@ export const QuantityInputStyled = styled.input`
   border: none; 
   background-color: transparent;
   outline: none;
-  color: #333;
+  color: #1f3a67;
 
    /* Eliminar las flechas del input tipo number */
   -webkit-appearance: none;  /* Chrome, Safari */
@@ -39,5 +39,5 @@ export const Button = styled.button`
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: 400;
-  color: #3a58d0;
+  color: #1f3a67;
 `;
