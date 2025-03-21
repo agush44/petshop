@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { media } from "../../styles";
 
 export const CategoriesContainer = styled.div`
   display: flex;
@@ -13,16 +13,13 @@ export const CategoryCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 2rem;
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 100%;
   max-width: 600px;
   padding-bottom: 1.5rem;
   cursor: pointer;
-  transition: transform 0.1s ease-in-out;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.9s ease-out, transform 0.6s ease-out;
@@ -41,11 +38,11 @@ export const CategoryImage = styled.img`
   width: 100%;
   object-fit: cover;
 
-  @media (min-width: 768px) {
+  ${media.md} {
     height: 200px;
   }
 
-  @media (min-width: 1200px) {
+  ${media.xl} {
     height: 300px;
   }
 `;
@@ -58,9 +55,7 @@ export const CategoryContent = styled.div`
 `;
 
 export const CategoryTitle = styled.h3`
-  text-align: center;
   padding-top: 1rem;
-  background-color: #fff;
   color: #333;
 `;
 
@@ -68,15 +63,11 @@ export const CategoryDescription = styled.p`
   color: #666;
   width: 70%;
 
-  @media (min-width: 768px) {
+  ${media.md} {
     font-size: 0.8rem;
   }
 
-  @media (min-width: 992px) {
+  ${media.lg} {
     font-size: 1rem;
   }
-`;
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
 `;

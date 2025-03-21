@@ -9,7 +9,7 @@ export const CategoryCardWrapper = styled.div`
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 100%;
+
   max-width: 600px;
   padding-bottom: 1.5rem;
   cursor: pointer;
