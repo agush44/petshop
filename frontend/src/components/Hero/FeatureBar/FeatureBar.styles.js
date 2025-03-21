@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { FaMotorcycle, FaTruck, FaCreditCard } from "react-icons/fa";
+import { media } from "../../../styles";
 
 export const FeatureBarContainer = styled.div`
   width: 100%;
@@ -11,49 +12,36 @@ export const FeatureBarContainer = styled.div`
   box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
   -webkit-box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
   -moz-box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
-  gap: 5rem;
   color: #f9f7f0;
-
   padding: 0 2rem;
 
-  /* Extra small devices (phones, 320px and up) */
-  @media (min-width: 320px) {
+  ${media.xs} {
     gap: 1rem;
-    height: 100px;
-    margin-top: 0;
+    height: 80px;
   }
 
-  /* Small devices (phones, 480px and up) */
-  @media (min-width: 480px) {
+  ${media.sm} {
+    padding: 0 2rem;
   }
 
-  /* Medium devices (tablets, 576px and up) */
-  @media (min-width: 576px) {
-    paddng: 0 2rem;
-  }
-
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
+  ${media.md} {
     height: auto;
     padding: 2rem 5%;
     gap: 1rem;
   }
 
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
+  ${media.lg} {
     height: auto;
     padding: 2rem;
     gap: 2rem;
   }
 
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
+  ${media.xl} {
     height: auto;
     padding: 2rem;
   }
 
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
+  ${media["2xl"]} {
     height: auto;
     padding: 3rem;
   }
@@ -63,158 +51,86 @@ export const FeatureItem = styled.div`
   color: #f9f7f0;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  font-size: 1.1rem;
   font-weight: 500;
+  font-size: 1.1rem;
 
-  /* Extra small devices (phones, 320px and up) */
-  @media (min-width: 320px) {
-    font-size: 0.7rem;
+  ${media.xs} {
+    font-size: 0.6rem;
+    gap: 0.5rem;
   }
 
-  /* Small devices (phones, 480px and up) */
-  @media (min-width: 480px) {
-  }
-
-  /* Medium devices (tablets, 576px and up) */
-  @media (min-width: 576px) {
-  }
-
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
+  ${media.md} {
     font-size: 0.8rem;
+    gap: 1rem;
   }
 
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
+  ${media.lg} {
     gap: 1rem;
     font-size: 1.1rem;
   }
 
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
+  ${media.xl} {
     gap: 1rem;
     font-size: 1.1rem;
   }
 
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
+  ${media["2xl"]} {
     gap: 1rem;
     font-size: 1.1rem;
+  }
+`;
+
+const IconBaseStyles = css`
+  color: #f9f7f0;
+
+  ${media.xs} {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  ${media.md} {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  ${media["2xl"]} {
+    height: 2.5rem;
+    width: 2.5rem;
   }
 `;
 
 export const StyledFaMotorcycle = styled(FaMotorcycle)`
-  color: #f9f7f0;
-
-  /* Extra small devices (phones, 320px and up) */
-  @media (min-width: 320px) {
-    height: 2rem;
-    width: 2rem;
-  }
-
-  * Large devices (tablets/laptops, 768px and up) */ @media (min-width: 768px) {
-    height: 3rem;
-    width: 3rem;
-  }
-
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-  }
-
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-  }
-
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
-    height: 3rem;
-    width: 3rem;
-  }
+  ${IconBaseStyles}
 `;
 
 export const StyledFaTruck = styled(FaTruck)`
-  color: #f9f7f0;
-
-  /* Extra small devices (phones, 320px and up) */
-  @media (min-width: 320px) {
-    height: 2rem;
-    width: 2rem;
-  }
-
-  * Large devices (tablets/laptops, 768px and up) */ @media (min-width: 768px) {
-    height: 3rem;
-    width: 3rem;
-  }
-
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-  }
-
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-  }
-
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
-    height: 3rem;
-    width: 3rem;
-  }
+  ${IconBaseStyles}
 `;
 
 export const StyledFaCreditCard = styled(FaCreditCard)`
-  color: #f9f7f0;
-
-  /* Extra small devices (phones, 320px and up) */
-  @media (min-width: 320px) {
-    height: 2rem;
-    width: 2rem;
-  }
-
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
-    height: 3rem;
-    width: 3rem;
-  }
-
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-  }
-
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-  }
-
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
-    height: 3rem;
-    width: 3rem;
-  }
+  ${IconBaseStyles}
 `;
 
 export const Text = styled.p`
-  /* Extra small devices (phones, 320px and up) */
-  @media (min-width: 320px) {
-    width: 70%;
+  ${media.xs} {
+    width: 58%;
   }
 
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
+  ${media.md} {
     width: 50%;
   }
 
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
+  ${media.lg} {
     width: 50%;
   }
 
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
+  ${media.xl} {
     width: 50%;
   }
 
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
+  ${media["2xl"]} {
     width: 50%;
   }
 `;
