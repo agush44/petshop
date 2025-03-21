@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { getPromotionProducts } from "../services/productApi";
 import ItemList from "../UI/ItemList/ItemList";
 import ProductCard from "../components/Products/ProductCard/ProductCard";
@@ -16,7 +17,7 @@ const Promociones = () => {
       const promoProducts = await getPromotionProducts();
       if (Array.isArray(promoProducts)) {
         setPromotions(promoProducts);
-        cachedPromotions = promoProducts;
+        cachedPromotions = promoProducts; // Guardar en cache
       } else {
         throw new Error("Datos de promociones incorrectos");
       }
@@ -52,23 +53,29 @@ const Promociones = () => {
           <button onClick={handleRetry}>Intentar nuevamente</button>
         </div>
       ) : (
-        <ItemList
-          items={promotions}
-          title="🔥 Promociones Especiales 🔥"
-          renderItem={(product) => (
-            <ProductCard
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              category={product.category}
-              name={product.name}
-              price={product.price}
-              discount={product.discount}
-              discountExpiresAt={product.discountExpiresAt}
-            />
-          )}
-          showLoadMore={false} // Si hay paginación, podrías cambiar esto a true
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <ItemList
+            items={promotions}
+            title="🔥 Promociones Especiales 🔥"
+            renderItem={(product) => (
+              <ProductCard
+                key={product._id}
+                _id={product._id}
+                image={product.image}
+                category={product.category}
+                name={product.name}
+                price={product.price}
+                discount={product.discount}
+                discountExpiresAt={product.discountExpiresAt}
+              />
+            )}
+            showLoadMore={false} // Cambiar a true si hay más páginas
+          />
+        </motion.div>
       )}
     </section>
   );
