@@ -24,9 +24,10 @@ export const Title = styled.h2`
 
 export const ItemListContainer = styled.div`
   display: flex;
+  height: 100%;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem; /* Espacio generoso entre los ítems */
+  gap: 2rem;
   padding: 0 1rem;
   margin-bottom: 2rem;
 

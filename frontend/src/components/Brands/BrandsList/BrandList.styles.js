@@ -6,49 +6,39 @@ export const Card = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  padding: 1.5rem; /* Padding ajustado */
+  border-radius: 12px;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 220px; /* Aumentar el tamaño */
+  aspect-ratio: 1;
+  padding: 1rem; /* Agregar espacio interno */
 
   &:hover {
-    transform: translateY(-5px); /* Efecto de flotación */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  ${media.sm} {
+    max-width: 200px;
   }
 
   ${media.md} {
-    padding: 1.2rem; /* Menos espaciado en pantallas medianas */
+    max-width: 210px;
   }
 
   ${media.lg} {
-    padding: 1.5rem; /* Espaciado consistente en pantallas grandes */
+    max-width: 220px;
   }
 `;
 
 export const Img = styled.img`
-  width: 100%;
-  height: auto;
-  max-width: 130px;
-  max-height: 130px;
-  object-fit: contain; /* Mantiene proporciones */
+  width: 150px; /* Aumentar el tamaño */
+  height: 150px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.1); /* Pequeño zoom */
-  }
-
-  ${media.sm} {
-    max-width: 110px;
-    max-height: 110px;
-  }
-
-  ${media.md} {
-    max-width: 120px;
-    max-height: 120px;
-  }
-
-  ${media.lg} {
-    max-width: 130px;
-    max-height: 130px;
+    transform: scale(1.1);
   }
 `;
