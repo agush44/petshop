@@ -6,8 +6,12 @@ import gatoImage from "../../assets/cat.webp";
 import CategoryCard from "./CategoryCard.jsx";
 
 const CategoriesCards = () => {
-  const [isInView, setIsInView] = useState(false);
-  const cardRef = useRef(null);
+  const [visibleCards, setVisibleCards] = useState({
+    first: false,
+    second: false,
+  });
+  const firstCardRef = useRef(null);
+  const secondCardRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,22 +19,26 @@ const CategoriesCards = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsInView(true);
+            if (entry.target === firstCardRef.current) {
+              setVisibleCards((prev) => ({ ...prev, first: true }));
+            } else if (entry.target === secondCardRef.current) {
+              setVisibleCards((prev) => ({ ...prev, second: true }));
+            }
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const currentCardRef = cardRef.current;
-    if (currentCardRef) {
-      observer.observe(currentCardRef);
-    }
+    const firstCardNode = firstCardRef.current;
+    const secondCardNode = secondCardRef.current;
+
+    if (firstCardNode) observer.observe(firstCardNode);
+    if (secondCardNode) observer.observe(secondCardNode);
 
     return () => {
-      if (currentCardRef) {
-        observer.unobserve(currentCardRef);
-      }
+      if (firstCardNode) observer.unobserve(firstCardNode);
+      if (secondCardNode) observer.unobserve(secondCardNode);
     };
   }, []);
 
@@ -41,16 +49,16 @@ const CategoriesCards = () => {
   return (
     <CategoriesContainer>
       <CategoryCard
-        ref={cardRef}
-        className={isInView ? "in-view" : ""}
+        ref={firstCardRef}
+        className={visibleCards.first ? "in-view" : ""}
         image={perroImage}
         title="Productos para Perros"
         description="Encuentra los mejores productos para tu mejor amigo."
         onClick={() => handleCardClick("Perros")}
       />
       <CategoryCard
-        ref={cardRef}
-        className={isInView ? "in-view" : ""}
+        ref={secondCardRef}
+        className={visibleCards.second ? "in-view" : ""}
         image={gatoImage}
         title="Productos para Gatos"
         description="Todo lo que tu michi necesita, en un solo lugar."

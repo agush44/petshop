@@ -4,7 +4,6 @@ import {
   HeroContainer,
   VideoContainer,
 } from "./Hero.styles";
-import FeatureBar from "./FeatureBar/FeatureBar";
 import { breakpoints } from "../../styles";
 
 const Hero = () => {
@@ -50,7 +49,6 @@ const Hero = () => {
             onLoadedData={() => setIsVideoLoaded(true)}
           />
         </VideoContainer>
-        <FeatureBar />
       </HeroContainer>
     </HeroTotalContainer>
   );

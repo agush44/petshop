@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// Contenedor principal de la tarjeta
 export const CategoryCardWrapper = styled.div`
   display: flex;
   flex-direction: column;

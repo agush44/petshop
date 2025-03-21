@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 import { FaMotorcycle, FaTruck, FaCreditCard } from "react-icons/fa";
-import { media } from "../../../styles";
+import { media } from "../../styles";
 
 export const FeatureBarContainer = styled.div`
   width: 100%;
-  height: auto;
+  height: 20vh;
   background: rgb(58, 88, 207);
   background: linear-gradient(
     180deg,
@@ -27,7 +27,7 @@ export const FeatureBarContainer = styled.div`
 
   ${media.xs} {
     gap: 1rem;
-    height: 80px;
+    height: 12vh;
   }
 
   ${media.sm} {
@@ -35,25 +35,22 @@ export const FeatureBarContainer = styled.div`
   }
 
   ${media.md} {
-    height: auto;
     padding: 2rem 5%;
     gap: 1rem;
   }
 
   ${media.lg} {
-    height: auto;
     padding: 2rem;
     gap: 2rem;
   }
 
   ${media.xl} {
-    height: auto;
     padding: 2rem;
   }
 
   ${media["2xl"]} {
-    height: auto;
     padding: 3rem;
+    height: 20vh;
   }
 `;
 
