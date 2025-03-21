@@ -5,11 +5,7 @@ export const TotalDetailContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   height: auto;
-  padding: 2rem;
-
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
+  padding: 0 3rem;
 `;
 
 export const DetailContainer = styled.div`

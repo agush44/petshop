@@ -43,7 +43,6 @@ const ProductCard = memo(function ProductCard({
   return (
     <Card>
       <picture>
-        {/* Intenta usar WebP si está disponible */}
         <source
           srcSet={image.replace(/\.(jpg|png)$/i, ".webp")}
           type="image/webp"
