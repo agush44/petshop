@@ -22,7 +22,6 @@ const fadeIn = keyframes`
 
 export const HeroTotalContainer = styled.div`
   display: flex;
-  height: 130vh;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -68,7 +67,7 @@ export const VideoContainer = styled.div`
   /* Extra small devices (phones, 320px and up) */
   @media (min-width: 320px) {
     video {
-      height: 52vh;
+      height: 55vh;
     }
   }
 
@@ -89,7 +88,7 @@ export const VideoContainer = styled.div`
   /* Large devices (tablets/laptops, 768px and up) */
   @media (min-width: 768px) {
     video {
-      height: 50vh;
+      height: 40vh;
     }
   }
 

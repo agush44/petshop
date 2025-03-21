@@ -7,7 +7,7 @@ import CategoryCard from "./CategoryCard.jsx";
 
 const CategoriesCards = () => {
   const [isInView, setIsInView] = useState(false);
-  const cardRef = useRef(null); // Aquí es donde se gestiona la referencia
+  const cardRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const CategoriesCards = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsInView(true); // Activar cuando el card entre en vista
+            setIsInView(true);
           }
         });
       },
@@ -24,12 +24,12 @@ const CategoriesCards = () => {
 
     const currentCardRef = cardRef.current;
     if (currentCardRef) {
-      observer.observe(currentCardRef); // Inicia la observación
+      observer.observe(currentCardRef);
     }
 
     return () => {
       if (currentCardRef) {
-        observer.unobserve(currentCardRef); // Desactiva la observación cuando se desmonta
+        observer.unobserve(currentCardRef);
       }
     };
   }, []);
@@ -49,7 +49,7 @@ const CategoriesCards = () => {
         onClick={() => handleCardClick("Perros")}
       />
       <CategoryCard
-        ref={cardRef} // El ref se pasa también aquí
+        ref={cardRef}
         className={isInView ? "in-view" : ""}
         image={gatoImage}
         title="Productos para Gatos"

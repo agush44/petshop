@@ -5,15 +5,25 @@ import { media } from "../../../styles";
 export const FeatureBarContainer = styled.div`
   width: 100%;
   height: auto;
-  background-color: #3a58cf;
+  background: rgb(58, 88, 207);
+  background: linear-gradient(
+    180deg,
+    rgba(58, 88, 207, 1) 15%,
+    rgba(63, 92, 208, 1) 23%,
+    rgba(72, 100, 209, 1) 31%,
+    rgba(77, 104, 210, 1) 40%,
+    rgba(93, 117, 213, 1) 50%,
+    rgba(104, 126, 215, 1) 58%,
+    rgba(131, 148, 219, 1) 71%,
+    rgba(165, 177, 225, 1) 83%,
+    rgba(215, 219, 234, 1) 92%,
+    rgba(249, 247, 240, 1) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
-  -webkit-box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
-  -moz-box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
   color: #f9f7f0;
-  padding: 0 2rem;
+  padding: 2rem;
 
   ${media.xs} {
     gap: 1rem;

@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   border: none;
   width: 100%;
+  height: 10vh;
   padding: 1.2rem;
   background: linear-gradient(
     0deg,
