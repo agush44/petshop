@@ -5,8 +5,8 @@ import QuantityInput from "../../components/common/QuantityInput/QuantityInput";
 import { FaTrash } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatPrice } from "../../utils/formatPrice";
-import BuyNowButton from "../../components/BuyNowButton";
-import CustomerForm from "../../components/CustomerForm/CustomerForm";
+import BuyNowButton from "../BuyNowButton";
+import CustomerForm from "../CustomerForm/CustomerForm";
 import {
   EmptyCartContainer,
   StyledLink,

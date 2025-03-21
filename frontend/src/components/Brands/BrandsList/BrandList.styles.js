@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../../styles";
 
-// Card individual
 export const Card = styled.div`
   display: flex;
   justify-content: center;
@@ -26,7 +25,6 @@ export const Card = styled.div`
   }
 `;
 
-// Imagen de las marcas
 export const Img = styled.img`
   width: 100%;
   height: auto;

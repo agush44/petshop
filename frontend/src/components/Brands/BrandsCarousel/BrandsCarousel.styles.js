@@ -8,17 +8,8 @@ export const CarouselContainer = styled.div`
   width: 100%;
   max-width: 100vw;
   overflow: hidden;
-  margin: 4rem 0;
   background-color: rgba(218, 220, 224, 0.51);
   padding: 1rem;
-
-  ${media.md} {
-    margin: 5rem 0;
-  }
-
-  ${media.lg} {
-    margin: 6rem 0;
-  }
 `;
 
 export const Slide = styled.div`

@@ -52,19 +52,18 @@ export const logoutUser = (navigate) => {
           <button
             className="bg-gray-300 px-3 py-1 rounded"
             onClick={() => {
-              toast.dismiss(t.id); // Cierra el toast
+              toast.dismiss(t.id); 
             }}
           >
             Cancelar
           </button>
-          {/* Botón para confirmar */}
           <button
             className="bg-red-500 text-white px-3 py-1 rounded"
             onClick={() => {
-              localStorage.removeItem("token"); // Eliminar el token
-              toast.dismiss(t.id); // Cierra el toast
-              toast.success("Sesión cerrada correctamente"); // Mensaje de éxito
-              navigate("/admin/login"); // Redirige suavemente al login
+              localStorage.removeItem("token");
+              toast.dismiss(t.id); 
+              toast.success("Sesión cerrada correctamente");
+              navigate("/admin/login");
             }}
           >
             Cerrar Sesión
@@ -72,6 +71,6 @@ export const logoutUser = (navigate) => {
         </div>
       </div>
     ),
-    { duration: Infinity } // Mantener el toast visible hasta que el usuario interactúe
+    { duration: Infinity } 
   );
 };

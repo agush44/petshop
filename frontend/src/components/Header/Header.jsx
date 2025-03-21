@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/ShopContext";
 import { FaShoppingCart } from "react-icons/fa";
-import CartModal from "../../pages/CartPage/CartModal";
+import CartModal from "../Cart/CartModal";
 import SearchBar from "./SearchBar/SearchBar";
 import {
   HeaderContainer,
@@ -11,7 +11,7 @@ import {
   Button,
 } from "./Header.styles";
 
-const Header = () => {
+const Header = () => {  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { totalItems } = useContext(CartContext);
   const openModal = () => setIsModalOpen(true);

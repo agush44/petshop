@@ -41,7 +41,7 @@ const Hero = () => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             poster="/placeholder.jpg"
             width="100%"
             height="auto"

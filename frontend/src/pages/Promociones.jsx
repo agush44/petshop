@@ -4,9 +4,11 @@ import ItemList from "../UI/ItemList/ItemList";
 import ProductCard from "../components/Products/ProductCard/ProductCard";
 import Loader from "../UI/Loader";
 
+let cachedPromotions = null;
+
 const Promociones = () => {
-  const [promotions, setPromotions] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [promotions, setPromotions] = useState(cachedPromotions || []);
+  const [loading, setLoading] = useState(!cachedPromotions);
   const [error, setError] = useState(null);
 
   const fetchPromotions = async () => {
@@ -14,6 +16,7 @@ const Promociones = () => {
       const promoProducts = await getPromotionProducts();
       if (Array.isArray(promoProducts)) {
         setPromotions(promoProducts);
+        cachedPromotions = promoProducts;
       } else {
         throw new Error("Datos de promociones incorrectos");
       }
@@ -28,7 +31,9 @@ const Promociones = () => {
   };
 
   useEffect(() => {
-    fetchPromotions();
+    if (!cachedPromotions) {
+      fetchPromotions();
+    }
   }, []);
 
   const handleRetry = () => {
