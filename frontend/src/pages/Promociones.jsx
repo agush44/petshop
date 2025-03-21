@@ -17,7 +17,7 @@ const Promociones = () => {
       const promoProducts = await getPromotionProducts();
       if (Array.isArray(promoProducts)) {
         setPromotions(promoProducts);
-        cachedPromotions = promoProducts; // Guardar en cache
+        cachedPromotions = promoProducts;
       } else {
         throw new Error("Datos de promociones incorrectos");
       }
