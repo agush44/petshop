@@ -51,7 +51,7 @@ export const CloseButton = styled.button`
 export const CartTitle = styled.h2`
   text-align: center;
   padding: 1rem;
-  background-color: #3a58d0;
+  background-color: #1f3a67;
   color: #fff;
 `;
 
@@ -79,7 +79,7 @@ export const CartText = styled.p`
 
 export const AddProdButton = styled.button`
   padding: 0.9rem;
-  background-color: #3a58d0;
+  background-color: #1f3a67;
   color: #fff;
   width: 80%;
   border: none;

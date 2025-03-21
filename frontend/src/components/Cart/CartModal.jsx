@@ -126,7 +126,7 @@ const CartModal = ({ isOpen, closeModal }) => {
                           <RemoveButton
                             onClick={() => removeFromCart(item._id)}
                           >
-                            <FaTrash size={20} color={`#3a58d0`} />
+                            <FaTrash size={20} color={`#1f3a67`} />
                           </RemoveButton>
                         </ContentContainer>
                       </CartContainer>
