@@ -13,13 +13,14 @@ export const FeatureBarContainer = styled.div`
   -moz-box-shadow: 1px 1px 36px -7px rgba(0, 0, 0, 0.15) inset;
   gap: 5rem;
   color: #f9f7f0;
-  margin-top: -1rem;
+
   padding: 0 2rem;
 
   /* Extra small devices (phones, 320px and up) */
   @media (min-width: 320px) {
     gap: 1rem;
     height: 100px;
+    margin-top: 0;
   }
 
   /* Small devices (phones, 480px and up) */

@@ -13,7 +13,7 @@ import jsonOptimizationMiddleware from "./src/middleware/jsonOptimizationMiddlew
 
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 
 const app = express();
 
@@ -50,19 +50,18 @@ app.use(
 );
 
 // Configuración de CORS
-const allowedOrigins = ["https://tupetshop.vercel.app"];
+const allowedOrigins = ["https://tupetshop.vercel.app", FRONTEND_URL];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Permitir peticiones desde los orígenes especificados
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error("No permitido por la política CORS"));
       }
     },
-    credentials: true, // Permite enviar cookies si es necesario
+    credentials: true,
   })
 );
 

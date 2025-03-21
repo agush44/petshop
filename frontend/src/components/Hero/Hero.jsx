@@ -7,10 +7,9 @@ import {
 import FeatureBar from "./FeatureBar/FeatureBar";
 
 const Hero = () => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false); // Estado para saber si el video ha cargado
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef(null);
 
-  // Cuando el video se ha cargado completamente, activamos la animación y otros comportamientos
   const handleVideoLoad = () => {
     setIsVideoLoaded(true);
   };
@@ -26,12 +25,12 @@ const Hero = () => {
             muted
             loop
             playsInline
-            preload="auto" // Carga el video completo para que sea instantáneo cuando se muestra
-            poster="/placeholder.jpg" // Imagen placeholder para mostrar mientras el video se carga
+            preload="auto"
+            poster="/placeholder.jpg"
             width="100%"
             height="auto"
             className={isVideoLoaded ? "fade-in" : "fade-in-start"}
-            onLoadedData={handleVideoLoad} // Cuando el video está completamente cargado
+            onLoadedData={handleVideoLoad}
           />
         </VideoContainer>
         <FeatureBar />
