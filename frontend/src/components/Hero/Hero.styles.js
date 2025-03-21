@@ -68,21 +68,21 @@ export const VideoContainer = styled.div`
   /* Extra small devices (phones, 320px and up) */
   @media (min-width: 320px) {
     video {
-      height: 40vh;
+      height: 50vh;
     }
   }
 
   /* Small devices (phones, 480px and up) */
   @media (min-width: 480px) {
     video {
-      height: 40vh;
+      height: 70vh;
     }
   }
 
   /* Medium devices (tablets, 576px and up) */
   @media (min-width: 576px) {
     video {
-      height: 40vh;
+      height: 50vh;
     }
   }
 

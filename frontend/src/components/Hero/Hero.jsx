@@ -1,18 +1,35 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   HeroTotalContainer,
   HeroContainer,
   VideoContainer,
 } from "./Hero.styles";
 import FeatureBar from "./FeatureBar/FeatureBar";
+import { breakpoints } from "../../styles";
 
 const Hero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("");
   const videoRef = useRef(null);
 
-  const handleVideoLoad = () => {
-    setIsVideoLoaded(true);
-  };
+  useEffect(() => {
+    const updateVideoSrc = () => {
+      if (window.innerWidth < parseInt(breakpoints.md)) {
+        setVideoSrc(
+          "https://res.cloudinary.com/dxognqhnp/video/upload/v1742573462/hero_mobile_2_ygkodh.mp4"
+        );
+      } else {
+        setVideoSrc(
+          "https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
+        );
+      }
+    };
+
+    updateVideoSrc();
+    window.addEventListener("resize", updateVideoSrc);
+
+    return () => window.removeEventListener("resize", updateVideoSrc);
+  }, []);
 
   return (
     <HeroTotalContainer>
@@ -20,7 +37,7 @@ const Hero = () => {
         <VideoContainer>
           <video
             ref={videoRef}
-            src="https://res.cloudinary.com/dxognqhnp/video/upload/v1740072261/petshop_2_j2meac.mp4"
+            src={videoSrc}
             autoPlay
             muted
             loop
@@ -30,7 +47,7 @@ const Hero = () => {
             width="100%"
             height="auto"
             className={isVideoLoaded ? "fade-in" : "fade-in-start"}
-            onLoadedData={handleVideoLoad}
+            onLoadedData={() => setIsVideoLoaded(true)}
           />
         </VideoContainer>
         <FeatureBar />

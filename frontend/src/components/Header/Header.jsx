@@ -27,7 +27,6 @@ const Header = () => {
         <AccountCartContainer>
           <Button onClick={openModal}>
             <FaShoppingCart />
-            <span>Carrito</span>
             {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
           </Button>
         </AccountCartContainer>
