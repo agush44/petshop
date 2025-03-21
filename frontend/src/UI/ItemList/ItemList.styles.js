@@ -1,117 +1,74 @@
 import styled from "styled-components";
+import { media } from "../../styles";
 
 export const Title = styled.h2`
   text-align: center;
-  font-size: 1.9rem;
-  color: #333;
-  margin: 3rem;
+  font-size: 2rem;
+  color: #1f1d5e;
+  margin: 3rem 1rem 2rem;
+  font-weight: 700;
+
+  ${media.xs} {
+    font-size: 1.5rem;
+  }
+
+  ${media.md} {
+    font-size: 2.4rem;
+  }
+
+  ${media.lg} {
+    font-size: 2.6rem;
+    margin: 4rem 1rem 3rem;
+  }
 `;
 
 export const ItemListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem; /* Espacio generoso entre los ítems */
+  padding: 0 1rem;
+  margin-bottom: 2rem;
 
-  /* Extra small devices (phones, less than 576px) */
-  @media (max-width: 575.98px) {
+  ${media.md} {
+    gap: 2.5rem;
+    padding: 0 2rem;
+    margin-bottom: 3rem;
   }
 
-  /* Small devices (larger phones, 576px and up) */
-  @media (min-width: 576px) and (max-width: 767.98px) {
-  }
-
-  /* Large devices (tablets/laptops, 768px and up) */
-  @media (min-width: 768px) {
-  }
-
-  /* Extra large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-    padding: 0 1rem;
-  }
-
-  /* Extra extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-    padding: 0 1rem;
-  }
-
-  /* Ultra-wide screens (4K displays, 1400px and up) */
-  @media (min-width: 1400px) {
-    padding: 0 1rem;
-  }
-`;
-
-export const ItemCard = styled.div`
-  width: 200px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  text-align: center;
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-
-    /* Extra small devices (phones, less than 576px) */
-    @media (max-width: 575.98px) {
-    }
-
-    /* Small devices (larger phones, 576px and up) */
-    @media (min-width: 576px) and (max-width: 767.98px) {
-    }
-
-    /* Large devices (tablets/laptops, 768px and up) */
-    @media (min-width: 768px) {
-    }
-
-    /* Extra large devices (desktops, 992px and up) */
-    @media (min-width: 992px) {
-      padding: 0 1rem;
-    }
-
-    /* Extra extra large devices (large desktops, 1200px and up) */
-    @media (min-width: 1200px) {
-      padding: 0 1rem;
-    }
-
-    /* Ultra-wide screens (4K displays, 1400px and up) */
-    @media (min-width: 1400px) {
-      padding: 0 1rem;
-    }
-  }
-
-  div {
-    h3 {
-      font-size: 1.2rem;
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 0.3rem;
-    }
+  ${media.lg} {
+    gap: 3rem;
+    padding: 0 3rem;
+    margin-bottom: 3.5rem;
   }
 `;
 
 export const MoreButton = styled.button`
   background-color: #3a58cf;
-  width: 10%;
+  width: auto;
+  max-width: 240px;
   text-align: center;
   color: #fff;
-  margin: 0 auto;
+  margin: 2rem auto 3rem;
   display: block;
   border: none;
-  margin: 1rem auto;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
   transition: all 0.3s ease-in-out;
+
   &:hover {
     background-color: #2851a3;
+    transform: translateY(-3px);
+  }
+
+  ${media.md} {
+    font-size: 1.1rem;
+  }
+
+  ${media.lg} {
+    font-size: 1.2rem;
   }
 `;
