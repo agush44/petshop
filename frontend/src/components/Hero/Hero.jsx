@@ -16,7 +16,7 @@ const Hero = () => {
     const updateVideoSrc = () => {
       if (window.innerWidth < parseInt(breakpoints.md)) {
         setVideoSrc(
-          "https://res.cloudinary.com/dxognqhnp/video/upload/v1742573462/hero_mobile_2_ygkodh.mp4"
+          "https://res.cloudinary.com/dxognqhnp/video/upload/v1742576313/202503211354_1_ejjzrt.mp4"
         );
       } else {
         setVideoSrc(
