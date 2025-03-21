@@ -50,7 +50,10 @@ app.use(
 );
 
 // Configuración de CORS
-const allowedOrigins = ["https://tupetshop.vercel.app", FRONTEND_URL];
+const allowedOrigins = [
+  "https://tupetshop.vercel.app",
+  "http://localhost:5173",
+];
 
 app.use(
   cors({
