@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "../../styles"; // Uso de los breakpoints definidos
 
 export const CategoryCardWrapper = styled.div`
   display: flex;
@@ -9,14 +10,13 @@ export const CategoryCardWrapper = styled.div`
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-
   max-width: 600px;
   padding-bottom: 1.5rem;
   cursor: pointer;
-  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, opacity 0.9s ease-out,
+    transform 0.6s ease-out;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.9s ease-out, transform 0.6s ease-out;
 
   &.in-view {
     opacity: 1;
@@ -27,56 +27,49 @@ export const CategoryCardWrapper = styled.div`
     transform: scale(1.05);
   }
 
-  /* Dispositivos pequeños */
-  @media (max-width: 575.98px) {
+  ${media.xs} {
     max-width: 300px;
-    margin: 2rem 0;
+    margin: 2rem auto;
   }
 
-  /* Dispositivos medianos */
-  @media (min-width: 576px) and (max-width: 767.98px) {
+  ${media.sm} {
     max-width: 350px;
     margin: 2rem 1rem;
   }
 
-  /* Dispositivos grandes */
-  @media (min-width: 768px) {
+  ${media.md} {
     max-width: 300px;
     margin: 2rem 1rem;
   }
 
-  /* Desktops grandes */
-  @media (min-width: 992px) {
+  ${media.lg} {
     max-width: 500px;
     margin: 2rem 1rem;
   }
 
-  /* Pantallas ultra anchas */
-  @media (min-width: 1400px) {
+  ${media.xl} {
     max-width: 500px;
     margin: 5rem;
   }
 `;
 
-// Imagen de la tarjeta
 export const CategoryImage = styled.img`
   width: 100%;
   object-fit: cover;
-  /* Ajuste de altura en pantallas más grandes */
-  @media (min-width: 768px) {
+
+  ${media.md} {
     height: 200px;
   }
 
-  @media (min-width: 1200px) {
+  ${media.lg} {
     height: 300px;
   }
 
-  @media (min-width: 1400px) {
+  ${media.xl} {
     height: 300px;
   }
 `;
 
-// Contenedor de contenido de la tarjeta (título y descripción)
 export const CategoryContent = styled.div`
   text-align: center;
   display: flex;
@@ -84,33 +77,37 @@ export const CategoryContent = styled.div`
   align-items: center;
 `;
 
-// Título de la tarjeta
 export const CategoryTitle = styled.h3`
   text-align: center;
-  padding-top: 1rem;
+  padding-top: 1.3rem;
   background-color: #fff;
-  color: #333;
+  font-weight: bold;
+  color: #1f3a67;
+  font-size: 1.3rem;
 
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
+  ${media.md} {
+    font-size: 1.4rem;
   }
 
-  @media (min-width: 992px) {
+  ${media.lg} {
     font-size: 1.5rem;
   }
 `;
 
-// Descripción de la tarjeta
 export const CategoryDescription = styled.p`
   color: #666;
   width: 70%;
   margin: 0 auto;
 
-  @media (min-width: 768px) {
-    font-size: 0.8rem;
+  ${media.xs} {
+    font-size: 0.9rem;
   }
 
-  @media (min-width: 992px) {
-    font-size: 1rem;
+  ${media.md} {
+    font-size: 0.7rem;
+  }
+
+  ${media.lg} {
+    font-size: 0.9rem;
   }
 `;
