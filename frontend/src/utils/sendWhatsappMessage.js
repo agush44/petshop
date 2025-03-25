@@ -10,14 +10,19 @@ export const sendWhatsappMessage = (cart, total, customerData) => {
 
   const encodedMessage = encodeURIComponent(message);
   const phoneNumber = "5493424093142";
-  const webWhatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-  const newWindow = window.open(webWhatsappUrl, "_blank");
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const whatsappUrl = isMobile
+    ? `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`
+    : `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  const newWindow = window.open(whatsappUrl, "_blank");
   if (newWindow) {
     newWindow.focus();
   } else {
     alert(
-      "No se pudo abrir WhatsApp Web. Verifica que no esté bloqueada las ventanas emergentes."
+      "No se pudo abrir WhatsApp. Por favor, verifica que no estén bloqueadas las ventanas emergentes."
     );
   }
 };
