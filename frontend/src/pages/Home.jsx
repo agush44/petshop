@@ -3,6 +3,7 @@ import CategoriesCards from "../components/CategoriesCards/CategoriesCards.jsx";
 import BrandsCarousel from "../components/Brands/BrandsCarousel/BrandsCarousel.jsx";
 import Promociones from "./Promociones.jsx";
 import FeatureBar from "../components/FeatureBar/FeatureBar.jsx";
+import { Analytics } from "@vercel/analytics/react";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <CategoriesCards />
       <BrandsCarousel />
       <Promociones />
+      <Analytics />
     </main>
   );
 };
