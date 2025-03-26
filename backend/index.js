@@ -8,11 +8,7 @@ import errorMiddleware from "./src/middleware/errorMiddleware.js";
 import compression from "compression";
 import jsonOptimizationMiddleware from "./src/middleware/jsonOptimizationMiddleware.js";
 
-//import swaggerUi from "swagger-ui-express";
-//import YAML from "yamljs";
-
 const FRONTEND_URL = process.env.FRONTEND_URL;
-
 const PORT = process.env.PORT || 5001;
 
 const app = express();
@@ -42,7 +38,6 @@ app.use(
       if (req.headers["x-no-compression"]) {
         return false;
       }
-      // No comprimir imágenes, videos, etc. que ya están comprimidos
       const contentType = res.getHeader("Content-Type") || "";
       return !/^(image|video|audio)/i.test(contentType);
     },
@@ -78,20 +73,19 @@ app.use(express.json());
 connectDB();
 
 // Configuración de caché para rutas específicas
-// Productos - caché de 1 hora para mejorar rendimiento
 app.use("/api/products", (req, res, next) => {
-  // Solo aplicar caché a peticiones GET
   if (req.method === "GET") {
     res.set("Cache-Control", "public, max-age=3600"); // 1 hora
   } else {
-    // Para métodos que modifican datos, evitar caché
     res.set("Cache-Control", "no-store");
   }
   next();
 });
 
-//const swaggerDocument = YAML.load("./swagger.yaml");
-//app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// Endpoint de "keep-alive" para Render
+app.get("/api/ping", (req, res) => {
+  res.status(200).send("API activa y funcionando ✅");
+});
 
 // Rutas de la API
 app.use("/api/products", productRoutes);

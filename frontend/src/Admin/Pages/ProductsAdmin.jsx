@@ -58,6 +58,7 @@ const ProductsAdmin = () => {
       setProductos((prevProductos) =>
         prevProductos.filter((producto) => producto._id !== deleteId)
       );
+      console.log("Productos actualizados:", productos);
 
       toast.success("Producto eliminado exitosamente", { id: toastId });
     } catch (error) {
