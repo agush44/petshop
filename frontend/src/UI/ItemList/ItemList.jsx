@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 
 const ItemList = ({ items, title, renderItem, loadMore, showLoadMore }) => {
   const [visibleIndexes, setVisibleIndexes] = useState([]);
-  const itemRefs = useRef([]); // Referencias individuales para cada ítem
+  const itemRefs = useRef([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = entry.target.dataset.index; // Obtener índice desde data-index
+            const index = entry.target.dataset.index;
             setVisibleIndexes((prev) => [...prev, parseInt(index)]);
           }
         });
       },
-      { threshold: 0.1 } // Ajustar el umbral para activar las animaciones
+      { threshold: 0.1 }
     );
 
-    const currentRefs = itemRefs.current; // Copy the ref to a local variable
+    const currentRefs = itemRefs.current;
     currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
@@ -40,12 +40,12 @@ const ItemList = ({ items, title, renderItem, loadMore, showLoadMore }) => {
           items.map((item, index) => (
             <motion.div
               key={index}
-              ref={(el) => (itemRefs.current[index] = el)} // Referenciar ítems
-              data-index={index} // Guardar el índice del ítem
+              ref={(el) => (itemRefs.current[index] = el)}
+              data-index={index}
               initial={{ opacity: 0, y: 10 }}
               animate={
                 visibleIndexes.includes(index) ? { opacity: 1, y: 0 } : {}
-              } // Activar animación solo si está visible
+              }
               transition={{ delay: index * 0.1, duration: 0.3 }}
               style={{ display: "flex" }}
             >
