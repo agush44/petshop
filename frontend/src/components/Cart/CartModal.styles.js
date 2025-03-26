@@ -139,13 +139,13 @@ export const ContentContainer = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 95px;
-  height: 95px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
 `;
 
 export const TextContainer = styled.div`
-  margin-left: 15px;
+  margin-left: 10px;
 `;
 
 export const Text = styled.p`
@@ -157,6 +157,7 @@ export const RemoveButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
+  margin-left: 10px;
 `;
 
 export const TotalContainer = styled.div`

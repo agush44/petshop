@@ -11,7 +11,7 @@ const LoaderContainer = styled.div`
 const Loader = () => {
   return (
     <LoaderContainer>
-      <BounceLoader size={60} color="#3498db" />
+      <BounceLoader size={60} color="#324fc7" />
     </LoaderContainer>
   );
 };

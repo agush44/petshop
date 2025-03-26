@@ -10,7 +10,7 @@ export const QuantityInputContainer = styled.div`
 `;
 
 export const QuantityInputStyled = styled.input`
-  width: 50px;
+  width: 30px;
   height: 30px;
   text-align: center;
   font-size: 1rem;
