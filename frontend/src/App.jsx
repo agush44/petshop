@@ -10,6 +10,7 @@ import { Toaster } from "react-hot-toast";
 import ErrorFallback from "./components/ErrorBoundary.jsx";
 import { ErrorBoundary } from "react-error-boundary";
 import Loader from "./UI/Loader.jsx";
+import WhatsAppButton from "./components/WhatsAppButton.jsx";
 import "./App.css";
 import AuthLayout from "./Layouts/AuthLayout.jsx";
 
@@ -46,7 +47,7 @@ function App() {
       <FrontProductProvider>
         <CartProvider>
           <Toaster position="top-center" reverseOrder={false} />
-
+          <WhatsAppButton />
           <Routes>
             {/* Rutas públicas */}
             <Route element={<PublicLayout />}>

@@ -42,7 +42,7 @@ export default function RegisterForm() {
             />
           </div>
 
-          <StyledButton type="submit" width="100%">
+          <StyledButton type="submit" width="100%" aria-label="Registrarse">
             REGISTRARSE
           </StyledButton>
         </form>

@@ -50,18 +50,20 @@ export const logoutUser = (navigate) => {
         <p>¿Estás seguro de que quieres cerrar sesión?</p>
         <div className="flex justify-end gap-2 mt-2">
           <button
+            aria-label="Cancelar"
             className="bg-gray-300 px-3 py-1 rounded"
             onClick={() => {
-              toast.dismiss(t.id); 
+              toast.dismiss(t.id);
             }}
           >
             Cancelar
           </button>
           <button
+            aria-label="Cerrar Sesión"
             className="bg-red-500 text-white px-3 py-1 rounded"
             onClick={() => {
               localStorage.removeItem("token");
-              toast.dismiss(t.id); 
+              toast.dismiss(t.id);
               toast.success("Sesión cerrada correctamente");
               navigate("/admin/login");
             }}
@@ -71,6 +73,6 @@ export const logoutUser = (navigate) => {
         </div>
       </div>
     ),
-    { duration: Infinity } 
+    { duration: Infinity }
   );
 };

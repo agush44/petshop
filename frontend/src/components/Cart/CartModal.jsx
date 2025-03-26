@@ -66,7 +66,9 @@ const CartModal = ({ isOpen, closeModal }) => {
             transition={{ duration: 0.4, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <CloseButton onClick={closeModal}>X</CloseButton>
+            <CloseButton aria-label="Cerrar Modal" onClick={closeModal}>
+              X
+            </CloseButton>
             <CartTitle>Carrito de Compras</CartTitle>
 
             {showForm ? (
@@ -77,7 +79,10 @@ const CartModal = ({ isOpen, closeModal }) => {
                   <EmptyCartContainer>
                     <CartText>El carrito está vacío</CartText>
                     <StyledLink to="/shop">
-                      <AddProdButton onClick={closeModal}>
+                      <AddProdButton
+                        aria-label="Agregar productos"
+                        onClick={closeModal}
+                      >
                         AGREGAR PRODUCTOS
                       </AddProdButton>
                     </StyledLink>
@@ -124,6 +129,7 @@ const CartModal = ({ isOpen, closeModal }) => {
                             }}
                           />
                           <RemoveButton
+                            aria-label="Eliminar producto"
                             onClick={() => removeFromCart(item._id)}
                           >
                             <FaTrash size={20} color={`#1f3a67`} />

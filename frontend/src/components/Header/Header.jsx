@@ -25,7 +25,7 @@ const Header = () => {
         </Link>
         <SearchBar />
         <AccountCartContainer>
-          <Button onClick={openModal}>
+          <Button aria-label="Ver carrito" onClick={openModal}>
             <FaShoppingCart />
             {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
           </Button>

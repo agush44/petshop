@@ -5,7 +5,9 @@ function ErrorFallback({ error, resetErrorBoundary }) {
     <div className="error-container">
       <h2>Algo salió mal</h2>
       <p>{error.message}</p>
-      <button onClick={resetErrorBoundary}>Intentar de nuevo</button>
+      <button onClick={resetErrorBoundary} aria-label="Intentar de nuevo">
+        Intentar de nuevo
+      </button>
     </div>
   );
 }

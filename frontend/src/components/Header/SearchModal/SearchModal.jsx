@@ -32,7 +32,9 @@ const SearchModal = ({ isOpen, closeModal }) => {
       {isOpen && (
         <ModalOverlay onClick={closeModal}>
           <ModalContainer onClick={(e) => e.stopPropagation()}>
-            <CloseButton onClick={closeModal}>X</CloseButton>
+            <CloseButton aria-label="Cerrar modal" onClick={closeModal}>
+              X
+            </CloseButton>
             <SearchInput
               type="text"
               placeholder="Buscar productos..."

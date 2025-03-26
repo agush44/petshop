@@ -71,6 +71,7 @@ const ProductDetail = () => {
           </FeatureItem>
 
           <AddToCartButton
+            aria-label="Agregar al carrito"
             onClick={() =>
               addToCart({
                 ...product,
@@ -80,7 +81,9 @@ const ProductDetail = () => {
           >
             Agregar al carrito
           </AddToCartButton>
-          <BackButton onClick={() => navigate(-1)}>Volver</BackButton>
+          <BackButton aria-label="Volver" onClick={() => navigate(-1)}>
+            Volver
+          </BackButton>
         </DetailInfo>
       </DetailContainer>
     </TotalDetailContainer>

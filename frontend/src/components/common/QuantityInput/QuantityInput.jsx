@@ -8,7 +8,11 @@ import {
 const QuantityInput = ({ quantity, onIncrease, onDecrease, onChange }) => {
   return (
     <QuantityInputContainer>
-      <Button onClick={onDecrease} disabled={quantity <= 1}>
+      <Button
+        aria-label="Restar cantidad"
+        onClick={onDecrease}
+        disabled={quantity <= 1}
+      >
         -
       </Button>
       <QuantityInputStyled
@@ -17,7 +21,9 @@ const QuantityInput = ({ quantity, onIncrease, onDecrease, onChange }) => {
         onChange={onChange}
         min="1"
       />
-      <Button onClick={onIncrease}>+</Button>
+      <Button aria-label="Sumar cantidad" onClick={onIncrease}>
+        +
+      </Button>
     </QuantityInputContainer>
   );
 };

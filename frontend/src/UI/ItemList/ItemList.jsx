@@ -56,7 +56,11 @@ const ItemList = ({ items, title, renderItem, loadMore, showLoadMore }) => {
           <p>No se encontraron elementos.</p>
         )}
       </ItemListContainer>
-      {showLoadMore && <MoreButton onClick={loadMore}>Ver más</MoreButton>}
+      {showLoadMore && (
+        <MoreButton aria-label="Ver más" onClick={loadMore}>
+          Ver más
+        </MoreButton>
+      )}
     </>
   );
 };

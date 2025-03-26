@@ -83,12 +83,14 @@ export default function Modal({
         ))}
         <div className="flex justify-end gap-2 mt-4">
           <button
+            aria-label="Cancelar"
             onClick={closeModal}
             className="bg-gray-300 px-4 py-2 rounded cursor-pointer"
           >
             Cancelar
           </button>
           <button
+            aria-label="Guardar"
             type="submit"
             onClick={handleSubmit}
             className="bg-indigo-600 text-white px-4 py-2 rounded cursor-pointer"

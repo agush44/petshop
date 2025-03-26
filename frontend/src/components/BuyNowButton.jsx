@@ -7,7 +7,9 @@ const BuyNowButton = () => {
 
   return (
     <>
-      <StyledButton onClick={toggleCartAndForm}>INICIAR COMPRA</StyledButton>
+      <StyledButton onClick={toggleCartAndForm} aria-label="INICIAR COMPRA">
+        INICIAR COMPRA
+      </StyledButton>
     </>
   );
 };

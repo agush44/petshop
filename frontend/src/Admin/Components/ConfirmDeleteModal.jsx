@@ -25,12 +25,14 @@ export default function ConfirmDeleteModal({ isOpen, onClose, onConfirm }) {
         </p>
         <div className="flex justify-end gap-3 mt-4">
           <button
+            aria-label="Cancelar"
             onClick={onClose}
             className="bg-gray-300 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-400 transition"
           >
             Cancelar
           </button>
           <button
+            aria-label="Eliminar"
             onClick={onConfirm}
             className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
           >

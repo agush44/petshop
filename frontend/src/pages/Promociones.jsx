@@ -50,7 +50,9 @@ const Promociones = () => {
       ) : error ? (
         <div style={{ color: "red", textAlign: "center" }}>
           <p>{error}</p>
-          <button onClick={handleRetry}>Intentar nuevamente</button>
+          <button aria-label="Intentar nuevamente" onClick={handleRetry}>
+            Intentar nuevamente
+          </button>
         </div>
       ) : (
         <motion.div

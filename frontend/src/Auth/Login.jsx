@@ -61,7 +61,7 @@ export default function LoginForm() {
             />
           </div>
 
-          <StyledButton type="submit" width="100%">
+          <StyledButton type="submit" width="100%" aria-label="Iniciar sesión">
             INICIAR SESIÓN
           </StyledButton>
         </form>

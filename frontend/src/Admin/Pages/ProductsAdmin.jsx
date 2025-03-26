@@ -77,6 +77,7 @@ const ProductsAdmin = () => {
           Productos
         </h2>
         <button
+          aria-label="Agregar producto"
           onClick={openAddModal}
           className="bg-[#324fc7] text-white px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 text-xs sm:text-sm md:text-base rounded-md flex items-center justify-center hover:opacity-80 cursor-pointer transition-all duration-200"
         >
@@ -123,12 +124,14 @@ const ProductsAdmin = () => {
                 </td>
                 <td className="p-1 sm:p-2 md:p-3 text-center">
                   <button
+                    aria-label="Editar producto"
                     onClick={() => openEditModal(producto)}
                     className="text-blue-600 hover:text-blue-800 focus:outline-none transition-colors duration-150 cursor-pointer"
                   >
                     <FiEdit size={16} />
                   </button>
                   <button
+                    aria-label="Eliminar producto"
                     onClick={() => confirmDelete(producto._id)}
                     className="text-red-600 hover:text-red-800 ml-1 sm:ml-2 md:ml-4 focus:outline-none transition-colors duration-150 cursor-pointer"
                   >

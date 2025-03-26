@@ -104,10 +104,17 @@ const CustomerForm = ({ onSubmit }) => {
         <TotalText>Total: {totalPrice}</TotalText>
       </TotalWrapper>
       <StyledBtnWrapper>
-        <StyledButton onClick={toggleCartAndForm} color="#c0c0c0" width="30%">
+        <StyledButton
+          aria-label="Volver"
+          onClick={toggleCartAndForm}
+          color="#c0c0c0"
+          width="30%"
+        >
           Volver
         </StyledButton>
-        <StyledButton width="70%">ENVIAR PEDIDO</StyledButton>
+        <StyledButton aria-label="Enviar pedido" width="70%">
+          ENVIAR PEDIDO
+        </StyledButton>
       </StyledBtnWrapper>
     </FormContainer>
   );

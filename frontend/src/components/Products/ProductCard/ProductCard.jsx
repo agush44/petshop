@@ -77,6 +77,7 @@ const ProductCard = memo(function ProductCard({
 
         <ButtonContainer>
           <Button
+            aria-label="Comprar producto"
             onClick={() =>
               addToCart({
                 _id,
@@ -93,7 +94,9 @@ const ProductCard = memo(function ProductCard({
             Comprar
           </Button>
           <StyledLink to={`/shop/product/${_id}`}>
-            <Button className="view">Ver</Button>
+            <Button aria-label="Ver producto" className="view">
+              Ver
+            </Button>
           </StyledLink>
         </ButtonContainer>
       </ProductInfo>
