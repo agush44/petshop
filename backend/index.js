@@ -8,10 +8,13 @@ import errorMiddleware from "./src/middleware/errorMiddleware.js";
 import compression from "compression";
 import jsonOptimizationMiddleware from "./src/middleware/jsonOptimizationMiddleware.js";
 
-const FRONTEND_URL = process.env.FRONTEND_URL;
+// const FRONTEND_URL = process.env.FRONTEND_URL;
+
 const PORT = process.env.PORT || 5001;
 
 const app = express();
+
+app.disable("x-powered-by"); // Deshabilitar el encabezado "X-Powered-By"
 
 // Configuración de ETag para validación de caché
 app.set("etag", "strong");
