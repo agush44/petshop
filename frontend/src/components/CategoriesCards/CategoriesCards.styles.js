@@ -22,7 +22,7 @@ export const CategoryCardWrapper = styled.div`
   cursor: pointer;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.9s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.1s ease-out;
 
   &.in-view {
     opacity: 1;
