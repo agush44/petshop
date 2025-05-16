@@ -79,7 +79,7 @@ const CustomerForm = ({ onSubmit }) => {
       <InputGroup>
         <Label htmlFor="phone">Teléfono</Label>
         <Input
-          type="tel"
+          type="tel" 
           id="phone"
           name="phone"
           value={customerData.phone}

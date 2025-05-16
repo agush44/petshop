@@ -14,7 +14,6 @@ import {
   StyledLink,
   DiscountedPrice,
   NewPrice,
-  ExpiredPromotion,
   DiscountPercentage,
 } from "./ProductCard.styles.js";
 
@@ -69,10 +68,6 @@ const ProductCard = memo(function ProductCard({
           </>
         ) : (
           <ProductPrice>{formatPrice(price)}</ProductPrice>
-        )}
-
-        {discountExpiresAt && new Date(discountExpiresAt) < new Date() && (
-          <ExpiredPromotion>¡La promoción ha expirado!</ExpiredPromotion>
         )}
 
         <ButtonContainer>
