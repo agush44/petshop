@@ -23,12 +23,12 @@ const useFilteredProducts = (categoryFilter, animalFilter) => {
 
   if (!products || products.length === 0) {
     console.error(
-      "❌ No hay productos en el contexto. Verifica si la API está cargando datos."
+      "No hay productos en el contexto. Verifica si la API está cargando datos."
     );
   } else {
     products.forEach((product) => {
       console.log(
-        `✅ Producto: ${product.name}, animalType: ${product.animalType}`
+        `Producto: ${product.name}, animalType: ${product.animalType}`
       );
     });
   }

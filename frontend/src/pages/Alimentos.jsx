@@ -2,13 +2,14 @@ import PropTypes from "prop-types";
 import useFilteredProducts from "../components/Hooks/useFilteredProducts.jsx";
 import ProductCard from "../components/Products/ProductCard/ProductCard.jsx";
 import ItemList from "../UI/ItemList/ItemList.jsx";
+import Loader from "../UI/Loader.jsx";
 
 const Alimentos = () => {
   const categoryFilter = "alimentos";
   const { filteredProducts, visibleCount, handleLoadMore, loading } =
     useFilteredProducts(categoryFilter);
 
-  if (loading) return <p>Cargando productos...</p>;
+  if (loading) return <Loader />;
 
   if (filteredProducts.length === 0) {
     return <p>No se encontraron productos en la categoría Alimentos.</p>;

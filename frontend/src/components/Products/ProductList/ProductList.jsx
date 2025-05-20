@@ -3,11 +3,12 @@ import { useContext } from "react";
 import { ProductContext } from "../../../context/ShopContext";
 import ItemList from "../../../UI/ItemList/ItemList.jsx";
 import ProductCard from "../ProductCard/ProductCard";
+import Loader from "../../../UI/Loader.jsx";
 
 const ProductList = ({ categoryFilter, animalFilter }) => {
   const { products, loading, searchQuery } = useContext(ProductContext);
 
-  if (loading) return <p>Cargando productos...</p>;
+  if (loading) return <Loader />;
 
   const filteredProducts = products
     .filter(

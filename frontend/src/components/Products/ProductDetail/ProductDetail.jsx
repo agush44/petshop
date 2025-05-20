@@ -19,6 +19,7 @@ import {
   AddToCartButton,
   BackButton,
 } from "./ProductDetail.styles";
+import Loader from "../../../UI/Loader";
 
 const ProductDetail = () => {
   const { products } = useContext(ProductContext);
@@ -26,7 +27,7 @@ const ProductDetail = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
 
-  if (!products?.length) return <h2>Cargando producto...</h2>;
+  if (!products?.length) return <Loader />;
 
   const product = products.find((prod) => prod._id?.toString() === productId);
 
